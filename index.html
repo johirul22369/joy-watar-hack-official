@@ -17,34 +17,40 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #060a12;
+      background:
+        radial-gradient(circle at 82% 25%, rgba(16, 78, 108, 0.28) 0%, transparent 45%),
+        radial-gradient(circle at 18% 75%, rgba(118, 28, 92, 0.22) 0%, transparent 45%),
+        linear-gradient(90deg, #060b14 0%, #09121e 68%, #071622 100%);
       padding: 12px;
       overflow-x: hidden;
     }
 
+    /* Outer Popup Card matching image_7d2c94bc-86e9-4be4-8c5e-0b9b7135d573.jpg */
     .popup-card {
       position: relative;
       width: 100%;
-      max-width: 430px;
-      border-radius: 26px;
+      max-width: 432px;
+      border-radius: 28px;
       padding: 12px;
-      background: radial-gradient(circle at 50% 18%, #163344 0%, #0d152b 48%, #1d0c2e 100%);
-      border: 2.5px solid #e03a96;
+      background:
+        radial-gradient(circle at 50% 16%, rgba(25, 92, 118, 0.65) 0%, rgba(12, 22, 46, 0.96) 52%, rgba(24, 11, 44, 0.98) 100%);
+      border: 2.5px solid #e6429c;
       box-shadow:
-        0 0 24px rgba(224, 58, 150, 0.5),
-        0 0 38px rgba(25, 195, 255, 0.22),
-        0 18px 45px rgba(0, 0, 0, 0.92);
+        0 0 0 2px rgba(56, 214, 255, 0.22),
+        0 0 22px rgba(230, 66, 156, 0.55),
+        0 0 42px rgba(25, 195, 255, 0.2),
+        0 18px 46px rgba(0, 0, 0, 0.92);
       color: #ffffff;
       user-select: none;
     }
 
-    /* Top Bar */
+    /* Top Header Row */
     .top-bar {
       display: flex;
       align-items: flex-start;
       justify-content: space-between;
       position: relative;
-      z-index: 4;
+      z-index: 5;
     }
 
     .play-smarter-wrap {
@@ -61,18 +67,23 @@
       font-weight: 950;
       font-style: italic;
       line-height: 0.95;
-      color: #e6ff3b;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.85);
+      color: #e8ff38;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+    }
+
+    .play-smarter-top .up-trend {
+      color: #42ff7a;
+      font-size: 14px;
     }
 
     .play-smarter-bottom {
+      position: relative;
       font-size: 14px;
       font-weight: 950;
       font-style: italic;
       line-height: 1;
-      color: #d9ff26;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.9);
-      position: relative;
+      color: #dcff24;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.92);
     }
 
     .play-smarter-bottom::before {
@@ -80,16 +91,16 @@
       position: absolute;
       left: -4px;
       bottom: -1px;
-      width: 10px;
-      height: 10px;
+      width: 11px;
+      height: 11px;
       border-radius: 50%;
-      background: radial-gradient(circle, #8affd0 0%, #14b87a 70%, transparent 100%);
-      box-shadow: 0 0 10px #25f5a6;
+      background: radial-gradient(circle, #9cffda 0%, #15bd7e 70%, transparent 100%);
+      box-shadow: 0 0 10px #2effb2;
     }
 
     .hide-btn {
-      background: linear-gradient(180deg, #338be8 0%, #13488a 100%);
-      border: 2px solid #78cbff;
+      background: linear-gradient(180deg, #3992f0 0%, #14498c 100%);
+      border: 2px solid #82d0ff;
       border-radius: 14px;
       padding: 7px 14px;
       color: #ffffff;
@@ -101,8 +112,8 @@
       align-items: center;
       gap: 7px;
       box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.55),
-        inset 0 1px 2px rgba(255, 255, 255, 0.55);
+        0 4px 10px rgba(0, 0, 0, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 0.6);
     }
 
     .hide-icon {
@@ -140,20 +151,20 @@
       position: absolute;
       top: 54%;
       transform: translateY(-50%);
-      width: 82px;
+      width: 84px;
       height: 46px;
       pointer-events: none;
       z-index: 0;
-      filter: drop-shadow(0 0 8px rgba(28, 224, 255, 0.8));
+      filter: drop-shadow(0 0 9px rgba(34, 226, 255, 0.85));
     }
 
     .wing-left {
-      left: -66px;
+      left: -68px;
       transform: translateY(-50%) scaleX(-1);
     }
 
     .wing-right {
-      right: -66px;
+      right: -68px;
     }
 
     .brand-name-text {
@@ -163,7 +174,7 @@
       font-weight: 950;
       letter-spacing: 2px;
       line-height: 0.92;
-      background: linear-gradient(180deg, #fff078 0%, #ffa812 52%, #e65500 100%);
+      background: linear-gradient(180deg, #fff17a 0%, #ffa812 52%, #e65500 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       -webkit-text-stroke: 1.4px #591c00;
@@ -205,8 +216,8 @@
       color: #ffffff;
     }
 
-    /* Realistic Glossy 3D Lottery Balls with Sculpted Cutout Core */
-    .glossy-ball {
+    /* Sculpted 3D Cutout Lottery Balls */
+    .cutout-ball {
       position: relative;
       border-radius: 50%;
       display: flex;
@@ -216,76 +227,76 @@
       overflow: hidden;
     }
 
-    /* Outer glossy light crescent */
-    .glossy-ball::after {
+    /* Top glossy specular highlight */
+    .cutout-ball::after {
       content: "";
       position: absolute;
-      top: 6%;
+      top: 5%;
       left: 14%;
       width: 72%;
       height: 36%;
       border-radius: 50%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 100%);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0) 100%);
       pointer-events: none;
       z-index: 3;
     }
 
-    /* Sculpted off-white inner circle (not flat pure white) */
-    .glossy-ball::before {
+    /* Sculpted off-white cutout disc with recessed bevel */
+    .cutout-ball::before {
       content: "";
       position: absolute;
       width: 64%;
       height: 64%;
       border-radius: 50%;
-      background: radial-gradient(circle at 38% 32%, #ffffff 0%, #eef3f8 58%, #c7d2df 100%);
+      background: radial-gradient(circle at 42% 36%, #ffffff 0%, #edf2f7 56%, #c2cedb 100%);
       box-shadow:
-        inset 0 2px 4px rgba(0, 0, 0, 0.35),
-        inset 0 -2px 3px rgba(255, 255, 255, 0.9),
-        0 0 0 1.5px rgba(255, 255, 255, 0.45);
+        inset 0 2.5px 4px rgba(0, 0, 0, 0.38),
+        inset 0 -2px 3px rgba(255, 255, 255, 0.92),
+        0 0 0 1.5px rgba(255, 255, 255, 0.5);
       z-index: 1;
     }
 
-    .glossy-ball span {
+    .cutout-ball span {
       position: relative;
       z-index: 2;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
     }
 
-    .ball-red-3d {
+    .ball-red {
       background: radial-gradient(circle at 30% 25%, #ff8585 0%, #df1d1d 58%, #6e0606 100%);
       box-shadow:
         inset -3px -4px 8px rgba(0, 0, 0, 0.55),
-        0 0 16px rgba(255, 55, 55, 0.55),
+        0 0 18px rgba(255, 55, 55, 0.6),
         0 5px 10px rgba(0, 0, 0, 0.65);
     }
-    .ball-red-3d span { color: #b81d1d; }
+    .ball-red span { color: #b81d1d; }
 
-    .ball-green-3d {
+    .ball-green {
       background: radial-gradient(circle at 30% 25%, #84ffb8 0%, #14b558 58%, #055225 100%);
       box-shadow:
         inset -3px -4px 8px rgba(0, 0, 0, 0.55),
-        0 0 16px rgba(34, 224, 118, 0.55),
+        0 0 18px rgba(34, 224, 118, 0.6),
         0 5px 10px rgba(0, 0, 0, 0.65);
     }
-    .ball-green-3d span { color: #117a3d; }
+    .ball-green span { color: #117a3d; }
 
-    .ball-purple-3d {
+    .ball-purple {
       background: radial-gradient(circle at 30% 25%, #dc94ff 0%, #8726de 58%, #3a086e 100%);
       box-shadow:
         inset -3px -4px 8px rgba(0, 0, 0, 0.55),
         0 0 14px rgba(176, 74, 255, 0.45),
         0 5px 10px rgba(0, 0, 0, 0.65);
     }
-    .ball-purple-3d span { color: #5b189c; }
+    .ball-purple span { color: #5b189c; }
 
-    /* Floating Top Balls */
+    /* Top Floating Balls */
     .top-ball { position: absolute; z-index: 3; }
     .t-ball-4 { width: 56px; height: 56px; top: 52px; left: -6px; font-size: 24px; }
     .t-ball-3 { width: 36px; height: 36px; top: 94px; left: 44px; font-size: 16px; }
     .t-ball-9 { width: 56px; height: 56px; top: 52px; right: -6px; font-size: 24px; }
     .t-ball-8 { width: 34px; height: 34px; top: 96px; right: 48px; font-size: 15px; }
 
-    /* 3 Columns with Chamfered Top Corners + Border Wrapper */
+    /* 3 Chamfered Columns */
     .columns-row {
       display: grid;
       grid-template-columns: 1fr 1.18fr 1fr;
@@ -317,17 +328,9 @@
       text-align: center;
     }
 
-    .small-inner {
-      background: linear-gradient(180deg, #1b9ad4 0%, #0a4875 60%, #062540 100%);
-    }
-
-    .center-inner {
-      background: linear-gradient(180deg, #111a36 0%, #080c1c 100%);
-    }
-
-    .big-inner {
-      background: linear-gradient(180deg, #9e1a5c 0%, #570c33 60%, #260416 100%);
-    }
+    .small-inner { background: linear-gradient(180deg, #1b9ad4 0%, #0a4875 60%, #062540 100%); }
+    .center-inner { background: linear-gradient(180deg, #111a36 0%, #080c1c 100%); }
+    .big-inner { background: linear-gradient(180deg, #9e1a5c 0%, #570c33 60%, #260416 100%); }
 
     .mini-crown-svg {
       width: 22px;
@@ -408,7 +411,7 @@
     .round-meta .no-lbl { font-size: 11px; font-weight: 800; color: #b7c9f2; }
     .round-meta .no-val { font-size: 11px; font-weight: 950; color: #ffffff; letter-spacing: -0.2px; white-space: nowrap; }
 
-    /* Center Glowing Orb */
+    /* Center Glowing Orb & HUD Rings */
     .orb-stage {
       position: relative;
       width: 108px;
@@ -423,7 +426,7 @@
       position: absolute;
       inset: 2px;
       border-radius: 50%;
-      border: 2.5px dashed rgba(52, 255, 180, 0.78);
+      border: 2.5px dashed rgba(52, 255, 180, 0.8);
       box-shadow: 0 0 18px rgba(25, 240, 150, 0.5), inset 0 0 14px rgba(25, 240, 150, 0.3);
     }
 
@@ -500,15 +503,15 @@
 
   <div class="popup-card" id="wingoPopup">
     <!-- Top 3D Cutout Balls -->
-    <div class="glossy-ball ball-red-3d top-ball t-ball-4"><span>4</span></div>
-    <div class="glossy-ball ball-green-3d top-ball t-ball-3"><span>3</span></div>
-    <div class="glossy-ball ball-green-3d top-ball t-ball-9"><span>9</span></div>
-    <div class="glossy-ball ball-red-3d top-ball t-ball-8"><span>8</span></div>
+    <div class="cutout-ball ball-red top-ball t-ball-4"><span>4</span></div>
+    <div class="cutout-ball ball-green top-ball t-ball-3"><span>3</span></div>
+    <div class="cutout-ball ball-green top-ball t-ball-9"><span>9</span></div>
+    <div class="cutout-ball ball-red top-ball t-ball-8"><span>8</span></div>
 
     <!-- Top Header -->
     <div class="top-bar">
       <div class="play-smarter-wrap">
-        <div class="play-smarter-top">PLAY <span>↗</span></div>
+        <div class="play-smarter-top">PLAY <span class="up-trend">↗</span></div>
         <div class="play-smarter-bottom">SMARTER</div>
       </div>
 
@@ -581,7 +584,7 @@
           <div class="orb-stage">
             <div class="orb-dashed"></div>
             <div class="orb-glow-arc"></div>
-            <div class="glossy-ball ball-green-3d center-orb-ball"><span>1</span></div>
+            <div class="cutout-ball ball-green center-orb-ball"><span>1</span></div>
           </div>
 
           <div class="timer-box">
@@ -618,16 +621,16 @@
         <span>RECENT RESULTS</span>
       </div>
       <div class="recent-grid">
-        <div class="glossy-ball ball-purple-3d r-ball"><span>5</span></div>
-        <div class="glossy-ball ball-red-3d r-ball"><span>8</span></div>
-        <div class="glossy-ball ball-red-3d r-ball"><span>4</span></div>
-        <div class="glossy-ball ball-green-3d r-ball"><span>3</span></div>
-        <div class="glossy-ball ball-red-3d r-ball"><span>2</span></div>
-        <div class="glossy-ball ball-green-3d r-ball"><span>9</span></div>
-        <div class="glossy-ball ball-red-3d r-ball"><span>6</span></div>
-        <div class="glossy-ball ball-purple-3d r-ball"><span>0</span></div>
-        <div class="glossy-ball ball-red-3d r-ball"><span>8</span></div>
-        <div class="glossy-ball ball-green-3d r-ball"><span>7</span></div>
+        <div class="cutout-ball ball-purple r-ball"><span>5</span></div>
+        <div class="cutout-ball ball-red r-ball"><span>8</span></div>
+        <div class="cutout-ball ball-red r-ball"><span>4</span></div>
+        <div class="cutout-ball ball-green r-ball"><span>3</span></div>
+        <div class="cutout-ball ball-red r-ball"><span>2</span></div>
+        <div class="cutout-ball ball-green r-ball"><span>9</span></div>
+        <div class="cutout-ball ball-red r-ball"><span>6</span></div>
+        <div class="cutout-ball ball-purple r-ball"><span>0</span></div>
+        <div class="cutout-ball ball-red r-ball"><span>8</span></div>
+        <div class="cutout-ball ball-green r-ball"><span>7</span></div>
       </div>
     </div>
   </div>
