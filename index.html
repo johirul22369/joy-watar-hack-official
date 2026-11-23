@@ -257,7 +257,7 @@
             align-items: flex-end;
         }
 
-        /* স্ক্রিনশট (67036.jpg) এর মতো ঢেউখেলানো সাদা বর্ডার ও মাঝের সাদা কোরসহ বল */
+        /* 67036_2.jpg এর মতো মাঝখানে সাদা গোলক ও কিনারে ঢেউখেলানো নরম রঙিন ভাব */
         .deco-ball,
         .color-wheel,
         .glow-orb {
@@ -268,39 +268,37 @@
             justify-content: center;
             font-weight: 950;
             border: 1px solid rgba(255, 255, 255, 0.85);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
             overflow: hidden;
         }
 
-        /* ঢেউখেলানো (wavy/scalloped) সাদা অংশ */
         .deco-ball::before,
         .color-wheel::before,
         .glow-orb::before {
             content: "";
             position: absolute;
-            width: 74%;
-            height: 74%;
+            width: 72%;
+            height: 72%;
             border-radius: 50%;
-            background: radial-gradient(circle at 50% 45%, #ffffff 62%, rgba(255, 255, 255, 0.92) 85%, rgba(255, 255, 255, 0.55) 100%);
-            -webkit-mask: repeating-conic-gradient(from 0deg, #000 0deg 16deg, rgba(0, 0, 0, 0.58) 16deg 36deg);
-            mask: repeating-conic-gradient(from 0deg, #000 0deg 16deg, rgba(0, 0, 0, 0.58) 16deg 36deg);
-            box-shadow: 0 0 4px rgba(255, 255, 255, 0.75);
+            background: radial-gradient(circle at 50% 45%, #ffffff 68%, rgba(255, 255, 255, 0.88) 88%, rgba(255, 255, 255, 0.4) 100%);
+            box-shadow:
+                0 0 2px 1.2px rgba(255, 255, 255, 0.85),
+                0 0 5px 2px currentColor;
             pointer-events: none;
             z-index: 2;
         }
 
-        /* উপরের হালকা গ্লসি শাইন */
         .deco-ball::after,
         .color-wheel::after,
         .glow-orb::after {
             content: "";
             position: absolute;
-            top: 3%;
-            left: 14%;
-            width: 72%;
-            height: 34%;
+            top: 2%;
+            left: 16%;
+            width: 68%;
+            height: 30%;
             border-radius: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
             pointer-events: none;
             z-index: 3;
         }
@@ -310,7 +308,6 @@
         .glow-orb span {
             position: relative;
             z-index: 4;
-            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         .deco-ball-lg {
@@ -602,24 +599,24 @@
             font-size: 13px;
         }
 
-        /* বলের রঙ ও নাম্বারের রঙ (ছবি 67036.jpg এর মতো) */
+        /* বলের রঙ, ঢেউ গ্লো ও নাম্বারের রঙ */
         .orb-green, .w-green {
             background: radial-gradient(circle at 30% 25%, #65e89a 0%, #16b95a 60%, #086930 100%);
+            color: #129448;
             box-shadow: 0 0 10px rgba(34, 224, 118, 0.45), 0 2px 6px rgba(0, 0, 0, 0.8);
         }
-        .orb-green span, .w-green span { color: #129448; }
 
         .orb-red, .w-red {
             background: radial-gradient(circle at 30% 25%, #ff7a7a 0%, #e52424 60%, #8c0c0c 100%);
+            color: #d62424;
             box-shadow: 0 0 10px rgba(255, 55, 55, 0.45), 0 2px 6px rgba(0, 0, 0, 0.8);
         }
-        .orb-red span, .w-red span { color: #d62424; }
 
         .orb-violet, .w-violet-green, .w-violet-red {
             background: radial-gradient(circle at 30% 25%, #d98cff 0%, #9b35e8 60%, #4d1087 100%);
+            color: #8726de;
             box-shadow: 0 0 10px rgba(176, 74, 255, 0.45), 0 2px 6px rgba(0, 0, 0, 0.8);
         }
-        .orb-violet span, .w-violet-green span, .w-violet-red span { color: #8726de; }
 
         .wingo-timer-box {
             width: 96%;
