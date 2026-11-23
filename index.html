@@ -257,7 +257,7 @@
             align-items: flex-end;
         }
 
-        /* 67036_3.jpg এর মতো মাঝখানে সাদা গোলক এবং রঙিন কিনারের ৪ দিকে হালকা সাদা অংশ */
+        /* রঙিন কিনারের চারদিকে চারটা সাদা ঢেউ ও মাঝখানে সাদা গোলক */
         .deco-ball,
         .color-wheel,
         .glow-orb {
@@ -272,7 +272,7 @@
             overflow: hidden;
         }
 
-        /* রঙিন কিনারের ৪ দিকে (উপর, নিচ, বাম, ডান) হালকা সাদা অংশ */
+        /* চারদিকে চারটা হালকা সাদা ঢেউ (উপর, নিচ, বাম, ডান) */
         .deco-ball::before,
         .color-wheel::before,
         .glow-orb::before {
@@ -281,10 +281,20 @@
             inset: 0;
             border-radius: 50%;
             background:
-                radial-gradient(circle at 50% 4%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.35) 14%, transparent 25%),
-                radial-gradient(circle at 50% 96%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.35) 14%, transparent 25%),
-                radial-gradient(circle at 4% 50%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.35) 14%, transparent 25%),
-                radial-gradient(circle at 96% 50%, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.35) 14%, transparent 25%);
+                conic-gradient(
+                    from -22deg,
+                    rgba(255, 255, 255, 0.72) 0deg 44deg,
+                    transparent 44deg 68deg,
+                    rgba(255, 255, 255, 0.72) 68deg 112deg,
+                    transparent 112deg 158deg,
+                    rgba(255, 255, 255, 0.72) 158deg 202deg,
+                    transparent 202deg 248deg,
+                    rgba(255, 255, 255, 0.72) 248deg 292deg,
+                    transparent 292deg 338deg,
+                    rgba(255, 255, 255, 0.72) 338deg 360deg
+                );
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), rgba(0, 0, 0, 0.65) calc(100% - 3.5px), #000 100%);
+            mask: radial-gradient(farthest-side, transparent calc(100% - 5px), rgba(0, 0, 0, 0.65) calc(100% - 3.5px), #000 100%);
             pointer-events: none;
             z-index: 2;
         }
@@ -299,7 +309,6 @@
             height: 72%;
             border-radius: 50%;
             background: radial-gradient(circle at 50% 45%, #ffffff 72%, rgba(255, 255, 255, 0.92) 90%, rgba(255, 255, 255, 0.45) 100%);
-            box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
             pointer-events: none;
             z-index: 3;
         }
