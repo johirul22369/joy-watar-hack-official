@@ -25,7 +25,6 @@
       overflow-x: hidden;
     }
 
-    /* Outer Popup Card matching image_7d2c94bc-86e9-4be4-8c5e-0b9b7135d573.jpg */
     .popup-card {
       position: relative;
       width: 100%;
@@ -44,7 +43,6 @@
       user-select: none;
     }
 
-    /* Top Header Row */
     .top-bar {
       display: flex;
       align-items: flex-start;
@@ -124,7 +122,6 @@
       display: inline-block;
     }
 
-    /* Brand Header */
     .brand-header {
       position: relative;
       text-align: center;
@@ -216,7 +213,6 @@
       color: #ffffff;
     }
 
-    /* Sculpted 3D Cutout Lottery Balls */
     .cutout-ball {
       position: relative;
       border-radius: 50%;
@@ -227,7 +223,6 @@
       overflow: hidden;
     }
 
-    /* Top glossy specular highlight */
     .cutout-ball::after {
       content: "";
       position: absolute;
@@ -241,7 +236,6 @@
       z-index: 3;
     }
 
-    /* Sculpted off-white cutout disc with recessed bevel */
     .cutout-ball::before {
       content: "";
       position: absolute;
@@ -289,14 +283,12 @@
     }
     .ball-purple span { color: #5b189c; }
 
-    /* Top Floating Balls */
     .top-ball { position: absolute; z-index: 3; }
     .t-ball-4 { width: 56px; height: 56px; top: 52px; left: -6px; font-size: 24px; }
     .t-ball-3 { width: 36px; height: 36px; top: 94px; left: 44px; font-size: 16px; }
     .t-ball-9 { width: 56px; height: 56px; top: 52px; right: -6px; font-size: 24px; }
     .t-ball-8 { width: 34px; height: 34px; top: 96px; right: 48px; font-size: 15px; }
 
-    /* 3 Chamfered Columns */
     .columns-row {
       display: grid;
       grid-template-columns: 1fr 1.18fr 1fr;
@@ -411,39 +403,32 @@
     .round-meta .no-lbl { font-size: 11px; font-weight: 800; color: #b7c9f2; }
     .round-meta .no-val { font-size: 11px; font-weight: 950; color: #ffffff; letter-spacing: -0.2px; white-space: nowrap; }
 
-    /* Center Glowing Orb & HUD Rings */
+    /* Center Glowing Orb + Tiny White HUD Ticks */
     .orb-stage {
       position: relative;
-      width: 108px;
-      height: 108px;
+      width: 112px;
+      height: 112px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin: 4px 0;
     }
 
-    .orb-dashed {
+    .orb-hud-svg {
       position: absolute;
-      inset: 2px;
-      border-radius: 50%;
-      border: 2.5px dashed rgba(52, 255, 180, 0.8);
-      box-shadow: 0 0 18px rgba(25, 240, 150, 0.5), inset 0 0 14px rgba(25, 240, 150, 0.3);
-    }
-
-    .orb-glow-arc {
-      position: absolute;
-      inset: 8px;
-      border-radius: 50%;
-      border: 4px solid transparent;
-      border-top-color: #38ffb8;
-      border-right-color: #38ffb8;
-      filter: drop-shadow(0 0 8px #38ffb8);
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0 0 8px rgba(45, 255, 180, 0.65));
+      pointer-events: none;
     }
 
     .center-orb-ball {
-      width: 70px;
-      height: 70px;
-      font-size: 28px;
+      position: relative;
+      z-index: 2;
+      width: 66px;
+      height: 66px;
+      font-size: 27px;
     }
 
     .timer-box {
@@ -458,7 +443,6 @@
     .timer-title { font-size: 10px; font-weight: 950; color: #ffd35c; letter-spacing: 0.6px; }
     .timer-val { font-size: 18px; font-weight: 950; color: #ffcf48; display: flex; align-items: center; justify-content: center; gap: 4px; line-height: 1.1; }
 
-    /* Recent Results */
     .recent-panel {
       background: linear-gradient(180deg, #0f203d 0%, #081122 100%);
       border: 1.5px solid #2b88c9;
@@ -502,13 +486,11 @@
 <body>
 
   <div class="popup-card" id="wingoPopup">
-    <!-- Top 3D Cutout Balls -->
     <div class="cutout-ball ball-red top-ball t-ball-4"><span>4</span></div>
     <div class="cutout-ball ball-green top-ball t-ball-3"><span>3</span></div>
     <div class="cutout-ball ball-green top-ball t-ball-9"><span>9</span></div>
     <div class="cutout-ball ball-red top-ball t-ball-8"><span>8</span></div>
 
-    <!-- Top Header -->
     <div class="top-bar">
       <div class="play-smarter-wrap">
         <div class="play-smarter-top">PLAY <span class="up-trend">↗</span></div>
@@ -521,7 +503,6 @@
       </button>
     </div>
 
-    <!-- Brand & Wings -->
     <div class="brand-header">
       <svg class="main-crown" viewBox="0 0 64 38">
         <path d="M4 32 L10 10 L23 22 L32 5 L41 22 L54 10 L60 32 Z" fill="url(#goldGrad)" stroke="#6b2b00" stroke-width="2.5" stroke-linejoin="round"/>
@@ -556,7 +537,6 @@
       </div>
     </div>
 
-    <!-- 3 Chamfered Columns -->
     <div class="columns-row">
       <div class="chamfer-border border-small">
         <div class="chamfer-inner small-inner">
@@ -582,8 +562,12 @@
           </div>
 
           <div class="orb-stage">
-            <div class="orb-dashed"></div>
-            <div class="orb-glow-arc"></div>
+            <!-- SVG Ring with Tiny White Ticks/Dots -->
+            <svg class="orb-hud-svg" viewBox="0 0 120 120">
+              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(45, 255, 180, 0.35)" stroke-width="1.5"/>
+              <circle cx="60" cy="60" r="47" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="1.5 6.5" stroke-linecap="round" opacity="0.92"/>
+              <path d="M 60 18 A 42 42 0 1 1 24 81" fill="none" stroke="#38ffb8" stroke-width="3.5" stroke-linecap="round"/>
+            </svg>
             <div class="cutout-ball ball-green center-orb-ball"><span>1</span></div>
           </div>
 
@@ -614,7 +598,6 @@
       </div>
     </div>
 
-    <!-- RECENT RESULTS -->
     <div class="recent-panel">
       <div class="recent-title">
         <span style="color: #4be3ff;">📈</span>
