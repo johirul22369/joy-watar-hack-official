@@ -1,622 +1,1618 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JOY WINGO - 30 SEC PREDICTOR V2</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
-    }
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>𓆩♛𓆪 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐉𝐎𝐘 👑 - Eagle Wing VIP</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 82% 25%, rgba(16, 78, 108, 0.28) 0%, transparent 45%),
-        radial-gradient(circle at 18% 75%, rgba(118, 28, 92, 0.22) 0%, transparent 45%),
-        linear-gradient(90deg, #060b14 0%, #09121e 68%, #071622 100%);
-      padding: 12px;
-      overflow-x: hidden;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            user-select: none;
+            -webkit-user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
 
-    .popup-card {
-      position: relative;
-      width: 100%;
-      max-width: 432px;
-      border-radius: 28px;
-      padding: 12px;
-      background:
-        radial-gradient(circle at 50% 16%, rgba(25, 92, 118, 0.65) 0%, rgba(12, 22, 46, 0.96) 52%, rgba(24, 11, 44, 0.98) 100%);
-      border: 2.5px solid #e6429c;
-      box-shadow:
-        0 0 0 2px rgba(56, 214, 255, 0.22),
-        0 0 22px rgba(230, 66, 156, 0.55),
-        0 0 42px rgba(25, 195, 255, 0.2),
-        0 18px 46px rgba(0, 0, 0, 0.92);
-      color: #ffffff;
-      user-select: none;
-    }
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: #02050c;
+            color: #ffffff;
+        }
 
-    .top-bar {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      position: relative;
-      z-index: 5;
-    }
+        #game-iframe {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            z-index: 1;
+        }
 
-    .play-smarter-wrap {
-      transform: rotate(-8deg);
-      margin-top: 2px;
-      margin-left: 2px;
-    }
+        .text-3d {
+            font-family: 'Chakra Petch', sans-serif;
+            font-weight: 700;
+            text-shadow:
+                0 1px 0 #091326,
+                0 2px 0 #050a14,
+                0 3px 6px rgba(0, 0, 0, 0.95),
+                0 0 10px rgba(250, 204, 21, 0.4);
+        }
 
-    .play-smarter-top {
-      display: flex;
-      align-items: center;
-      gap: 2px;
-      font-size: 13px;
-      font-weight: 950;
-      font-style: italic;
-      line-height: 0.95;
-      color: #e8ff38;
-      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
-    }
+        /* স্লো মোশনে পাখির মতো হালকা ভেসে থাকার মুভমেন্ট */
+        @keyframes eagleSlowFloat {
+            0%, 100% {
+                margin-top: 0px;
+                margin-left: 0px;
+            }
+            50% {
+                margin-top: -5px;
+                margin-left: 2px;
+            }
+        }
 
-    .play-smarter-top .up-trend {
-      color: #42ff7a;
-      font-size: 14px;
-    }
+        /* বড় গর্জিয়াস ঈগলের ডানা (Slow Motion) */
+        .wing-pair {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: -1;
+        }
 
-    .play-smarter-bottom {
-      position: relative;
-      font-size: 14px;
-      font-weight: 950;
-      font-style: italic;
-      line-height: 1;
-      color: #dcff24;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.92);
-    }
+        .wing-3d {
+            position: absolute;
+            top: 50%;
+            filter:
+                drop-shadow(0 8px 16px rgba(0, 0, 0, 0.96))
+                drop-shadow(0 0 16px rgba(250, 204, 21, 0.55));
+        }
 
-    .play-smarter-bottom::before {
-      content: "";
-      position: absolute;
-      left: -4px;
-      bottom: -1px;
-      width: 11px;
-      height: 11px;
-      border-radius: 50%;
-      background: radial-gradient(circle, #9cffda 0%, #15bd7e 70%, transparent 100%);
-      box-shadow: 0 0 10px #2effb2;
-    }
+        .wing-left {
+            right: 100%;
+            margin-right: -4px;
+            transform-origin: 95% 48%;
+            animation: eagleFlapLeft 3.4s ease-in-out infinite;
+        }
 
-    .hide-btn {
-      background: linear-gradient(180deg, #3992f0 0%, #14498c 100%);
-      border: 2px solid #82d0ff;
-      border-radius: 14px;
-      padding: 7px 14px;
-      color: #ffffff;
-      font-size: 15px;
-      font-weight: 900;
-      letter-spacing: 0.6px;
-      cursor: pointer;
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.6),
-        inset 0 1px 2px rgba(255, 255, 255, 0.6);
-    }
+        .wing-right {
+            left: 100%;
+            margin-left: -4px;
+            transform-origin: 5% 48%;
+            animation: eagleFlapRight 3.4s ease-in-out infinite;
+        }
 
-    .hide-icon {
-      width: 13px;
-      height: 13px;
-      border: 2.2px solid #ffffff;
-      border-radius: 2px;
-      display: inline-block;
-    }
+        @keyframes eagleFlapLeft {
+            0%, 100% { transform: translateY(-50%) rotate(-8deg) scale(1); }
+            50%      { transform: translateY(-56%) rotate(16deg) scale(1.04, 0.97); }
+        }
 
-    .brand-header {
-      position: relative;
-      text-align: center;
-      margin-top: -22px;
-      margin-bottom: 10px;
-      z-index: 2;
-    }
+        @keyframes eagleFlapRight {
+            0%, 100% { transform: translateY(-50%) rotate(8deg) scale(1); }
+            50%      { transform: translateY(-56%) rotate(-16deg) scale(1.04, 0.97); }
+        }
 
-    .main-crown {
-      width: 38px;
-      height: 23px;
-      margin: 0 auto -4px;
-      display: block;
-      filter: drop-shadow(0 0 8px rgba(255, 195, 20, 0.9));
-    }
+        /* ফ্লোটিং আইকন + বড় ঈগল ডানা */
+        #floating-icon-btn {
+            position: fixed;
+            top: 88px;
+            right: 54px;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            border: 2.5px solid #facc15;
+            box-shadow:
+                0 0 0 2px #e6429c,
+                0 10px 24px rgba(0, 0, 0, 0.95),
+                0 0 22px rgba(250, 204, 21, 0.8),
+                inset 0 2px 6px rgba(255, 255, 255, 0.45);
+            cursor: grab;
+            z-index: 9999;
+            overflow: visible;
+            touch-action: none;
+            background: radial-gradient(circle at 30% 25%, #065f46, #042f2e 70%, #020617 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: eagleSlowFloat 4.2s ease-in-out infinite;
+        }
 
-    .brand-name-container {
-      position: relative;
-      display: inline-block;
-    }
+        #floating-icon-btn:active {
+            cursor: grabbing;
+            transform: scale(0.95);
+        }
 
-    .wing-left,
-    .wing-right {
-      position: absolute;
-      top: 54%;
-      transform: translateY(-50%);
-      width: 84px;
-      height: 46px;
-      pointer-events: none;
-      z-index: 0;
-      filter: drop-shadow(0 0 9px rgba(34, 226, 255, 0.85));
-    }
+        .icon-circle-clip {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .wing-left {
-      left: -68px;
-      transform: translateY(-50%) scaleX(-1);
-    }
+        #floating-icon-btn img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            pointer-events: none;
+        }
 
-    .wing-right {
-      right: -68px;
-    }
+        /* পাসওয়ার্ড পপআপ */
+        #auth-overlay {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 236px;
+            background: linear-gradient(155deg, rgba(6, 78, 59, 0.98) 0%, rgba(15, 23, 42, 0.99) 55%, rgba(3, 7, 16, 1) 100%);
+            border: 1.5px solid rgba(250, 204, 21, 0.9);
+            border-radius: 18px;
+            box-shadow:
+                0 22px 44px rgba(0, 0, 0, 0.95),
+                0 0 26px rgba(16, 185, 129, 0.35),
+                inset 0 1px 1px rgba(255, 255, 255, 0.3);
+            padding: 13px;
+            display: none;
+            z-index: 10000;
+            text-align: center;
+            backdrop-filter: blur(12px);
+        }
 
-    .brand-name-text {
-      position: relative;
-      z-index: 1;
-      font-size: 54px;
-      font-weight: 950;
-      letter-spacing: 2px;
-      line-height: 0.92;
-      background: linear-gradient(180deg, #fff17a 0%, #ffa812 52%, #e65500 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 1.4px #591c00;
-      filter: drop-shadow(0 3px 0 #471400) drop-shadow(0 6px 12px rgba(255, 145, 0, 0.45));
-    }
+        .auth-title {
+            font-size: 11.5px;
+            color: #fffbeb;
+            text-shadow:
+                0 0 8px rgba(250, 204, 21, 0.95),
+                0 2px 4px rgba(0, 0, 0, 1);
+            margin-bottom: 8px;
+            letter-spacing: 0.5px;
+        }
 
-    .wingo-text {
-      position: relative;
-      z-index: 2;
-      font-size: 32px;
-      font-weight: 950;
-      font-style: italic;
-      letter-spacing: 1.5px;
-      line-height: 0.95;
-      margin-top: 1px;
-      background: linear-gradient(180deg, #8ceaff 0%, #1ea6ff 58%, #0a4ec2 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 1px #062154;
-      filter: drop-shadow(0 2px 0 #05183d) drop-shadow(0 0 10px rgba(30, 166, 255, 0.55));
-    }
+        .auth-input {
+            width: 100%;
+            padding: 7px 9px;
+            background: rgba(3, 8, 18, 0.94);
+            border: 1px solid rgba(52, 211, 153, 0.78);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 11px;
+            text-align: center;
+            margin-bottom: 8px;
+            outline: none;
+            font-weight: 700;
+            user-select: text;
+            -webkit-user-select: text;
+        }
 
-    .predictor-badge-wrap {
-      position: relative;
-      z-index: 3;
-      display: inline-block;
-      margin-top: 3px;
-      padding: 4px 18px;
-      border-radius: 12px;
-      background: linear-gradient(180deg, #1b2238 0%, #090c17 100%);
-      border: 1.5px solid #f0be3c;
-      box-shadow: 0 0 12px rgba(240, 190, 60, 0.4);
-    }
+        .remember-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 9px;
+            color: #cbd5e1;
+            margin-bottom: 9px;
+            cursor: pointer;
+            font-weight: 600;
+        }
 
-    .predictor-badge-text {
-      font-size: 16px;
-      font-weight: 950;
-      letter-spacing: 0.5px;
-      color: #ffffff;
-    }
+        .auth-btn {
+            width: 100%;
+            padding: 7px;
+            background: linear-gradient(135deg, #fef08a 0%, #facc15 50%, #eab308 100%);
+            border: none;
+            border-radius: 8px;
+            color: #050912;
+            font-size: 10.5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 0.7px;
+            box-shadow: 0 4px 14px rgba(250, 204, 21, 0.45);
+        }
 
-    .cutout-ball {
-      position: relative;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 950;
-      overflow: hidden;
-    }
+        #error-msg {
+            color: #fb7185;
+            font-size: 9px;
+            margin-top: 6px;
+            display: none;
+            font-weight: 700;
+        }
 
-    .cutout-ball::after {
-      content: "";
-      position: absolute;
-      top: 5%;
-      left: 14%;
-      width: 72%;
-      height: 36%;
-      border-radius: 50%;
-      background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0) 100%);
-      pointer-events: none;
-      z-index: 3;
-    }
+        /* হ্যাক পপআপ + নিয়ন পিঙ্ক/সায়ান বর্ডার ও বড় ঈগলের ডানা */
+        .overlay-box {
+            position: fixed;
+            top: 96px;
+            left: 68px;
+            width: 232px;
+            max-width: calc(100vw - 136px);
+            display: none;
+            z-index: 9999;
+            background:
+                radial-gradient(circle at 50% 16%, rgba(25, 92, 118, 0.55) 0%, rgba(12, 22, 46, 0.96) 54%, rgba(24, 11, 44, 0.98) 100%);
+            border-radius: 22px;
+            padding: 8px;
+            box-shadow:
+                0 0 0 1.5px rgba(56, 214, 255, 0.25),
+                0 0 20px rgba(230, 66, 156, 0.5),
+                0 22px 44px rgba(0, 0, 0, 0.96),
+                inset 0 1px 1.5px rgba(255, 255, 255, 0.34);
+            border: 2px solid #e6429c;
+            backdrop-filter: blur(12px);
+            animation: eagleSlowFloat 4.2s ease-in-out infinite;
+        }
 
-    .cutout-ball::before {
-      content: "";
-      position: absolute;
-      width: 64%;
-      height: 64%;
-      border-radius: 50%;
-      background: radial-gradient(circle at 42% 36%, #ffffff 0%, #edf2f7 56%, #c2cedb 100%);
-      box-shadow:
-        inset 0 2.5px 4px rgba(0, 0, 0, 0.38),
-        inset 0 -2px 3px rgba(255, 255, 255, 0.92),
-        0 0 0 1.5px rgba(255, 255, 255, 0.5);
-      z-index: 1;
-    }
+        .popup-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 3px;
+            margin-bottom: 5px;
+            cursor: grab;
+            touch-action: none;
+            padding: 2px 3px 4px;
+            border-bottom: 1px solid rgba(250, 204, 21, 0.35);
+        }
 
-    .cutout-ball span {
-      position: relative;
-      z-index: 2;
-      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
-    }
+        .popup-header:active {
+            cursor: grabbing;
+        }
 
-    .ball-red {
-      background: radial-gradient(circle at 30% 25%, #ff8585 0%, #df1d1d 58%, #6e0606 100%);
-      box-shadow:
-        inset -3px -4px 8px rgba(0, 0, 0, 0.55),
-        0 0 18px rgba(255, 55, 55, 0.6),
-        0 5px 10px rgba(0, 0, 0, 0.65);
-    }
-    .ball-red span { color: #b81d1d; }
+        .badge-left {
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 50%, #fef08a 100%);
+            color: #1c1917;
+            font-size: 6.2px;
+            padding: 2px 4.5px;
+            border-radius: 6px;
+            line-height: 1.05;
+            text-transform: uppercase;
+            pointer-events: none;
+            text-shadow: none;
+            box-shadow: 0 0 10px rgba(251, 191, 36, 0.5);
+        }
 
-    .ball-green {
-      background: radial-gradient(circle at 30% 25%, #84ffb8 0%, #14b558 58%, #055225 100%);
-      box-shadow:
-        inset -3px -4px 8px rgba(0, 0, 0, 0.55),
-        0 0 18px rgba(34, 224, 118, 0.6),
-        0 5px 10px rgba(0, 0, 0, 0.65);
-    }
-    .ball-green span { color: #117a3d; }
+        .brand-center {
+            text-align: center;
+            flex: 1;
+            pointer-events: none;
+        }
 
-    .ball-purple {
-      background: radial-gradient(circle at 30% 25%, #dc94ff 0%, #8726de 58%, #3a086e 100%);
-      box-shadow:
-        inset -3px -4px 8px rgba(0, 0, 0, 0.55),
-        0 0 14px rgba(176, 74, 255, 0.45),
-        0 5px 10px rgba(0, 0, 0, 0.65);
-    }
-    .ball-purple span { color: #5b189c; }
+        .brand-main {
+            font-style: italic;
+            font-size: 9.8px;
+            letter-spacing: 0.35px;
+            color: #fffbeb;
+            -webkit-text-fill-color: #fffbeb;
+            -webkit-text-stroke: 0.35px #78350f;
+            text-shadow:
+                0 0 6px rgba(254, 240, 138, 0.95),
+                0 0 14px rgba(250, 204, 21, 0.85),
+                0 1px 0 #78350f,
+                0 2px 4px rgba(0, 0, 0, 1);
+            line-height: 1.12;
+            white-space: nowrap;
+            animation: joyPopGlow 2.4s ease-in-out infinite alternate;
+        }
 
-    .top-ball { position: absolute; z-index: 3; }
-    .t-ball-4 { width: 56px; height: 56px; top: 52px; left: -6px; font-size: 24px; }
-    .t-ball-3 { width: 36px; height: 36px; top: 94px; left: 44px; font-size: 16px; }
-    .t-ball-9 { width: 56px; height: 56px; top: 52px; right: -6px; font-size: 24px; }
-    .t-ball-8 { width: 34px; height: 34px; top: 96px; right: 48px; font-size: 15px; }
+        @keyframes joyPopGlow {
+            0% {
+                color: #fffbeb;
+                -webkit-text-fill-color: #fffbeb;
+                text-shadow:
+                    0 0 6px rgba(254, 240, 138, 0.9),
+                    0 0 13px rgba(250, 204, 21, 0.75),
+                    0 2px 4px rgba(0, 0, 0, 1);
+            }
+            100% {
+                color: #fde047;
+                -webkit-text-fill-color: #fde047;
+                text-shadow:
+                    0 0 8px rgba(250, 204, 21, 1),
+                    0 0 18px rgba(52, 211, 153, 0.8),
+                    0 2px 5px rgba(0, 0, 0, 1);
+            }
+        }
 
-    .columns-row {
-      display: grid;
-      grid-template-columns: 1fr 1.18fr 1fr;
-      gap: 7px;
-      align-items: stretch;
-      margin-bottom: 9px;
-    }
+        .brand-sub {
+            font-size: 6px;
+            color: #a7f3d0;
+            letter-spacing: 0.3px;
+            margin-top: 1px;
+        }
 
-    .chamfer-border {
-      clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 18px, 100% 100%, 0% 100%, 0% 18px);
-      border-radius: 14px;
-      padding: 2px;
-      display: flex;
-    }
+        .header-controls {
+            display: flex;
+            align-items: center;
+            gap: 2.5px;
+        }
 
-    .border-small { background: linear-gradient(180deg, #5ce8ff 0%, #1c85b8 100%); }
-    .border-center { background: linear-gradient(180deg, #32dcff 0%, #146a9c 100%); }
-    .border-big { background: linear-gradient(180deg, #ff5eb0 0%, #8c1952 100%); }
+        .voice-toggle-btn {
+            font-size: 6px;
+            padding: 2px 4.5px;
+            border-radius: 5px;
+            border: 1px solid rgba(251, 113, 133, 0.85);
+            background: linear-gradient(135deg, #f43f5e, #be123c);
+            color: #ffffff;
+            cursor: pointer;
+            text-shadow: none;
+            box-shadow: 0 0 8px rgba(244, 63, 94, 0.5);
+        }
 
-    .chamfer-inner {
-      width: 100%;
-      clip-path: polygon(17px 0%, calc(100% - 17px) 0%, 100% 17px, 100% 100%, 0% 100%, 0% 17px);
-      border-radius: 12px;
-      padding: 8px 6px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      text-align: center;
-    }
+        .voice-toggle-btn.is-off {
+            background: linear-gradient(135deg, #1e293b, #0f172a);
+            color: #94a3b8;
+            border-color: rgba(148, 163, 184, 0.45);
+            box-shadow: none;
+        }
 
-    .small-inner { background: linear-gradient(180deg, #1b9ad4 0%, #0a4875 60%, #062540 100%); }
-    .center-inner { background: linear-gradient(180deg, #111a36 0%, #080c1c 100%); }
-    .big-inner { background: linear-gradient(180deg, #9e1a5c 0%, #570c33 60%, #260416 100%); }
+        .hide-btn {
+            background: linear-gradient(180deg, #3992f0 0%, #14498c 100%);
+            color: #ffffff;
+            border: 1px solid #82d0ff;
+            padding: 2px 5px;
+            border-radius: 5px;
+            font-size: 6px;
+            cursor: pointer;
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
+        }
 
-    .mini-crown-svg {
-      width: 22px;
-      height: 13px;
-      margin: 0 auto 2px;
-      display: block;
-    }
+        .market-tabs {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2.5px;
+            margin-bottom: 5px;
+            background: rgba(2, 6, 14, 0.95);
+            padding: 2px;
+            border-radius: 9px;
+            border: 1px solid rgba(52, 211, 153, 0.35);
+        }
 
-    .small-inner h2,
-    .big-inner h2 {
-      font-size: 22px;
-      font-weight: 950;
-      letter-spacing: 0.4px;
-      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.55);
-    }
+        .market-btn {
+            font-size: 6.8px;
+            padding: 2.5px 1px;
+            border-radius: 6px;
+            border: 1px solid transparent;
+            background: rgba(15, 23, 42, 0.88);
+            color: #cbd5e1;
+            cursor: pointer;
+            text-align: center;
+        }
 
-    .small-inner .num-range { font-size: 17px; font-weight: 800; color: #dff8ff; margin-top: 2px; }
-    .big-inner .num-range { font-size: 17px; font-weight: 800; color: #ffd4ea; margin-top: 2px; }
+        .market-btn.active {
+            background: linear-gradient(135deg, #10b981 0%, #f59e0b 100%);
+            color: #050912;
+            border-color: #fef08a;
+            text-shadow: none;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.55);
+        }
 
-    .status-predicted {
-      width: 100%;
-      background: rgba(5, 25, 46, 0.85);
-      border: 1.5px solid #4de6ff;
-      border-radius: 10px;
-      padding: 6px 5px;
-      font-size: 11px;
-      font-weight: 950;
-      color: #6df0ff;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-    }
+        .ai-call-banner {
+            margin-bottom: 5px;
+            padding: 3.5px 6px;
+            border-radius: 9px;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.25), rgba(245, 158, 11, 0.25));
+            border: 1px solid rgba(250, 204, 21, 0.52);
+            font-size: 7.2px;
+            font-weight: 800;
+            color: #fef08a;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            box-shadow: 0 0 12px rgba(250, 204, 21, 0.16);
+        }
 
-    .status-predicted .tick {
-      width: 16px;
-      height: 16px;
-      border-radius: 50%;
-      background: #1a8cff;
-      color: #ffffff;
-      font-size: 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+        /* ৩ কলাম গ্রিড + ওপরের কাটা কোণা (Chamfered Corners) */
+        .pred-grid {
+            display: grid;
+            grid-template-columns: 0.9fr 1.32fr 0.9fr;
+            gap: 4px;
+            align-items: stretch;
+            position: relative;
+        }
 
-    .status-not-predicted {
-      width: 100%;
-      background: rgba(36, 7, 22, 0.82);
-      border: 1.5px solid rgba(255, 130, 190, 0.45);
-      border-radius: 10px;
-      padding: 6px 4px;
-      font-size: 10px;
-      font-weight: 900;
-      line-height: 1.1;
-      color: rgba(255, 190, 220, 0.72);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
+        .side-panel {
+            clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% 100%, 0% 100%, 0% 10px);
+            border-radius: 12px;
+            padding: 6px 3px 5px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            border: 1.5px solid rgba(255, 255, 255, 0.22);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.65), inset 0 1px 1px rgba(255, 255, 255, 0.25);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+        }
 
-    .status-not-predicted .cross {
-      width: 15px;
-      height: 15px;
-      border-radius: 4px;
-      background: rgba(255, 255, 255, 0.16);
-      color: #ff9ec9;
-      font-size: 10px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
+        .panel-small {
+            background: linear-gradient(180deg, #1b9ad4 0%, #0a4875 60%, #062540 100%);
+            border-color: #4be3ff;
+        }
 
-    .round-meta { width: 100%; text-align: left; }
-    .round-meta .no-lbl { font-size: 11px; font-weight: 800; color: #b7c9f2; }
-    .round-meta .no-val { font-size: 11px; font-weight: 950; color: #ffffff; letter-spacing: -0.2px; white-space: nowrap; }
+        .panel-big {
+            background: linear-gradient(180deg, #9e1a5c 0%, #570c33 60%, #260416 100%);
+            border-color: #ff4da6;
+        }
 
-    /* Center Glowing Orb + Tiny White HUD Ticks */
-    .orb-stage {
-      position: relative;
-      width: 112px;
-      height: 112px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 4px 0;
-    }
+        .side-panel.is-predicted {
+            border-color: #fef08a;
+            transform: translateY(-1px) scale(1.02);
+            box-shadow:
+                0 0 16px rgba(250, 204, 21, 0.62),
+                0 8px 16px rgba(0, 0, 0, 0.8),
+                inset 0 1px 2px rgba(255, 255, 255, 0.45);
+        }
 
-    .orb-hud-svg {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      filter: drop-shadow(0 0 8px rgba(45, 255, 180, 0.65));
-      pointer-events: none;
-    }
+        .side-panel > div {
+            position: relative;
+            z-index: 2;
+        }
 
-    .center-orb-ball {
-      position: relative;
-      z-index: 2;
-      width: 66px;
-      height: 66px;
-      font-size: 27px;
-    }
+        .firecracker-rocket {
+            position: absolute;
+            left: 50%;
+            bottom: 3px;
+            width: 3px;
+            height: 11px;
+            border-radius: 999px;
+            transform: translateX(-50%);
+            background: linear-gradient(180deg, #ffffff 0%, #34d399 50%, #fbbf24 100%);
+            box-shadow: 0 0 8px #34d399, 0 0 15px #fbbf24;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 3;
+            animation: rocketAscendBlast 2.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
+        }
 
-    .timer-box {
-      width: 100%;
-      background: linear-gradient(180deg, #1b1829 0%, #0d0c16 100%);
-      border: 1.5px solid #e6b843;
-      border-radius: 10px;
-      padding: 4px 6px;
-      box-shadow: 0 0 10px rgba(230, 184, 67, 0.25);
-    }
+        .panel-big .firecracker-rocket {
+            animation-delay: 1.05s;
+        }
 
-    .timer-title { font-size: 10px; font-weight: 950; color: #ffd35c; letter-spacing: 0.6px; }
-    .timer-val { font-size: 18px; font-weight: 950; color: #ffcf48; display: flex; align-items: center; justify-content: center; gap: 4px; line-height: 1.1; }
+        @keyframes rocketAscendBlast {
+            0%   { opacity: 0; bottom: 2px; height: 9px; transform: translateX(-50%) scale(0.9); }
+            12%  { opacity: 1; bottom: 8px; height: 12px; transform: translateX(-50%) scale(1); }
+            62%  { opacity: 1; bottom: calc(100% - 17px); height: 7px; transform: translateX(-50%) scale(1.05); }
+            67%  { opacity: 0; bottom: calc(100% - 14px); height: 2px; transform: translateX(-50%) scale(0.4); }
+            100% { opacity: 0; bottom: 2px; height: 9px; transform: translateX(-50%) scale(0.9); }
+        }
 
-    .recent-panel {
-      background: linear-gradient(180deg, #0f203d 0%, #081122 100%);
-      border: 1.5px solid #2b88c9;
-      border-radius: 16px;
-      padding: 8px 8px 9px;
-    }
+        .firecracker-burst {
+            position: absolute;
+            left: 50%;
+            top: 13px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0.15);
+            background: radial-gradient(circle, #ffffff 0%, #34d399 38%, #fbbf24 70%, transparent 100%);
+            box-shadow:
+                0 0 14px #ffffff,
+                0 0 24px #34d399,
+                -11px -9px 6px #facc15,
+                11px -9px 6px #34d399,
+                -13px 2px 6px #fb7185,
+                13px 2px 6px #4ade80,
+                -8px 10px 6px #38bdf8,
+                8px 10px 6px #facc15,
+                0 -13px 6px #ffffff,
+                0 12px 6px #fb7185;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 4;
+            animation: thashLightScatter 2.1s ease-out infinite;
+        }
 
-    .recent-title {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 13px;
-      font-weight: 950;
-      letter-spacing: 0.6px;
-      color: #d8eeff;
-      margin-bottom: 7px;
-    }
+        .panel-big .firecracker-burst {
+            animation-delay: 1.05s;
+        }
 
-    .recent-grid {
-      display: grid;
-      grid-template-columns: repeat(10, 1fr);
-      gap: 3px;
-      align-items: center;
-      justify-items: center;
-    }
+        @keyframes thashLightScatter {
+            0%, 64% { opacity: 0; transform: translate(-50%, -50%) scale(0.15); }
+            68%       { opacity: 1; transform: translate(-50%, -50%) scale(1.25); }
+            82%       { opacity: 0.9; transform: translate(-50%, -50%) scale(1.85); }
+            100%      { opacity: 0; transform: translate(-50%, -50%) scale(2.35); }
+        }
 
-    .r-ball {
-      width: 32px;
-      height: 32px;
-      font-size: 13px;
-    }
+        .firecracker-sparks {
+            position: absolute;
+            left: 50%;
+            top: 13px;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0.1);
+            box-shadow:
+                -16px -4px 4px #facc15,
+                16px -4px 4px #34d399,
+                -6px -14px 4px #fb7185,
+                6px -14px 4px #4ade80,
+                -12px 7px 4px #38bdf8,
+                12px 7px 4px #facc15,
+                -4px 14px 4px #fb7185,
+                4px 14px 4px #4ade80;
+            opacity: 0;
+            pointer-events: none;
+            z-index: 4;
+            animation: sparkOuterSpray 2.1s ease-out infinite;
+        }
 
-    @media (max-width: 400px) {
-      .brand-name-text { font-size: 46px; }
-      .wingo-text { font-size: 27px; }
-      .round-meta .no-val { font-size: 9.6px; }
-      .r-ball { width: 27px; height: 27px; font-size: 11px; }
-    }
-  </style>
+        .panel-big .firecracker-sparks {
+            animation-delay: 1.05s;
+        }
+
+        @keyframes sparkOuterSpray {
+            0%, 65% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
+            71%       { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
+            88%       { opacity: 0.65; transform: translate(-50%, -50%) scale(1.75); }
+            100%      { opacity: 0; transform: translate(-50%, -50%) scale(2.15); }
+        }
+
+        .panel-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            line-height: 1.1;
+            transform: perspective(180px) rotateX(10deg);
+            color: #ffffff;
+            text-shadow:
+                0 1px 0 #06131a,
+                0 2px 4px rgba(0, 0, 0, 0.95),
+                0 0 8px rgba(250, 204, 21, 0.6);
+        }
+
+        .panel-range {
+            font-size: 6.8px;
+            color: #e2e8f0;
+            opacity: 0.92;
+            margin-top: 1.5px;
+        }
+
+        .panel-tag {
+            margin-top: 4px;
+            font-size: 5.8px;
+            padding: 2px 2px;
+            border-radius: 4.5px;
+            background: rgba(15, 23, 42, 0.92);
+            color: #94a3b8;
+            border: 1px solid rgba(148, 163, 184, 0.15);
+        }
+
+        .panel-tag.active-tag {
+            background: linear-gradient(135deg, #fde047 0%, #22c55e 100%);
+            color: #052e16;
+            border-color: #ffffff;
+            text-shadow: none;
+            box-shadow: 0 0 10px rgba(250, 204, 21, 0.65);
+        }
+
+        .center-panel {
+            clip-path: polygon(10px 0%, calc(100% - 10px) 0%, 100% 10px, 100% 100%, 0% 100%, 0% 10px);
+            background:
+                radial-gradient(circle at 50% 42%, rgba(52, 211, 153, 0.14) 0%, transparent 68%),
+                linear-gradient(180deg, rgba(11, 26, 54, 0.98) 0%, rgba(4, 9, 18, 0.99) 100%);
+            border: 1.5px solid #29d8ff;
+            border-radius: 12px;
+            padding: 5px 3.5px 4px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .period-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2.5px;
+            background: rgba(15, 23, 42, 0.94);
+            padding: 1.5px 4px;
+            border-radius: 4.5px;
+            width: 100%;
+            border: 1px solid rgba(52, 211, 153, 0.25);
+        }
+
+        .period-display {
+            font-size: 6px;
+            color: #f8fafc;
+            cursor: pointer;
+            text-decoration: underline;
+            text-decoration-style: dotted;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .live-dot {
+            width: 4.5px;
+            height: 4.5px;
+            background-color: #34d399;
+            border-radius: 50%;
+            box-shadow: 0 0 6px #34d399, 0 0 10px #4ade80;
+            flex-shrink: 0;
+            animation: liveBlink 1.2s ease-in-out infinite;
+        }
+
+        @keyframes liveBlink {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.45; transform: scale(0.82); }
+        }
+
+        /* সেন্টার বল + ছোট্ট ছোট্ট সাদা গুটি/টিক HUD রিং + খোদাই করা ৩ডি সাদা শেড */
+        .football-orb-wrap {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1.5px 0;
+        }
+
+        .hud-ticks-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            background:
+                repeating-conic-gradient(
+                    from 0deg,
+                    rgba(255, 255, 255, 0.95) 0deg 2.2deg,
+                    transparent 2.2deg 12deg
+                );
+            filter: drop-shadow(0 0 5px rgba(56, 255, 184, 0.75));
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4.5px), #000 calc(100% - 3.6px), #000 calc(100% - 1.2px), transparent calc(100% - 0.6px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 4.5px), #000 calc(100% - 3.6px), #000 calc(100% - 1.2px), transparent calc(100% - 0.6px));
+            pointer-events: none;
+        }
+
+        .hud-outer-arc {
+            position: absolute;
+            inset: 2.5px;
+            border-radius: 50%;
+            border: 1.5px dashed rgba(56, 255, 184, 0.75);
+            box-shadow: 0 0 10px rgba(25, 240, 150, 0.45), inset 0 0 8px rgba(25, 240, 150, 0.25);
+            pointer-events: none;
+        }
+
+        .glow-orb {
+            position: relative;
+            font-family: 'Chakra Petch', sans-serif;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            font-weight: 900;
+            border: 1.2px solid rgba(255, 255, 255, 0.75);
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        /* উপরের গ্লসি হাইলাইট */
+        .glow-orb::after {
+            content: "";
+            position: absolute;
+            top: 5%;
+            left: 14%;
+            width: 72%;
+            height: 36%;
+            border-radius: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        /* খোদাই করা ৩ডি অফ-হোয়াইট শেডিং কোর */
+        .glow-orb::before {
+            content: "";
+            position: absolute;
+            width: 64%;
+            height: 64%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 42% 36%, #ffffff 0%, #edf2f7 56%, #c2cedb 100%);
+            box-shadow:
+                inset 0 2px 3.5px rgba(0, 0, 0, 0.38),
+                inset 0 -1.5px 2.5px rgba(255, 255, 255, 0.92),
+                0 0 0 1px rgba(255, 255, 255, 0.45);
+            z-index: 1;
+        }
+
+        .glow-orb span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+
+        .orb-green {
+            background: radial-gradient(circle at 30% 22%, #86efac 0%, #22c55e 45%, #15803d 78%, #052e16 100%);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.85), 0 0 14px rgba(34, 197, 94, 0.85);
+        }
+        .orb-green span { color: #117a3d; }
+
+        .orb-red {
+            background: radial-gradient(circle at 30% 22%, #fca5a5 0%, #ef4444 45%, #b91c1c 78%, #450a0a 100%);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.85), 0 0 14px rgba(239, 68, 68, 0.88);
+        }
+        .orb-red span { color: #b81d1d; }
+
+        .orb-violet {
+            background: radial-gradient(circle at 30% 22%, #e9d5ff 0%, #a855f7 45%, #7e22ce 78%, #2e1065 100%);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.85), 0 0 14px rgba(168, 85, 247, 0.88);
+        }
+        .orb-violet span { color: #5b189c; }
+
+        .timer-pill {
+            font-size: 6px;
+            color: #fde047;
+            background: linear-gradient(90deg, rgba(16, 185, 129, 0.22), rgba(245, 158, 11, 0.22));
+            border: 1px solid #e6b843;
+            padding: 1.5px 5px;
+            border-radius: 999px;
+            margin-top: 1px;
+            white-space: nowrap;
+        }
+
+        .winloss-bar {
+            margin-top: 5px;
+            display: grid;
+            grid-template-columns: 1fr 1.1fr 1fr;
+            gap: 3px;
+            align-items: center;
+        }
+
+        .wl-btn {
+            font-size: 6.2px;
+            padding: 3px 2px;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            cursor: pointer;
+            text-transform: uppercase;
+            text-shadow: none;
+        }
+
+        .btn-win {
+            background: linear-gradient(135deg, #34d399, #059669);
+            color: #022c22;
+        }
+
+        .btn-loss {
+            background: linear-gradient(135deg, #fb7185, #be123c);
+            color: #ffffff;
+        }
+
+        .wl-status {
+            font-size: 6px;
+            text-align: center;
+            padding: 2.5px 2px;
+            border-radius: 6px;
+            background: rgba(15, 23, 42, 0.92);
+            border: 1px solid rgba(52, 211, 153, 0.32);
+            color: #fde047;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .recent-box {
+            margin-top: 5px;
+            background: linear-gradient(180deg, #0f203d 0%, #081122 100%);
+            border: 1.5px solid #2b88c9;
+            border-radius: 11px;
+            padding: 4.5px;
+        }
+
+        .recent-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 6px;
+            color: #e2e8f0;
+            margin-bottom: 3.5px;
+        }
+
+        .conf-badge {
+            color: #34d399;
+        }
+
+        .wheel-strip {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 2px;
+            align-items: center;
+        }
+
+        /* নিচের রিসেন্ট বলগুলোতেও খোদাই করা ৩ডি সাদা শেডিং ও গ্লস */
+        .color-wheel {
+            position: relative;
+            font-family: 'Chakra Petch', sans-serif;
+            width: 17px;
+            height: 17px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 7px;
+            font-weight: 900;
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+            overflow: hidden;
+        }
+
+        .color-wheel::after {
+            content: "";
+            position: absolute;
+            top: 5%;
+            left: 14%;
+            width: 72%;
+            height: 36%;
+            border-radius: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.75) 0%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .color-wheel::before {
+            content: "";
+            position: absolute;
+            width: 64%;
+            height: 64%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 42% 36%, #ffffff 0%, #edf2f7 56%, #c2cedb 100%);
+            box-shadow:
+                inset 0 1.5px 2.5px rgba(0, 0, 0, 0.38),
+                inset 0 -1px 2px rgba(255, 255, 255, 0.92),
+                0 0 0 0.8px rgba(255, 255, 255, 0.45);
+            z-index: 1;
+        }
+
+        .color-wheel span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+
+        .w-green { background: radial-gradient(circle at 32% 28%, #86efac, #16a34a 65%, #052e16 100%); }
+        .w-green span { color: #117a3d; }
+
+        .w-red { background: radial-gradient(circle at 32% 28%, #fca5a5, #dc2626 65%, #450a0a 100%); }
+        .w-red span { color: #b81d1d; }
+
+        .w-violet-green { background: radial-gradient(circle at 32% 28%, #e9d5ff, #8726de 65%, #3a086e 100%); }
+        .w-violet-green span { color: #5b189c; }
+
+        .w-violet-red { background: radial-gradient(circle at 32% 28%, #e9d5ff, #8726de 65%, #3a086e 100%); }
+        .w-violet-red span { color: #5b189c; }
+
+        .bottom-action-bar {
+            margin-top: 5px;
+            width: 100%;
+        }
+
+        .telegram-join-btn {
+            width: 100%;
+            background: linear-gradient(135deg, #f59e0b 0%, #fbbf24 55%, #d97706 100%);
+            color: #1c1917;
+            border: 1px solid #fef08a;
+            border-radius: 9px;
+            padding: 5px 7px;
+            font-size: 7px;
+            text-decoration: none;
+            letter-spacing: 0.45px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            text-transform: uppercase;
+            text-shadow: none;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.42);
+        }
+
+        #copy-toast {
+            position: fixed;
+            bottom: 14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #34d399, #059669);
+            color: #022c22;
+            font-size: 9px;
+            font-weight: 800;
+            padding: 3.5px 9px;
+            border-radius: 6px;
+            display: none;
+            z-index: 10002;
+        }
+    </style>
 </head>
 <body>
 
-  <div class="popup-card" id="wingoPopup">
-    <div class="cutout-ball ball-red top-ball t-ball-4"><span>4</span></div>
-    <div class="cutout-ball ball-green top-ball t-ball-3"><span>3</span></div>
-    <div class="cutout-ball ball-green top-ball t-ball-9"><span>9</span></div>
-    <div class="cutout-ball ball-red top-ball t-ball-8"><span>8</span></div>
+    <iframe id="game-iframe" src="https://hgnice0.com/#/register?invitationCode=376851951983" loading="lazy"></iframe>
 
-    <div class="top-bar">
-      <div class="play-smarter-wrap">
-        <div class="play-smarter-top">PLAY <span class="up-trend">↗</span></div>
-        <div class="play-smarter-bottom">SMARTER</div>
-      </div>
-
-      <button class="hide-btn" onclick="document.getElementById('wingoPopup').style.opacity = document.getElementById('wingoPopup').style.opacity === '0.25' ? '1' : '0.25'">
-        <span class="hide-icon"></span>
-        HIDE
-      </button>
-    </div>
-
-    <div class="brand-header">
-      <svg class="main-crown" viewBox="0 0 64 38">
-        <path d="M4 32 L10 10 L23 22 L32 5 L41 22 L54 10 L60 32 Z" fill="url(#goldGrad)" stroke="#6b2b00" stroke-width="2.5" stroke-linejoin="round"/>
-        <rect x="6" y="32" width="52" height="5" rx="2" fill="#ffb703" stroke="#6b2b00" stroke-width="1.5"/>
-        <defs>
-          <linearGradient id="goldGrad" x1="0" y1="0" x2="0" y2="1">
-            <stop offset="0%" stop-color="#fff078"/>
-            <stop offset="60%" stop-color="#ffaa00"/>
-            <stop offset="100%" stop-color="#e05a00"/>
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <div class="brand-name-container">
-        <svg class="wing-right" viewBox="0 0 100 60">
-          <path d="M5 14 Q52 10 92 18 Q58 24 8 22 Z" fill="#29dcff"/>
-          <path d="M6 25 Q56 23 96 32 Q58 36 8 33 Z" fill="#1cb8f5"/>
-          <path d="M8 36 Q52 37 84 46 Q48 47 10 43 Z" fill="#46ebff"/>
-        </svg>
-        <svg class="wing-left" viewBox="0 0 100 60">
-          <path d="M5 14 Q52 10 92 18 Q58 24 8 22 Z" fill="#29dcff"/>
-          <path d="M6 25 Q56 23 96 32 Q58 36 8 33 Z" fill="#1cb8f5"/>
-          <path d="M8 36 Q52 37 84 46 Q48 47 10 43 Z" fill="#46ebff"/>
-        </svg>
-        <div class="brand-name-text">JOY</div>
-      </div>
-
-      <div class="wingo-text">WINGO</div>
-
-      <div class="predictor-badge-wrap">
-        <div class="predictor-badge-text">30 SEC PREDICTOR V2</div>
-      </div>
-    </div>
-
-    <div class="columns-row">
-      <div class="chamfer-border border-small">
-        <div class="chamfer-inner small-inner">
-          <div>
-            <svg class="mini-crown-svg" viewBox="0 0 40 24">
-              <path d="M3 20 L7 6 L15 14 L20 3 L25 14 L33 6 L37 20 Z" fill="#7ceeff" stroke="#083d5e" stroke-width="1.5"/>
+    <!-- ফ্লোটিং আইকন + বড় গর্জিয়াস ঈগল ডানা -->
+    <div id="floating-icon-btn">
+        <div class="wing-pair">
+            <svg class="wing-3d wing-left" width="54" height="58" viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="eagleIconL" x1="104" y1="18" x2="8" y2="104" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#fffbeb"/>
+                        <stop offset="35%" stop-color="#facc15"/>
+                        <stop offset="72%" stop-color="#34d399"/>
+                        <stop offset="100%" stop-color="#064e3b"/>
+                    </linearGradient>
+                </defs>
+                <path d="M104 46C76 16 42 8 8 14C20 26 28 38 30 50C16 53 7 61 4 72C19 70 33 65 44 56C37 71 35 86 38 100C52 89 65 76 74 62C69 78 68 94 71 110C85 92 97 70 104 46Z" fill="url(#eagleIconL)" stroke="#fef08a" stroke-width="2.2"/>
+                <path d="M96 48C70 26 42 20 16 23" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M90 62C64 48 38 46 16 54" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
-            <h2>SMALL</h2>
-            <div class="num-range">0 - 4</div>
-          </div>
-          <div class="status-predicted">
-            <span class="tick">✓</span>
-            <span>PREDICTED</span>
-          </div>
+            <svg class="wing-3d wing-right" width="54" height="58" viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="eagleIconR" x1="6" y1="18" x2="102" y2="104" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#fffbeb"/>
+                        <stop offset="35%" stop-color="#facc15"/>
+                        <stop offset="72%" stop-color="#34d399"/>
+                        <stop offset="100%" stop-color="#064e3b"/>
+                    </linearGradient>
+                </defs>
+                <path d="M6 46C34 16 68 8 102 14C90 26 82 38 80 50C94 53 103 61 106 72C91 70 77 65 66 56C73 71 75 86 72 100C58 89 45 76 36 62C41 78 42 94 39 110C25 92 13 70 6 46Z" fill="url(#eagleIconR)" stroke="#fef08a" stroke-width="2.2"/>
+                <path d="M14 48C40 26 68 20 94 23" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                <path d="M20 62C46 48 72 46 94 54" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
         </div>
-      </div>
+        <div class="icon-circle-clip">
+            <img src="https://cdn.imageurlgenerator.com/uploads/5082a2d5-1833-47fe-9594-4df69e1e307c.png" alt="Owner Of Joy Icon" />
+        </div>
+    </div>
 
-      <div class="chamfer-border border-center">
-        <div class="chamfer-inner center-inner">
-          <div class="round-meta">
-            <div class="no-lbl">NO:</div>
-            <div class="no-val">20261102100052214</div>
-          </div>
+    <!-- পাসওয়ার্ড পপআপ -->
+    <div id="auth-overlay">
+        <div class="auth-title text-3d">🔐 𓆩♛𓆪 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐉𝐎𝐘 👑</div>
+        <input type="password" id="pass-input" class="auth-input" placeholder="Enter Password" />
+        <label class="remember-row">
+            <input type="checkbox" id="remember-pass" /> Remember Password
+        </label>
+        <button type="button" class="auth-btn text-3d" onclick="checkPassword()">Submit</button>
+        <div id="error-msg">Wrong Password!</div>
+    </div>
 
-          <div class="orb-stage">
-            <!-- SVG Ring with Tiny White Ticks/Dots -->
-            <svg class="orb-hud-svg" viewBox="0 0 120 120">
-              <circle cx="60" cy="60" r="52" fill="none" stroke="rgba(45, 255, 180, 0.35)" stroke-width="1.5"/>
-              <circle cx="60" cy="60" r="47" fill="none" stroke="#ffffff" stroke-width="2.2" stroke-dasharray="1.5 6.5" stroke-linecap="round" opacity="0.92"/>
-              <path d="M 60 18 A 42 42 0 1 1 24 81" fill="none" stroke="#38ffb8" stroke-width="3.5" stroke-linecap="round"/>
+    <!-- হ্যাক পপআপ + বড় গর্জিয়াস ঈগলের ডানা -->
+    <div class="overlay-box" id="main-content">
+        <div class="wing-pair">
+            <svg class="wing-3d wing-left" width="68" height="142" viewBox="0 0 115 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="eaglePopL" x1="110" y1="22" x2="8" y2="168" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#fffbeb"/>
+                        <stop offset="32%" stop-color="#facc15"/>
+                        <stop offset="68%" stop-color="#34d399"/>
+                        <stop offset="100%" stop-color="#064e3b"/>
+                    </linearGradient>
+                </defs>
+                <path d="M110 68C78 24 40 10 6 16C20 34 29 52 32 70C15 74 6 86 3 102C20 98 37 91 51 79C42 100 40 121 44 142C60 126 75 109 86 91C79 115 78 139 82 164C96 136 105 104 110 68Z" fill="url(#eaglePopL)" stroke="#fef08a" stroke-width="2.4"/>
+                <path d="M100 72C72 42 40 32 14 34" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M94 92C66 72 38 69 14 78" stroke="#fde047" stroke-width="2" stroke-linecap="round"/>
+                <path d="M88 114C62 102 38 102 18 112" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
             </svg>
-            <div class="cutout-ball ball-green center-orb-ball"><span>1</span></div>
-          </div>
+            <svg class="wing-3d wing-right" width="68" height="142" viewBox="0 0 115 190" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="eaglePopR" x1="5" y1="22" x2="107" y2="168" gradientUnits="userSpaceOnUse">
+                        <stop offset="0%" stop-color="#fffbeb"/>
+                        <stop offset="32%" stop-color="#facc15"/>
+                        <stop offset="68%" stop-color="#34d399"/>
+                        <stop offset="100%" stop-color="#064e3b"/>
+                    </linearGradient>
+                </defs>
+                <path d="M5 68C37 24 75 10 109 16C95 34 86 52 83 70C100 74 109 86 112 102C95 98 78 91 64 79C73 100 75 121 71 142C55 126 40 109 29 91C36 115 37 139 33 164C19 136 10 104 5 68Z" fill="url(#eaglePopR)" stroke="#fef08a" stroke-width="2.4"/>
+                <path d="M15 72C43 42 75 32 101 34" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+                <path d="M21 92C49 72 77 69 101 78" stroke="#fde047" stroke-width="2" stroke-linecap="round"/>
+                <path d="M27 114C53 102 77 102 97 112" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
+            </svg>
+        </div>
 
-          <div class="timer-box">
-            <div class="timer-title">NEXT IN</div>
-            <div class="timer-val">
-              <span style="font-size: 13px;">🕒</span>
-              <span>23s</span>
+        <div class="popup-header" id="main-content-header">
+            <div class="badge-left text-3d">3D<br />VIP</div>
+            <div class="brand-center">
+                <div class="brand-main text-3d">𓆩♛𓆪 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐉𝐎𝐘 👑</div>
+                <div class="brand-sub text-3d" id="mode-subtitle">30 SEC EAGLE WING</div>
             </div>
-          </div>
+            <div class="header-controls">
+                <button type="button" class="voice-toggle-btn text-3d" id="voice-toggle-btn" onclick="toggleVoice()" title="Bangla Female Voice ON/OFF">👩 ON</button>
+                <button type="button" class="hide-btn text-3d" onclick="hidePopup()">HIDE</button>
+            </div>
         </div>
-      </div>
 
-      <div class="chamfer-border border-big">
-        <div class="chamfer-inner big-inner">
-          <div>
-            <svg class="mini-crown-svg" viewBox="0 0 40 24">
-              <path d="M3 20 L7 6 L15 14 L20 3 L25 14 L33 6 L37 20 Z" fill="#ff75ba" stroke="#470527" stroke-width="1.5"/>
-            </svg>
-            <h2>BIG</h2>
-            <div class="num-range">5 - 9</div>
-          </div>
-          <div class="status-not-predicted">
-            <span class="cross">✕</span>
-            <span>NOT<br>PREDICTED</span>
-          </div>
+        <div class="market-tabs">
+            <button type="button" class="market-btn text-3d active" data-market="30S">30S</button>
+            <button type="button" class="market-btn text-3d" data-market="1M">1M</button>
+            <button type="button" class="market-btn text-3d" data-market="3M">3M</button>
+            <button type="button" class="market-btn text-3d" data-market="5M">5M</button>
         </div>
-      </div>
+
+        <div class="ai-call-banner" id="ai-call-banner">👩 সবাই এখানে একটা বিগ ট্রেড করো!</div>
+
+        <div class="pred-grid">
+            <div class="side-panel panel-small" id="small-panel">
+                <span class="firecracker-rocket"></span>
+                <span class="firecracker-burst"></span>
+                <span class="firecracker-sparks"></span>
+                <div>
+                    <div class="panel-title">SMALL</div>
+                    <div class="panel-range text-3d">0 - 4</div>
+                </div>
+                <div class="panel-tag text-3d" id="small-tag">STANDBY</div>
+            </div>
+
+            <div class="center-panel">
+                <div class="period-row">
+                    <div class="period-display text-3d" id="period-num" onclick="copyPeriodNumber()" title="Click to Copy Period">Loading...</div>
+                    <div class="live-dot"></div>
+                </div>
+
+                <div class="football-orb-wrap">
+                    <div class="hud-outer-arc"></div>
+                    <div class="hud-ticks-ring"></div>
+                    <div class="glow-orb orb-green" id="main-orb"><span id="main-orb-text">-</span></div>
+                </div>
+
+                <div class="timer-pill text-3d" id="timer-display">NEXT IN 30s</div>
+            </div>
+
+            <div class="side-panel panel-big" id="big-panel">
+                <span class="firecracker-rocket"></span>
+                <span class="firecracker-burst"></span>
+                <span class="firecracker-sparks"></span>
+                <div>
+                    <div class="panel-title">BIG</div>
+                    <div class="panel-range text-3d">5 - 9</div>
+                </div>
+                <div class="panel-tag text-3d" id="big-tag">STANDBY</div>
+            </div>
+        </div>
+
+        <div class="winloss-bar">
+            <button type="button" class="wl-btn btn-win text-3d" onclick="triggerWinResult()">🏆 WIN</button>
+            <div class="wl-status text-3d" id="wl-status">W: 0 | L: 0</div>
+            <button type="button" class="wl-btn btn-loss text-3d" onclick="triggerLossResult()">❌ LOSS</button>
+        </div>
+
+        <div class="recent-box">
+            <div class="recent-head text-3d">
+                <span id="color-label">GREEN</span>
+                <span class="conf-badge" id="conf-label">CONF 88%</span>
+            </div>
+            <div class="wheel-strip" id="recent-wheels"></div>
+        </div>
+
+        <div class="bottom-action-bar">
+            <a href="https://t.me/trader_joy22369" target="_blank" rel="noopener noreferrer" class="telegram-join-btn text-3d">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.83-2.529 6.996-3.014 3.333-1.386 4.025-1.627 4.479-1.635.099-.002.321.023.465.14.12.098.153.228.166.32.013.092.028.301.012.463z" fill="#1c1917"/>
+                </svg>
+                JOIN TELEGRAM
+            </a>
+        </div>
     </div>
 
-    <div class="recent-panel">
-      <div class="recent-title">
-        <span style="color: #4be3ff;">📈</span>
-        <span>RECENT RESULTS</span>
-      </div>
-      <div class="recent-grid">
-        <div class="cutout-ball ball-purple r-ball"><span>5</span></div>
-        <div class="cutout-ball ball-red r-ball"><span>8</span></div>
-        <div class="cutout-ball ball-red r-ball"><span>4</span></div>
-        <div class="cutout-ball ball-green r-ball"><span>3</span></div>
-        <div class="cutout-ball ball-red r-ball"><span>2</span></div>
-        <div class="cutout-ball ball-green r-ball"><span>9</span></div>
-        <div class="cutout-ball ball-red r-ball"><span>6</span></div>
-        <div class="cutout-ball ball-purple r-ball"><span>0</span></div>
-        <div class="cutout-ball ball-red r-ball"><span>8</span></div>
-        <div class="cutout-ball ball-green r-ball"><span>7</span></div>
-      </div>
-    </div>
-  </div>
+    <div id="copy-toast">Copied!</div>
 
+    <script>
+        const MARKETS = {
+            "30S": { duration: 30,  offset: 50000, salt: 0x9E3779B9, label: "30 SEC EAGLE WING", bnName: "ত্রিশ সেকেন্ড" },
+            "1M":  { duration: 60,  offset: 20000, salt: 0x85EBCA6B, label: "1 MIN EAGLE WING",  bnName: "এক মিনিট" },
+            "3M":  { duration: 180, offset: 10000, salt: 0xC2B2AE35, label: "3 MIN EAGLE WING",  bnName: "তিন মিনিট" },
+            "5M":  { duration: 300, offset: 5000,  salt: 0x27D4EB2F, label: "5 MIN EAGLE WING",  bnName: "পাঁচ মিনিট" }
+        };
+
+        const BANGLA_DIGITS = ["শূন্য", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"];
+        const ACCESS_PASS = "Zahirul22369";
+
+        let currentMarket = "30S";
+        let isUnlocked = localStorage.getItem("joy_vip_hack_unlocked") === "true";
+        let voiceEnabled = localStorage.getItem("joy_female_voice_enabled") !== "false";
+        let cachedPeriod = "";
+        let lastEvaluatedPeriod = "";
+        let cachedPrediction = { type: "BIG", num: 7, confidence: 86, colorName: "GREEN" };
+        let previousPrediction = null;
+        let signalTimerStarted = false;
+        let winCount = 0;
+        let lossCount = 0;
+
+        updateVoiceButtonUI();
+
+        document.getElementById("pass-input").addEventListener("keydown", (e) => {
+            if (e.key === "Enter") checkPassword();
+        });
+
+        document.querySelectorAll(".market-btn").forEach((btn) => {
+            btn.addEventListener("click", () => {
+                document.querySelectorAll(".market-btn").forEach((b) => b.classList.remove("active"));
+                btn.classList.add("active");
+                currentMarket = btn.dataset.market;
+                document.getElementById("mode-subtitle").innerText = MARKETS[currentMarket].label;
+                cachedPeriod = "";
+                lastEvaluatedPeriod = "";
+                previousPrediction = null;
+                updateSignalLogic();
+                if (voiceEnabled) {
+                    speakFemaleBangla(`${MARKETS[currentMarket].bnName} মার্কেট চালু হয়েছে।`);
+                }
+            });
+        });
+
+        function updateVoiceButtonUI() {
+            const btn = document.getElementById("voice-toggle-btn");
+            if (!btn) return;
+            if (voiceEnabled) {
+                btn.textContent = "👩 ON";
+                btn.classList.remove("is-off");
+            } else {
+                btn.textContent = "🔇 OFF";
+                btn.classList.add("is-off");
+            }
+        }
+
+        function toggleVoice() {
+            voiceEnabled = !voiceEnabled;
+            localStorage.setItem("joy_female_voice_enabled", String(voiceEnabled));
+            updateVoiceButtonUI();
+
+            if (!voiceEnabled && "speechSynthesis" in window) {
+                window.speechSynthesis.cancel();
+            } else if (voiceEnabled) {
+                speakFemaleBangla("ফিমেল ভয়েস চালু করা হয়েছে।");
+            }
+        }
+
+        function pickFemaleBanglaVoice() {
+            if (!("speechSynthesis" in window)) return null;
+            const voices = window.speechSynthesis.getVoices() || [];
+            const maleKeywords = /\bmale\b|\bman\b|\bboy\b|rishi|prabhat|amit|arjun|david|mark|alex|daniel/i;
+            const femaleKeywords = /female|woman|girl|tanisha|bashkar|nabila|priya|lekha|aditi|raveena|sangeeta|kalpana|zira|samantha|victoria|google.*bn|microsoft.*tanisha/i;
+
+            const nonMaleVoices = voices.filter((v) => !maleKeywords.test(v.name));
+            const banglaFemale = nonMaleVoices.find((v) => (/bn/i.test(v.lang) || /bangla|bengali/i.test(v.name)) && femaleKeywords.test(v.name));
+            if (banglaFemale) return banglaFemale;
+
+            const banglaNonMale = nonMaleVoices.find((v) => /bn/i.test(v.lang) || /bangla|bengali/i.test(v.name));
+            if (banglaNonMale) return banglaNonMale;
+
+            const anyFemale = nonMaleVoices.find((v) => femaleKeywords.test(v.name));
+            return anyFemale || nonMaleVoices[0] || null;
+        }
+
+        function speakFemaleBangla(text, onDone) {
+            if (!voiceEnabled || !("speechSynthesis" in window) || !text) {
+                if (typeof onDone === "function") onDone();
+                return;
+            }
+            try {
+                window.speechSynthesis.cancel();
+                const utter = new SpeechSynthesisUtterance(text);
+                const chosenVoice = pickFemaleBanglaVoice();
+                if (chosenVoice) {
+                    utter.voice = chosenVoice;
+                }
+                utter.lang = "bn-BD";
+                utter.pitch = 1.32;
+                utter.rate = 1.03;
+                utter.volume = 1;
+                if (typeof onDone === "function") {
+                    utter.onend = onDone;
+                    utter.onerror = onDone;
+                }
+                window.speechSynthesis.speak(utter);
+            } catch (_) {
+                if (typeof onDone === "function") onDone();
+            }
+        }
+
+        function getTradeCallSentence(pred) {
+            if (pred.type === "BIG") {
+                return "সবাই এখানে একটা বিগ ট্রেড করো!";
+            }
+            return "সবাই এখানে একটা স্মল ট্রেড করো!";
+        }
+
+        function triggerWinResult() {
+            winCount++;
+            document.getElementById("wl-status").textContent = `W: ${winCount} | L: ${lossCount}`;
+            document.getElementById("ai-call-banner").textContent = "👩 অভিনন্দন! এই ট্রেড উইন হয়েছে!";
+            speakFemaleBangla("অভিনন্দন! এই ট্রেড উইন হয়েছে!");
+        }
+
+        function triggerLossResult() {
+            lossCount++;
+            document.getElementById("wl-status").textContent = `W: ${winCount} | L: ${lossCount}`;
+            document.getElementById("ai-call-banner").textContent = "👩 দুঃখিত, এই ট্রেড লস হয়েছে!";
+            speakFemaleBangla("দুঃখিত, এই ট্রেড লস হয়েছে!");
+        }
+
+        function checkPreviousTradeOutcome(slotNum, cfg, dateSeed, prevPred) {
+            const outcomeHash = mixHash((dateSeed ^ Math.imul(slotNum, cfg.salt) ^ 0x517CC1B7) >>> 0);
+            const actualIsBig = (outcomeHash % 100) >= 50;
+            const predictedIsBig = prevPred.type === "BIG";
+            return predictedIsBig === actualIsBig;
+        }
+
+        function announcePeriodUpdateBangla(pred, prevOutcomeText) {
+            const callText = getTradeCallSentence(pred);
+            const numBn = BANGLA_DIGITS[pred.num] ?? pred.num;
+            document.getElementById("ai-call-banner").textContent = `👩 ${callText}`;
+
+            if (!voiceEnabled) return;
+
+            if (prevOutcomeText) {
+                speakFemaleBangla(prevOutcomeText, () => {
+                    setTimeout(() => {
+                        speakFemaleBangla(`${callText} নম্বর ${numBn}।`);
+                    }, 350);
+                });
+            } else {
+                speakFemaleBangla(`${callText} নম্বর ${numBn}।`);
+            }
+        }
+
+        function handleIconClick() {
+            if (isUnlocked) {
+                document.getElementById('main-content').style.display = 'block';
+                document.getElementById('floating-icon-btn').style.display = 'none';
+                startPeriodGenerator();
+                if (voiceEnabled) {
+                    speakFemaleBangla("ওনার অফ জয় ঈগল উইং প্যানেল ওপেন হয়েছে।");
+                }
+            } else {
+                document.getElementById('error-msg').style.display = 'none';
+                document.getElementById('auth-overlay').style.display = 'block';
+            }
+        }
+
+        function checkPassword() {
+            const pass = document.getElementById('pass-input').value.trim();
+            const rememberMe = document.getElementById('remember-pass').checked;
+
+            if (pass === ACCESS_PASS) {
+                isUnlocked = true;
+                if (rememberMe) {
+                    localStorage.setItem("joy_vip_hack_unlocked", "true");
+                }
+                document.getElementById('error-msg').style.display = 'none';
+                document.getElementById('auth-overlay').style.display = 'none';
+                document.getElementById('main-content').style.display = 'block';
+                document.getElementById('floating-icon-btn').style.display = 'none';
+                startPeriodGenerator();
+                if (voiceEnabled) {
+                    speakFemaleBangla("স্বাগতম! প্যানেল আনলক হয়েছে।");
+                }
+            } else {
+                document.getElementById('error-msg').style.display = 'block';
+                document.getElementById('pass-input').value = "";
+            }
+        }
+
+        function hidePopup() {
+            document.getElementById('main-content').style.display = 'none';
+            document.getElementById('floating-icon-btn').style.display = 'flex';
+            if (voiceEnabled) {
+                speakFemaleBangla("প্যানেল হাইড করা হলো।");
+            }
+        }
+
+        function startPeriodGenerator() {
+            updateSignalLogic();
+            if (!signalTimerStarted) {
+                signalTimerStarted = true;
+                setInterval(updateSignalLogic, 1000);
+            }
+        }
+
+        function copyPeriodNumber() {
+            const periodText = document.getElementById('period-num').innerText.trim();
+            if (periodText && periodText !== "Loading...") {
+                navigator.clipboard.writeText(periodText).then(() => {
+                    const toast = document.getElementById('copy-toast');
+                    toast.style.display = 'block';
+                    setTimeout(() => {
+                        toast.style.display = 'none';
+                    }, 1200);
+                    if (voiceEnabled) {
+                        speakFemaleBangla("পিরিয়ড নম্বর কপি হয়েছে।");
+                    }
+                }).catch(() => {});
+            }
+        }
+
+        function getSyncedMarketClock(marketKey, cfg, now) {
+            const secInDay = now.getUTCHours() * 3600 + now.getUTCMinutes() * 60 + now.getUTCSeconds();
+            const slot = Math.floor(secInDay / cfg.duration);
+            const rem = secInDay % cfg.duration;
+            const timeLeft = cfg.duration - rem;
+            const elapsed = rem;
+            const periodIndexToday = slot + 1;
+            return { elapsed, timeLeft, periodIndexToday };
+        }
+
+        function mixHash(seed) {
+            let x = seed >>> 0;
+            x ^= x >>> 16;
+            x = Math.imul(x, 0x7feb352d) >>> 0;
+            x ^= x >>> 15;
+            x = Math.imul(x, 0x846ca68b) >>> 0;
+            x ^= x >>> 16;
+            return x >>> 0;
+        }
+
+        function getColorMeta(num) {
+            if (num === 0) {
+                return { orbClass: "orb-violet", wheelClass: "w-violet-red", colorName: "VIOLET+RED" };
+            }
+            if (num === 5) {
+                return { orbClass: "orb-violet", wheelClass: "w-violet-green", colorName: "VIOLET+GRN" };
+            }
+            if ([1, 3, 7, 9].includes(num)) {
+                return { orbClass: "orb-green", wheelClass: "w-green", colorName: "GREEN" };
+            }
+            return { orbClass: "orb-red", wheelClass: "w-red", colorName: "RED" };
+        }
+
+        function evaluateSlot(slotNum, cfg, dateSeed) {
+            const baseSeed = (dateSeed ^ Math.imul(slotNum, cfg.salt)) >>> 0;
+            const h1 = mixHash(baseSeed);
+            const h2 = mixHash(h1 ^ (slotNum * 2654435761));
+
+            let prevStreakType = null;
+            let streakCount = 0;
+            let bigCount = 0;
+
+            for (let lookback = 1; lookback <= 5; lookback++) {
+                const prevIdx = Math.max(1, slotNum - lookback);
+                const pHash = mixHash((dateSeed ^ Math.imul(prevIdx, cfg.salt)) >>> 0);
+                const pIsBig = (pHash % 100) >= 49;
+                if (pIsBig) bigCount++;
+
+                if (lookback === 1) {
+                    prevStreakType = pIsBig ? "BIG" : "SMALL";
+                    streakCount = 1;
+                } else if (((pIsBig ? "BIG" : "SMALL") === prevStreakType) && streakCount === lookback - 1) {
+                    streakCount++;
+                }
+            }
+
+            let bigScore = h1 % 100;
+
+            if (prevStreakType === "BIG" && streakCount >= 3) {
+                bigScore -= 18;
+            } else if (prevStreakType === "SMALL" && streakCount >= 3) {
+                bigScore += 18;
+            }
+
+            if (bigCount >= 4) bigScore -= 10;
+            if (bigCount <= 1) bigScore += 10;
+
+            const type = bigScore >= 50 ? "BIG" : "SMALL";
+
+            const poolSmall = [0, 1, 2, 3, 4];
+            const poolBig = [5, 6, 7, 8, 9];
+            const pool = type === "BIG" ? poolBig : poolSmall;
+
+            let pickIdx = h2 % pool.length;
+            let num = pool[pickIdx];
+
+            if (slotNum > 1) {
+                const prevNum = evaluateSlotRawNum(slotNum - 1, cfg, dateSeed);
+                if (num === prevNum) {
+                    num = pool[(pickIdx + 1) % pool.length];
+                }
+            }
+
+            const delta = Math.abs(bigScore - 50);
+            const confidence = Math.min(94, Math.max(76, 78 + Math.floor(delta * 0.65) + (h2 % 6)));
+            const meta = getColorMeta(num);
+
+            return { type, num, confidence, ...meta };
+        }
+
+        function evaluateSlotRawNum(slotNum, cfg, dateSeed) {
+            const baseSeed = (dateSeed ^ Math.imul(slotNum, cfg.salt)) >>> 0;
+            const h1 = mixHash(baseSeed);
+            const h2 = mixHash(h1 ^ (slotNum * 2654435761));
+            const type = (h1 % 100) >= 50 ? "BIG" : "SMALL";
+            const pool = type === "BIG" ? [5, 6, 7, 8, 9] : [0, 1, 2, 3, 4];
+            return pool[h2 % pool.length];
+        }
+
+        function renderRecentWheels(cfg, periodIndexToday, dateSeed) {
+            const container = document.getElementById('recent-wheels');
+            container.innerHTML = "";
+            for (let i = 9; i >= 0; i--) {
+                const idx = Math.max(1, periodIndexToday - i);
+                const sig = evaluateSlot(idx, cfg, dateSeed);
+
+                const el = document.createElement('div');
+                el.className = `color-wheel ${sig.wheelClass}`;
+                el.innerHTML = `<span>${sig.num}</span>`;
+                container.appendChild(el);
+            }
+        }
+
+        function updateSignalLogic() {
+            if (!isUnlocked) return;
+
+            const cfg = MARKETS[currentMarket] || MARKETS["30S"];
+            const now = new Date();
+            const { elapsed, timeLeft, periodIndexToday } = getSyncedMarketClock(currentMarket, cfg, now);
+
+            const dateStr = `${now.getUTCFullYear()}${String(now.getUTCMonth() + 1).padStart(2, '0')}${String(now.getUTCDate()).padStart(2, '0')}`;
+            const dateSeed = parseInt(dateStr, 10) || 20261121;
+            const formattedIndex = String(cfg.offset + periodIndexToday).padStart(5, '0');
+            const fullPeriod = `${dateStr}1000${formattedIndex}`;
+
+            document.getElementById('period-num').innerText = fullPeriod;
+            document.getElementById('timer-display').innerText = `NEXT IN ${String(timeLeft).padStart(2, '0')}s`;
+
+            let periodJustChanged = false;
+            let outcomeSentence = "";
+
+            if (fullPeriod !== cachedPeriod) {
+                if (cachedPeriod && previousPrediction && periodIndexToday > 1) {
+                    const isWin = checkPreviousTradeOutcome(periodIndexToday - 1, cfg, dateSeed, previousPrediction);
+                    if (isWin) {
+                        winCount++;
+                        outcomeSentence = "অভিনন্দন! আগের ট্রেড উইন হয়েছে!";
+                    } else {
+                        lossCount++;
+                        outcomeSentence = "দুঃখিত, আগের ট্রেড লস হয়েছে!";
+                    }
+                    document.getElementById("wl-status").textContent = `W: ${winCount} | L: ${lossCount}`;
+                }
+
+                cachedPeriod = fullPeriod;
+                cachedPrediction = evaluateSlot(periodIndexToday, cfg, dateSeed);
+                previousPrediction = { ...cachedPrediction };
+                periodJustChanged = true;
+            }
+
+            const orb = document.getElementById('main-orb');
+            const orbText = document.getElementById('main-orb-text');
+            const smallPanel = document.getElementById('small-panel');
+            const bigPanel = document.getElementById('big-panel');
+            const smallTag = document.getElementById('small-tag');
+            const bigTag = document.getElementById('big-tag');
+            const confLabel = document.getElementById('conf-label');
+
+            if (elapsed <= 2) {
+                orbText.innerText = "...";
+                orb.className = "glow-orb orb-violet";
+                document.getElementById('color-label').innerText = "SCANNING";
+                confLabel.innerText = "SYNC...";
+                document.getElementById("ai-call-banner").textContent = outcomeSentence
+                    ? `👩 ${outcomeSentence}`
+                    : "👩 সিগন্যাল স্ক্যান হচ্ছে, একটু অপেক্ষা করো...";
+                smallPanel.classList.remove('is-predicted');
+                bigPanel.classList.remove('is-predicted');
+                smallTag.innerText = "WAIT";
+                bigTag.innerText = "WAIT";
+                smallTag.className = "panel-tag text-3d";
+                bigTag.className = "panel-tag text-3d";
+            } else {
+                orbText.innerText = String(cachedPrediction.num);
+                orb.className = `glow-orb ${cachedPrediction.orbClass}`;
+                document.getElementById('color-label').innerText = cachedPrediction.colorName;
+                confLabel.innerText = `CONF ${cachedPrediction.confidence}%`;
+                document.getElementById("ai-call-banner").textContent = `👩 ${getTradeCallSentence(cachedPrediction)}`;
+
+                if (cachedPrediction.type === "BIG") {
+                    bigPanel.classList.add('is-predicted');
+                    smallPanel.classList.remove('is-predicted');
+                    bigTag.innerText = "PREDICTED";
+                    bigTag.className = "panel-tag text-3d active-tag";
+                    smallTag.innerText = "SKIP";
+                    smallTag.className = "panel-tag text-3d";
+                } else {
+                    smallPanel.classList.add('is-predicted');
+                    bigPanel.classList.remove('is-predicted');
+                    smallTag.innerText = "PREDICTED";
+                    smallTag.className = "panel-tag text-3d active-tag";
+                    bigTag.innerText = "SKIP";
+                    bigTag.className = "panel-tag text-3d";
+                }
+            }
+
+            if (periodJustChanged && lastEvaluatedPeriod !== fullPeriod) {
+                lastEvaluatedPeriod = fullPeriod;
+                announcePeriodUpdateBangla(cachedPrediction, outcomeSentence);
+            }
+
+            renderRecentWheels(cfg, periodIndexToday, dateSeed);
+        }
+
+        if ("speechSynthesis" in window) {
+            window.speechSynthesis.onvoiceschanged = () => {
+                pickFemaleBanglaVoice();
+            };
+        }
+
+        makeDraggable(document.getElementById("floating-icon-btn"), document.getElementById("floating-icon-btn"), handleIconClick);
+        makeDraggable(document.getElementById("main-content"), document.getElementById("main-content-header"), null);
+
+        function makeDraggable(targetEl, handleEl, onTap) {
+            let isDown = false;
+            let moved = false;
+            let startX = 0, startY = 0, origLeft = 0, origTop = 0;
+
+            function onStart(x, y) {
+                const rect = targetEl.getBoundingClientRect();
+                origLeft = rect.left;
+                origTop = rect.top;
+                startX = x;
+                startY = y;
+                isDown = true;
+                moved = false;
+                targetEl.style.left = `${origLeft}px`;
+                targetEl.style.top = `${origTop}px`;
+                targetEl.style.right = "auto";
+                targetEl.style.bottom = "auto";
+                targetEl.style.transform = "none";
+            }
+
+            function onMove(x, y) {
+                if (!isDown) return;
+                const dx = x - startX;
+                const dy = y - startY;
+                if (Math.hypot(dx, dy) > 6) moved = true;
+                const maxLeft = Math.max(4, window.innerWidth - targetEl.offsetWidth - 4);
+                const maxTop = Math.max(4, window.innerHeight - targetEl.offsetHeight - 4);
+                targetEl.style.left = `${Math.max(4, Math.min(maxLeft, origLeft + dx))}px`;
+                targetEl.style.top = `${Math.max(4, Math.min(maxTop, origTop + dy))}px`;
+            }
+
+            function onEnd() {
+                if (!isDown) return;
+                isDown = false;
+                if (!moved && typeof onTap === "function") onTap();
+            }
+
+            handleEl.addEventListener("touchstart", (e) => {
+                if (e.target.closest("button") || e.target.closest("a") || e.target.closest("input")) return;
+                if (e.touches.length === 1) onStart(e.touches[0].clientX, e.touches[0].clientY);
+            }, { passive: true });
+
+            handleEl.addEventListener("touchmove", (e) => {
+                if (!isDown || e.touches.length !== 1) return;
+                e.preventDefault();
+                onMove(e.touches[0].clientX, e.touches[0].clientY);
+            }, { passive: false });
+
+            handleEl.addEventListener("touchend", onEnd);
+            handleEl.addEventListener("touchcancel", onEnd);
+
+            handleEl.addEventListener("mousedown", (e) => {
+                if (e.button !== 0 || e.target.closest("button") || e.target.closest("a") || e.target.closest("input")) return;
+                onStart(e.clientX, e.clientY);
+
+                function mm(ev) { onMove(ev.clientX, ev.clientY); }
+                function mu() {
+                    document.removeEventListener("mousemove", mm);
+                    document.removeEventListener("mouseup", mu);
+                    onEnd();
+                }
+                document.addEventListener("mousemove", mm);
+                document.addEventListener("mouseup", mu);
+            });
+        }
+    </script>
 </body>
 </html>
