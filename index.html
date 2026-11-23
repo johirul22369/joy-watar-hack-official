@@ -257,7 +257,7 @@
             align-items: flex-end;
         }
 
-        /* রঙিন কিনারের চারদিকে চারটা সাদা ঢেউ ও মাঝখানে সাদা গোলক */
+        /* গোলাকার বল: মাঝখানে সাদা গোলক ও কিনারে ৪টি নরম গোলাকার সাদা ঢেউ */
         .deco-ball,
         .color-wheel,
         .glow-orb {
@@ -272,34 +272,27 @@
             overflow: hidden;
         }
 
-        /* চারদিকে চারটা হালকা সাদা ঢেউ (উপর, নিচ, বাম, ডান) */
+        /* রঙিন কিনারের ৪ দিকে গোলাকার ঢেউয়ের মতো নরম সাদা অংশ */
         .deco-ball::before,
         .color-wheel::before,
         .glow-orb::before {
             content: "";
             position: absolute;
-            inset: 0;
+            width: 118%;
+            height: 118%;
+            top: -9%;
+            left: -9%;
             border-radius: 50%;
             background:
-                conic-gradient(
-                    from -22deg,
-                    rgba(255, 255, 255, 0.72) 0deg 44deg,
-                    transparent 44deg 68deg,
-                    rgba(255, 255, 255, 0.72) 68deg 112deg,
-                    transparent 112deg 158deg,
-                    rgba(255, 255, 255, 0.72) 158deg 202deg,
-                    transparent 202deg 248deg,
-                    rgba(255, 255, 255, 0.72) 248deg 292deg,
-                    transparent 292deg 338deg,
-                    rgba(255, 255, 255, 0.72) 338deg 360deg
-                );
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 5px), rgba(0, 0, 0, 0.65) calc(100% - 3.5px), #000 100%);
-            mask: radial-gradient(farthest-side, transparent calc(100% - 5px), rgba(0, 0, 0, 0.65) calc(100% - 3.5px), #000 100%);
+                radial-gradient(circle at 50% 4%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 13%, transparent 21%),
+                radial-gradient(circle at 50% 96%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 13%, transparent 21%),
+                radial-gradient(circle at 4% 50%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 13%, transparent 21%),
+                radial-gradient(circle at 96% 50%, rgba(255, 255, 255, 0.65) 0%, rgba(255, 255, 255, 0.25) 13%, transparent 21%);
             pointer-events: none;
             z-index: 2;
         }
 
-        /* মাঝখানের সাদা অংশ */
+        /* মাঝখানের বড় সাদা গোলক */
         .deco-ball::after,
         .color-wheel::after,
         .glow-orb::after {
@@ -308,7 +301,7 @@
             width: 72%;
             height: 72%;
             border-radius: 50%;
-            background: radial-gradient(circle at 50% 45%, #ffffff 72%, rgba(255, 255, 255, 0.92) 90%, rgba(255, 255, 255, 0.45) 100%);
+            background: radial-gradient(circle at 50% 45%, #ffffff 74%, rgba(255, 255, 255, 0.92) 91%, rgba(255, 255, 255, 0.45) 100%);
             pointer-events: none;
             z-index: 3;
         }
