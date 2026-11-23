@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ASRAF WINGO - 30 SEC PREDICTOR V2</title>
+  <title>JOY WINGO - 30 SEC PREDICTOR V2</title>
   <style>
     * {
       box-sizing: border-box;
@@ -38,7 +38,6 @@
       user-select: none;
     }
 
-    /* Top Bar */
     .top-bar {
       display: flex;
       align-items: flex-start;
@@ -113,7 +112,6 @@
       display: inline-block;
     }
 
-    /* Brand Header */
     .brand-header {
       position: relative;
       text-align: center;
@@ -130,7 +128,7 @@
       filter: drop-shadow(0 0 8px rgba(255, 195, 20, 0.85));
     }
 
-    .asraf-container {
+    .brand-name-container {
       position: relative;
       display: inline-block;
     }
@@ -156,12 +154,12 @@
       right: -62px;
     }
 
-    .asraf-text {
+    .brand-name-text {
       position: relative;
       z-index: 1;
-      font-size: 50px;
+      font-size: 52px;
       font-weight: 950;
-      letter-spacing: 1px;
+      letter-spacing: 2px;
       line-height: 0.92;
       background: linear-gradient(180deg, #ffe866 0%, #ffa812 52%, #e65500 100%);
       -webkit-background-clip: text;
@@ -205,7 +203,6 @@
       color: #ffffff;
     }
 
-    /* Top Lottery Balls */
     .top-ball {
       position: absolute;
       border-radius: 50%;
@@ -242,39 +239,11 @@
       box-shadow: 0 0 16px rgba(34, 224, 118, 0.55), 0 5px 10px rgba(0, 0, 0, 0.6);
     }
 
-    .t-ball-4 {
-      width: 56px;
-      height: 56px;
-      top: 52px;
-      left: -6px;
-      font-size: 24px;
-    }
+    .t-ball-4 { width: 56px; height: 56px; top: 52px; left: -6px; font-size: 24px; }
+    .t-ball-3 { width: 36px; height: 36px; top: 94px; left: 44px; font-size: 16px; }
+    .t-ball-9 { width: 56px; height: 56px; top: 52px; right: -6px; font-size: 24px; }
+    .t-ball-8 { width: 34px; height: 34px; top: 96px; right: 48px; font-size: 15px; }
 
-    .t-ball-3 {
-      width: 36px;
-      height: 36px;
-      top: 94px;
-      left: 44px;
-      font-size: 16px;
-    }
-
-    .t-ball-9 {
-      width: 56px;
-      height: 56px;
-      top: 52px;
-      right: -6px;
-      font-size: 24px;
-    }
-
-    .t-ball-8 {
-      width: 34px;
-      height: 34px;
-      top: 96px;
-      right: 48px;
-      font-size: 15px;
-    }
-
-    /* 3 Columns with Chamfered Top Corners */
     .columns-row {
       display: grid;
       grid-template-columns: 1fr 1.18fr 1fr;
@@ -284,14 +253,7 @@
     }
 
     .chamfer-card {
-      clip-path: polygon(
-        18px 0%,
-        calc(100% - 18px) 0%,
-        100% 18px,
-        100% 100%,
-        0% 100%,
-        0% 18px
-      );
+      clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 18px, 100% 100%, 0% 100%, 0% 18px);
       border-radius: 14px;
       padding: 8px 7px;
       display: flex;
@@ -334,19 +296,8 @@
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.55);
     }
 
-    .small-col .num-range {
-      font-size: 17px;
-      font-weight: 800;
-      color: #dff8ff;
-      margin-top: 2px;
-    }
-
-    .big-col .num-range {
-      font-size: 17px;
-      font-weight: 800;
-      color: #ffd4ea;
-      margin-top: 2px;
-    }
+    .small-col .num-range { font-size: 17px; font-weight: 800; color: #dff8ff; margin-top: 2px; }
+    .big-col .num-range { font-size: 17px; font-weight: 800; color: #ffd4ea; margin-top: 2px; }
 
     .status-predicted {
       width: 100%;
@@ -405,25 +356,9 @@
       flex-shrink: 0;
     }
 
-    /* Center Round + Orb */
-    .round-meta {
-      width: 100%;
-      text-align: left;
-    }
-
-    .round-meta .no-lbl {
-      font-size: 11px;
-      font-weight: 800;
-      color: #b7c9f2;
-    }
-
-    .round-meta .no-val {
-      font-size: 11.2px;
-      font-weight: 950;
-      color: #ffffff;
-      letter-spacing: -0.2px;
-      white-space: nowrap;
-    }
+    .round-meta { width: 100%; text-align: left; }
+    .round-meta .no-lbl { font-size: 11px; font-weight: 800; color: #b7c9f2; }
+    .round-meta .no-val { font-size: 11.2px; font-weight: 950; color: #ffffff; letter-spacing: -0.2px; white-space: nowrap; }
 
     .orb-stage {
       position: relative;
@@ -475,13 +410,7 @@
       box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
     }
 
-    .orb-ball-1 span {
-      position: relative;
-      z-index: 2;
-      font-size: 27px;
-      font-weight: 950;
-      color: #142238;
-    }
+    .orb-ball-1 span { position: relative; z-index: 2; font-size: 27px; font-weight: 950; color: #142238; }
 
     .timer-box {
       width: 100%;
@@ -492,25 +421,9 @@
       box-shadow: 0 0 10px rgba(230, 184, 67, 0.25);
     }
 
-    .timer-title {
-      font-size: 10px;
-      font-weight: 950;
-      color: #ffd35c;
-      letter-spacing: 0.6px;
-    }
+    .timer-title { font-size: 10px; font-weight: 950; color: #ffd35c; letter-spacing: 0.6px; }
+    .timer-val { font-size: 18px; font-weight: 950; color: #ffcf48; display: flex; align-items: center; justify-content: center; gap: 4px; line-height: 1.1; }
 
-    .timer-val {
-      font-size: 18px;
-      font-weight: 950;
-      color: #ffcf48;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-      line-height: 1.1;
-    }
-
-    /* Recent Results */
     .recent-panel {
       background: linear-gradient(180deg, #0f203d 0%, #081122 100%);
       border: 1.5px solid #2b88c9;
@@ -563,56 +476,21 @@
       box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
     }
 
-    .r-ball span {
-      position: relative;
-      z-index: 2;
-      color: #162238;
-    }
+    .r-ball span { position: relative; z-index: 2; color: #162238; }
 
-    .b-purple {
-      background: radial-gradient(circle at 30% 25%, #d68cff, #8b2be2 65%, #3f0b75 100%);
-    }
-
-    .b-red {
-      background: radial-gradient(circle at 30% 25%, #ff7b7b, #e12424 65%, #7d0909 100%);
-    }
-
-    .b-green {
-      background: radial-gradient(circle at 30% 25%, #7affb2, #16b85c 65%, #07592a 100%);
-    }
-
-    @media (max-width: 400px) {
-      .asraf-text {
-        font-size: 42px;
-      }
-      .wingo-text {
-        font-size: 27px;
-      }
-      .round-meta .no-val {
-        font-size: 9.8px;
-      }
-      .r-ball {
-        width: 27px;
-        height: 27px;
-        font-size: 11px;
-      }
-      .r-ball::before {
-        width: 18px;
-        height: 18px;
-      }
-    }
+    .b-purple { background: radial-gradient(circle at 30% 25%, #d68cff, #8b2be2 65%, #3f0b75 100%); }
+    .b-red { background: radial-gradient(circle at 30% 25%, #ff7b7b, #e12424 65%, #7d0909 100%); }
+    .b-green { background: radial-gradient(circle at 30% 25%, #7affb2, #16b85c 65%, #07592a 100%); }
   </style>
 </head>
 <body>
 
   <div class="popup-card" id="wingoPopup">
-    <!-- Top Lottery Balls -->
     <div class="top-ball t-ball-red t-ball-4"><span>4</span></div>
     <div class="top-ball t-ball-green t-ball-3"><span>3</span></div>
     <div class="top-ball t-ball-green t-ball-9"><span>9</span></div>
     <div class="top-ball t-ball-red t-ball-8"><span>8</span></div>
 
-    <!-- Top Header -->
     <div class="top-bar">
       <div class="play-smarter-wrap">
         <div class="play-smarter-top">PLAY <span>↗</span></div>
@@ -625,7 +503,6 @@
       </button>
     </div>
 
-    <!-- Brand & Wings -->
     <div class="brand-header">
       <svg class="main-crown" viewBox="0 0 64 38">
         <path d="M4 32 L10 10 L23 22 L32 5 L41 22 L54 10 L60 32 Z" fill="url(#goldGrad)" stroke="#6b2b00" stroke-width="2.5" stroke-linejoin="round"/>
@@ -639,7 +516,7 @@
         </defs>
       </svg>
 
-      <div class="asraf-container">
+      <div class="brand-name-container">
         <svg class="wing-right" viewBox="0 0 100 60">
           <path d="M5 14 Q52 10 92 18 Q58 24 8 22 Z" fill="#29dcff"/>
           <path d="M6 25 Q56 23 96 32 Q58 36 8 33 Z" fill="#1cb8f5"/>
@@ -650,7 +527,7 @@
           <path d="M6 25 Q56 23 96 32 Q58 36 8 33 Z" fill="#1cb8f5"/>
           <path d="M8 36 Q52 37 84 46 Q48 47 10 43 Z" fill="#46ebff"/>
         </svg>
-        <div class="asraf-text">ASRAF</div>
+        <div class="brand-name-text">JOY</div>
       </div>
 
       <div class="wingo-text">WINGO</div>
@@ -660,9 +537,7 @@
       </div>
     </div>
 
-    <!-- 3 Columns -->
     <div class="columns-row">
-      <!-- SMALL -->
       <div class="chamfer-card small-col">
         <div>
           <svg class="mini-crown-svg" viewBox="0 0 40 24">
@@ -677,7 +552,6 @@
         </div>
       </div>
 
-      <!-- CENTER -->
       <div class="chamfer-card center-col">
         <div class="round-meta">
           <div class="no-lbl">NO:</div>
@@ -699,7 +573,6 @@
         </div>
       </div>
 
-      <!-- BIG -->
       <div class="chamfer-card big-col">
         <div>
           <svg class="mini-crown-svg" viewBox="0 0 40 24">
@@ -715,7 +588,6 @@
       </div>
     </div>
 
-    <!-- RECENT RESULTS -->
     <div class="recent-panel">
       <div class="recent-title">
         <span style="color: #4be3ff;">📈</span>
