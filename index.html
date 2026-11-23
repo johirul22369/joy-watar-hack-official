@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>𓆩♛𓆪 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐉𝐎𝐘 👑 - Eagle Wing VIP</title>
+    <title>Eagle Wing VIP</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
 
@@ -41,10 +41,9 @@
                 0 1px 0 #091326,
                 0 2px 0 #050a14,
                 0 3px 6px rgba(0, 0, 0, 0.95),
-                0 0 10px rgba(250, 204, 21, 0.4);
+                0 0 10px rgba(250, 204, 21, 0.35);
         }
 
-        /* স্লো মোশনে পাখির মতো হালকা ভেসে থাকার মুভমেন্ট */
         @keyframes eagleSlowFloat {
             0%, 100% {
                 margin-top: 0px;
@@ -56,7 +55,6 @@
             }
         }
 
-        /* বড় গর্জিয়াস ঈগলের ডানা (Slow Motion) */
         .wing-pair {
             position: absolute;
             top: 50%;
@@ -100,7 +98,7 @@
             50%      { transform: translateY(-56%) rotate(-16deg) scale(1.04, 0.97); }
         }
 
-        /* ফ্লোটিং আইকন + বড় ঈগল ডানা */
+        /* ফ্লোটিং আইকন */
         #floating-icon-btn {
             position: fixed;
             top: 88px;
@@ -110,15 +108,14 @@
             border-radius: 50%;
             border: 2.5px solid #facc15;
             box-shadow:
-                0 0 0 2px #e6429c,
+                0 0 0 2px #e03a96,
                 0 10px 24px rgba(0, 0, 0, 0.95),
-                0 0 22px rgba(250, 204, 21, 0.8),
-                inset 0 2px 6px rgba(255, 255, 255, 0.45);
+                0 0 20px rgba(250, 204, 21, 0.75);
             cursor: grab;
             z-index: 9999;
             overflow: visible;
             touch-action: none;
-            background: radial-gradient(circle at 30% 25%, #065f46, #042f2e 70%, #020617 100%);
+            background: radial-gradient(circle at 30% 25%, #163344, #0d152b 75%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -153,10 +150,10 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 240px;
+            width: 238px;
             background: radial-gradient(circle at 50% 18%, #163344 0%, #0d152b 48%, #1d0c2e 100%);
             border: 2px solid #e03a96;
-            border-radius: 20px;
+            border-radius: 22px;
             box-shadow:
                 0 0 22px rgba(224, 58, 150, 0.5),
                 0 22px 44px rgba(0, 0, 0, 0.95);
@@ -167,7 +164,7 @@
         }
 
         .auth-title {
-            font-size: 11.5px;
+            font-size: 11px;
             color: #fff078;
             margin-bottom: 8px;
             letter-spacing: 0.5px;
@@ -223,7 +220,7 @@
             font-weight: 700;
         }
 
-        /* নতুন সিএসএস ডিজাইনের পপআপ কার্ড + ঈগল ডানা */
+        /* ক্লিন সিএসএস পপআপ কার্ড */
         .overlay-box {
             position: fixed;
             top: 96px;
@@ -248,7 +245,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 3px;
+            gap: 4px;
             margin-bottom: 6px;
             cursor: grab;
             touch-action: none;
@@ -260,22 +257,8 @@
             cursor: grabbing;
         }
 
-        .badge-left {
-            background: linear-gradient(180deg, #ffe866 0%, #ffa812 52%, #e65500 100%);
-            color: #1c1917;
-            font-size: 6.2px;
-            padding: 2.5px 5px;
-            border-radius: 8px;
-            border: 1px solid #f0be3c;
-            line-height: 1.05;
-            text-transform: uppercase;
-            pointer-events: none;
-            text-shadow: none;
-            box-shadow: 0 0 10px rgba(240, 190, 60, 0.45);
-        }
-
         .brand-center {
-            text-align: center;
+            text-align: left;
             flex: 1;
             pointer-events: none;
         }
@@ -283,7 +266,7 @@
         .brand-main {
             font-style: italic;
             font-size: 9.8px;
-            letter-spacing: 0.35px;
+            letter-spacing: 0.4px;
             background: linear-gradient(180deg, #fff078 0%, #ffa812 52%, #e65500 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -302,12 +285,12 @@
         .header-controls {
             display: flex;
             align-items: center;
-            gap: 2.5px;
+            gap: 3px;
         }
 
         .voice-toggle-btn {
             font-size: 6px;
-            padding: 2px 4.5px;
+            padding: 2px 5px;
             border-radius: 6px;
             border: 1px solid #ff8282;
             background: linear-gradient(180deg, #ff5c5c 0%, #b81414 100%);
@@ -336,7 +319,7 @@
         .market-tabs {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 2.5px;
+            gap: 3px;
             margin-bottom: 6px;
             background: linear-gradient(180deg, #1b2238 0%, #090c17 100%);
             padding: 2.5px;
@@ -419,106 +402,6 @@
             box-shadow:
                 0 0 16px rgba(255, 232, 102, 0.65),
                 0 8px 16px rgba(0, 0, 0, 0.85);
-        }
-
-        .side-panel > div {
-            position: relative;
-            z-index: 2;
-        }
-
-        .firecracker-rocket {
-            position: absolute;
-            left: 50%;
-            bottom: 3px;
-            width: 3px;
-            height: 11px;
-            border-radius: 999px;
-            transform: translateX(-50%);
-            background: linear-gradient(180deg, #ffffff 0%, #84ffb8 50%, #ffe866 100%);
-            box-shadow: 0 0 8px #84ffb8, 0 0 15px #ffe866;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 3;
-            animation: rocketAscendBlast 2.1s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-        }
-
-        .panel-big .firecracker-rocket {
-            animation-delay: 1.05s;
-        }
-
-        @keyframes rocketAscendBlast {
-            0%   { opacity: 0; bottom: 2px; height: 9px; transform: translateX(-50%) scale(0.9); }
-            12%  { opacity: 1; bottom: 8px; height: 12px; transform: translateX(-50%) scale(1); }
-            62%  { opacity: 1; bottom: calc(100% - 17px); height: 7px; transform: translateX(-50%) scale(1.05); }
-            67%  { opacity: 0; bottom: calc(100% - 14px); height: 2px; transform: translateX(-50%) scale(0.4); }
-            100% { opacity: 0; bottom: 2px; height: 9px; transform: translateX(-50%) scale(0.9); }
-        }
-
-        .firecracker-burst {
-            position: absolute;
-            left: 50%;
-            top: 13px;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0.15);
-            background: radial-gradient(circle, #ffffff 0%, #84ffb8 38%, #ffe866 70%, transparent 100%);
-            box-shadow:
-                0 0 14px #ffffff,
-                0 0 24px #84ffb8,
-                -11px -9px 6px #ffe866,
-                11px -9px 6px #84ffb8,
-                -13px 2px 6px #ff8585,
-                13px 2px 6px #8ceaff,
-                -8px 10px 6px #dc94ff,
-                8px 10px 6px #ffe866;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 4;
-            animation: thashLightScatter 2.1s ease-out infinite;
-        }
-
-        .panel-big .firecracker-burst {
-            animation-delay: 1.05s;
-        }
-
-        @keyframes thashLightScatter {
-            0%, 64% { opacity: 0; transform: translate(-50%, -50%) scale(0.15); }
-            68%       { opacity: 1; transform: translate(-50%, -50%) scale(1.25); }
-            82%       { opacity: 0.9; transform: translate(-50%, -50%) scale(1.85); }
-            100%      { opacity: 0; transform: translate(-50%, -50%) scale(2.35); }
-        }
-
-        .firecracker-sparks {
-            position: absolute;
-            left: 50%;
-            top: 13px;
-            width: 6px;
-            height: 6px;
-            border-radius: 50%;
-            transform: translate(-50%, -50%) scale(0.1);
-            box-shadow:
-                -16px -4px 4px #ffe866,
-                16px -4px 4px #84ffb8,
-                -6px -14px 4px #ff8585,
-                6px -14px 4px #8ceaff,
-                -12px 7px 4px #dc94ff,
-                12px 7px 4px #ffe866;
-            opacity: 0;
-            pointer-events: none;
-            z-index: 4;
-            animation: sparkOuterSpray 2.1s ease-out infinite;
-        }
-
-        .panel-big .firecracker-sparks {
-            animation-delay: 1.05s;
-        }
-
-        @keyframes sparkOuterSpray {
-            0%, 65% { opacity: 0; transform: translate(-50%, -50%) scale(0.1); }
-            71%       { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
-            88%       { opacity: 0.65; transform: translate(-50%, -50%) scale(1.75); }
-            100%      { opacity: 0; transform: translate(-50%, -50%) scale(2.15); }
         }
 
         .panel-title {
@@ -670,7 +553,6 @@
             z-index: 2;
         }
 
-        /* উপরের গ্লসি হাইলাইট */
         .glow-orb::after {
             content: "";
             position: absolute;
@@ -684,7 +566,6 @@
             z-index: 3;
         }
 
-        /* খোদাই করা ৩ডি অফ-হোয়াইট শেডিং কোর */
         .glow-orb::before {
             content: "";
             position: absolute;
@@ -805,7 +686,6 @@
             align-items: center;
         }
 
-        /* নিচের রিসেন্ট বলগুলোতেও খোদাই করা ৩ডি সাদা শেডিং ও গ্লস */
         .color-wheel {
             position: relative;
             width: 17.5px;
@@ -909,7 +789,6 @@
 
     <iframe id="game-iframe" src="https://hgnice0.com/#/register?invitationCode=376851951983" loading="lazy"></iframe>
 
-    <!-- ফ্লোটিং আইকন + বড় গর্জিয়াস ঈগল ডানা -->
     <div id="floating-icon-btn">
         <div class="wing-pair">
             <svg class="wing-3d wing-left" width="54" height="58" viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -940,13 +819,12 @@
             </svg>
         </div>
         <div class="icon-circle-clip">
-            <img src="https://cdn.imageurlgenerator.com/uploads/5082a2d5-1833-47fe-9594-4df69e1e307c.png" alt="Owner Of Joy Icon" />
+            <img src="https://cdn.imageurlgenerator.com/uploads/5082a2d5-1833-47fe-9594-4df69e1e307c.png" alt="Eagle Wing Icon" />
         </div>
     </div>
 
-    <!-- পাসওয়ার্ড পপআপ -->
     <div id="auth-overlay">
-        <div class="auth-title text-3d">🔐 𓆩♛𓆪 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐉𝐎𝐘 👑</div>
+        <div class="auth-title text-3d">🔐 EAGLE WING VIP</div>
         <input type="password" id="pass-input" class="auth-input" placeholder="Enter Password" />
         <label class="remember-row">
             <input type="checkbox" id="remember-pass" /> Remember Password
@@ -955,7 +833,6 @@
         <div id="error-msg">Wrong Password!</div>
     </div>
 
-    <!-- হ্যাক পপআপ + বড় গর্জিয়াস ঈগলের ডানা -->
     <div class="overlay-box" id="main-content">
         <div class="wing-pair">
             <svg class="wing-3d wing-left" width="68" height="142" viewBox="0 0 115 190" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -989,10 +866,9 @@
         </div>
 
         <div class="popup-header" id="main-content-header">
-            <div class="badge-left text-3d">3D<br />VIP</div>
             <div class="brand-center">
-                <div class="brand-main text-3d">𓆩♛𓆪 𝐎𝐖𝐍𝐄𝐑 𝐎𝐅 𝐉𝐎𝐘 👑</div>
-                <div class="brand-sub text-3d" id="mode-subtitle">30 SEC EAGLE WING</div>
+                <div class="brand-main text-3d">EAGLE WING VIP</div>
+                <div class="brand-sub text-3d" id="mode-subtitle">30 SEC SIGNAL</div>
             </div>
             <div class="header-controls">
                 <button type="button" class="voice-toggle-btn text-3d" id="voice-toggle-btn" onclick="toggleVoice()" title="Bangla Female Voice ON/OFF">👩 ON</button>
@@ -1011,9 +887,6 @@
 
         <div class="pred-grid">
             <div class="side-panel panel-small" id="small-panel">
-                <span class="firecracker-rocket"></span>
-                <span class="firecracker-burst"></span>
-                <span class="firecracker-sparks"></span>
                 <div>
                     <div class="panel-title">SMALL</div>
                     <div class="panel-range text-3d">0 - 4</div>
@@ -1037,9 +910,6 @@
             </div>
 
             <div class="side-panel panel-big" id="big-panel">
-                <span class="firecracker-rocket"></span>
-                <span class="firecracker-burst"></span>
-                <span class="firecracker-sparks"></span>
                 <div>
                     <div class="panel-title">BIG</div>
                     <div class="panel-range text-3d">5 - 9</div>
@@ -1076,10 +946,10 @@
 
     <script>
         const MARKETS = {
-            "30S": { duration: 30,  offset: 50000, salt: 0x9E3779B9, label: "30 SEC EAGLE WING", bnName: "ত্রিশ সেকেন্ড" },
-            "1M":  { duration: 60,  offset: 20000, salt: 0x85EBCA6B, label: "1 MIN EAGLE WING",  bnName: "এক মিনিট" },
-            "3M":  { duration: 180, offset: 10000, salt: 0xC2B2AE35, label: "3 MIN EAGLE WING",  bnName: "তিন মিনিট" },
-            "5M":  { duration: 300, offset: 5000,  salt: 0x27D4EB2F, label: "5 MIN EAGLE WING",  bnName: "পাঁচ মিনিট" }
+            "30S": { duration: 30,  offset: 50000, salt: 0x9E3779B9, label: "30 SEC SIGNAL", bnName: "ত্রিশ সেকেন্ড" },
+            "1M":  { duration: 60,  offset: 20000, salt: 0x85EBCA6B, label: "1 MIN SIGNAL",  bnName: "এক মিনিট" },
+            "3M":  { duration: 180, offset: 10000, salt: 0xC2B2AE35, label: "3 MIN SIGNAL",  bnName: "তিন মিনিট" },
+            "5M":  { duration: 300, offset: 5000,  salt: 0x27D4EB2F, label: "5 MIN SIGNAL",  bnName: "পাঁচ মিনিট" }
         };
 
         const BANGLA_DIGITS = ["শূন্য", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"];
@@ -1237,7 +1107,7 @@
                 document.getElementById('floating-icon-btn').style.display = 'none';
                 startPeriodGenerator();
                 if (voiceEnabled) {
-                    speakFemaleBangla("ওনার অফ জয় ঈগল উইং প্যানেল ওপেন হয়েছে।");
+                    speakFemaleBangla("ঈগল উইং প্যানেল ওপেন হয়েছে।");
                 }
             } else {
                 document.getElementById('error-msg').style.display = 'none';
