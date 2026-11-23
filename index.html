@@ -257,55 +257,60 @@
             align-items: flex-end;
         }
 
-        /* স্ক্রিনশটের মতো মিহি সাদা ফুটি-ফুটি টেক্সচারসহ বল */
+        /* স্ক্রিনশট (67036.jpg) এর মতো ঢেউখেলানো সাদা বর্ডার ও মাঝের সাদা কোরসহ বল */
         .deco-ball,
-        .color-wheel {
+        .color-wheel,
+        .glow-orb {
             position: relative;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: 950;
-            border: 1px solid rgba(255, 255, 255, 0.72);
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.85);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
             overflow: hidden;
         }
 
+        /* ঢেউখেলানো (wavy/scalloped) সাদা অংশ */
+        .deco-ball::before,
+        .color-wheel::before,
+        .glow-orb::before {
+            content: "";
+            position: absolute;
+            width: 74%;
+            height: 74%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 50% 45%, #ffffff 62%, rgba(255, 255, 255, 0.92) 85%, rgba(255, 255, 255, 0.55) 100%);
+            -webkit-mask: repeating-conic-gradient(from 0deg, #000 0deg 16deg, rgba(0, 0, 0, 0.58) 16deg 36deg);
+            mask: repeating-conic-gradient(from 0deg, #000 0deg 16deg, rgba(0, 0, 0, 0.58) 16deg 36deg);
+            box-shadow: 0 0 4px rgba(255, 255, 255, 0.75);
+            pointer-events: none;
+            z-index: 2;
+        }
+
+        /* উপরের হালকা গ্লসি শাইন */
         .deco-ball::after,
-        .color-wheel::after {
+        .color-wheel::after,
+        .glow-orb::after {
             content: "";
             position: absolute;
             top: 3%;
             left: 14%;
             width: 72%;
-            height: 36%;
+            height: 34%;
             border-radius: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0) 100%);
             pointer-events: none;
             z-index: 3;
         }
 
-        .deco-ball::before,
-        .color-wheel::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background-image:
-                radial-gradient(rgba(255, 255, 255, 0.55) 0.45px, transparent 0.75px),
-                radial-gradient(rgba(255, 255, 255, 0.42) 0.4px, transparent 0.7px);
-            background-size: 2.6px 2.6px, 3.4px 3.4px;
-            background-position: 0px 0px, 1.4px 1.2px;
-            pointer-events: none;
-            z-index: 2;
-        }
-
         .deco-ball span,
-        .color-wheel span {
+        .color-wheel span,
+        .glow-orb span {
             position: relative;
             z-index: 4;
-            color: #ffffff;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.92);
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         .deco-ball-lg {
@@ -592,69 +597,29 @@
         }
 
         .glow-orb {
-            position: relative;
-            width: 31px;
-            height: 31px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            width: 32px;
+            height: 32px;
             font-size: 13px;
-            font-weight: 950;
-            border: 1.2px solid rgba(255, 255, 255, 0.78);
-            overflow: hidden;
-            z-index: 2;
         }
 
-        .glow-orb::after {
-            content: "";
-            position: absolute;
-            top: 3%;
-            left: 14%;
-            width: 72%;
-            height: 36%;
-            border-radius: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 100%);
-            pointer-events: none;
-            z-index: 3;
-        }
-
-        /* মূল নাম্বার বলের ভেতর স্ক্রিনশটের মতো মিহি সাদা ফুটি-ফুটি টেক্সচার */
-        .glow-orb::before {
-            content: "";
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            background-image:
-                radial-gradient(rgba(255, 255, 255, 0.58) 0.5px, transparent 0.85px),
-                radial-gradient(rgba(255, 255, 255, 0.45) 0.42px, transparent 0.75px);
-            background-size: 2.8px 2.8px, 3.6px 3.6px;
-            background-position: 0px 0px, 1.5px 1.3px;
-            pointer-events: none;
-            z-index: 2;
-        }
-
-        .glow-orb span {
-            position: relative;
-            z-index: 4;
-            color: #ffffff;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.92);
-        }
-
+        /* বলের রঙ ও নাম্বারের রঙ (ছবি 67036.jpg এর মতো) */
         .orb-green, .w-green {
-            background: radial-gradient(circle at 30% 25%, #84ffb8 0%, #14b558 58%, #055225 100%);
-            box-shadow: 0 0 11px rgba(34, 224, 118, 0.5), 0 3px 7px rgba(0, 0, 0, 0.75);
+            background: radial-gradient(circle at 30% 25%, #65e89a 0%, #16b95a 60%, #086930 100%);
+            box-shadow: 0 0 10px rgba(34, 224, 118, 0.45), 0 2px 6px rgba(0, 0, 0, 0.8);
         }
+        .orb-green span, .w-green span { color: #129448; }
 
         .orb-red, .w-red {
-            background: radial-gradient(circle at 30% 25%, #ff8585 0%, #df1d1d 58%, #6e0606 100%);
-            box-shadow: 0 0 11px rgba(255, 55, 55, 0.5), 0 3px 7px rgba(0, 0, 0, 0.75);
+            background: radial-gradient(circle at 30% 25%, #ff7a7a 0%, #e52424 60%, #8c0c0c 100%);
+            box-shadow: 0 0 10px rgba(255, 55, 55, 0.45), 0 2px 6px rgba(0, 0, 0, 0.8);
         }
+        .orb-red span, .w-red span { color: #d62424; }
 
         .orb-violet, .w-violet-green, .w-violet-red {
-            background: radial-gradient(circle at 30% 25%, #dc94ff 0%, #8726de 58%, #3a086e 100%);
-            box-shadow: 0 0 10px rgba(176, 74, 255, 0.45), 0 3px 7px rgba(0, 0, 0, 0.75);
+            background: radial-gradient(circle at 30% 25%, #d98cff 0%, #9b35e8 60%, #4d1087 100%);
+            box-shadow: 0 0 10px rgba(176, 74, 255, 0.45), 0 2px 6px rgba(0, 0, 0, 0.8);
         }
+        .orb-violet span, .w-violet-green span, .w-violet-red span { color: #8726de; }
 
         .wingo-timer-box {
             width: 96%;
