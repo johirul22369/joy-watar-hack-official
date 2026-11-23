@@ -17,7 +17,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: #070b14;
+      background: #060a12;
       padding: 12px;
       overflow-x: hidden;
     }
@@ -31,13 +31,14 @@
       background: radial-gradient(circle at 50% 18%, #163344 0%, #0d152b 48%, #1d0c2e 100%);
       border: 2.5px solid #e03a96;
       box-shadow:
-        0 0 22px rgba(224, 58, 150, 0.45),
-        0 0 36px rgba(25, 195, 255, 0.2),
-        0 18px 45px rgba(0, 0, 0, 0.9);
+        0 0 24px rgba(224, 58, 150, 0.5),
+        0 0 38px rgba(25, 195, 255, 0.22),
+        0 18px 45px rgba(0, 0, 0, 0.92);
       color: #ffffff;
       user-select: none;
     }
 
+    /* Top Bar */
     .top-bar {
       display: flex;
       align-items: flex-start;
@@ -112,6 +113,7 @@
       display: inline-block;
     }
 
+    /* Brand Header */
     .brand-header {
       position: relative;
       text-align: center;
@@ -121,11 +123,11 @@
     }
 
     .main-crown {
-      width: 36px;
-      height: 22px;
+      width: 38px;
+      height: 23px;
       margin: 0 auto -4px;
       display: block;
-      filter: drop-shadow(0 0 8px rgba(255, 195, 20, 0.85));
+      filter: drop-shadow(0 0 8px rgba(255, 195, 20, 0.9));
     }
 
     .brand-name-container {
@@ -138,34 +140,34 @@
       position: absolute;
       top: 54%;
       transform: translateY(-50%);
-      width: 78px;
-      height: 44px;
+      width: 82px;
+      height: 46px;
       pointer-events: none;
       z-index: 0;
-      filter: drop-shadow(0 0 8px rgba(28, 224, 255, 0.75));
+      filter: drop-shadow(0 0 8px rgba(28, 224, 255, 0.8));
     }
 
     .wing-left {
-      left: -62px;
+      left: -66px;
       transform: translateY(-50%) scaleX(-1);
     }
 
     .wing-right {
-      right: -62px;
+      right: -66px;
     }
 
     .brand-name-text {
       position: relative;
       z-index: 1;
-      font-size: 52px;
+      font-size: 54px;
       font-weight: 950;
       letter-spacing: 2px;
       line-height: 0.92;
-      background: linear-gradient(180deg, #ffe866 0%, #ffa812 52%, #e65500 100%);
+      background: linear-gradient(180deg, #fff078 0%, #ffa812 52%, #e65500 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      -webkit-text-stroke: 1.2px #591c00;
-      filter: drop-shadow(0 3px 0 #471400);
+      -webkit-text-stroke: 1.4px #591c00;
+      filter: drop-shadow(0 3px 0 #471400) drop-shadow(0 6px 12px rgba(255, 145, 0, 0.45));
     }
 
     .wingo-text {
@@ -188,12 +190,12 @@
       position: relative;
       z-index: 3;
       display: inline-block;
-      margin-top: 2px;
-      padding: 4px 16px;
+      margin-top: 3px;
+      padding: 4px 18px;
       border-radius: 12px;
       background: linear-gradient(180deg, #1b2238 0%, #090c17 100%);
       border: 1.5px solid #f0be3c;
-      box-shadow: 0 0 12px rgba(240, 190, 60, 0.35);
+      box-shadow: 0 0 12px rgba(240, 190, 60, 0.4);
     }
 
     .predictor-badge-text {
@@ -203,47 +205,87 @@
       color: #ffffff;
     }
 
-    .top-ball {
-      position: absolute;
+    /* Realistic Glossy 3D Lottery Balls with Sculpted Cutout Core */
+    .glossy-ball {
+      position: relative;
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       font-weight: 950;
+      overflow: hidden;
+    }
+
+    /* Outer glossy light crescent */
+    .glossy-ball::after {
+      content: "";
+      position: absolute;
+      top: 6%;
+      left: 14%;
+      width: 72%;
+      height: 36%;
+      border-radius: 50%;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 100%);
+      pointer-events: none;
       z-index: 3;
     }
 
-    .top-ball::before {
+    /* Sculpted off-white inner circle (not flat pure white) */
+    .glossy-ball::before {
       content: "";
       position: absolute;
-      width: 66%;
-      height: 66%;
+      width: 64%;
+      height: 64%;
       border-radius: 50%;
-      background: #ffffff;
-      box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.28);
+      background: radial-gradient(circle at 38% 32%, #ffffff 0%, #eef3f8 58%, #c7d2df 100%);
+      box-shadow:
+        inset 0 2px 4px rgba(0, 0, 0, 0.35),
+        inset 0 -2px 3px rgba(255, 255, 255, 0.9),
+        0 0 0 1.5px rgba(255, 255, 255, 0.45);
+      z-index: 1;
     }
 
-    .top-ball span {
+    .glossy-ball span {
       position: relative;
       z-index: 2;
-      color: #182336;
+      text-shadow: 0 1px 0 rgba(255, 255, 255, 0.8);
     }
 
-    .t-ball-red {
-      background: radial-gradient(circle at 30% 25%, #ff8282 0%, #e02222 65%, #780808 100%);
-      box-shadow: 0 0 16px rgba(255, 55, 55, 0.55), 0 5px 10px rgba(0, 0, 0, 0.6);
+    .ball-red-3d {
+      background: radial-gradient(circle at 30% 25%, #ff8585 0%, #df1d1d 58%, #6e0606 100%);
+      box-shadow:
+        inset -3px -4px 8px rgba(0, 0, 0, 0.55),
+        0 0 16px rgba(255, 55, 55, 0.55),
+        0 5px 10px rgba(0, 0, 0, 0.65);
     }
+    .ball-red-3d span { color: #b81d1d; }
 
-    .t-ball-green {
-      background: radial-gradient(circle at 30% 25%, #84ffb8 0%, #16b85c 65%, #065728 100%);
-      box-shadow: 0 0 16px rgba(34, 224, 118, 0.55), 0 5px 10px rgba(0, 0, 0, 0.6);
+    .ball-green-3d {
+      background: radial-gradient(circle at 30% 25%, #84ffb8 0%, #14b558 58%, #055225 100%);
+      box-shadow:
+        inset -3px -4px 8px rgba(0, 0, 0, 0.55),
+        0 0 16px rgba(34, 224, 118, 0.55),
+        0 5px 10px rgba(0, 0, 0, 0.65);
     }
+    .ball-green-3d span { color: #117a3d; }
 
+    .ball-purple-3d {
+      background: radial-gradient(circle at 30% 25%, #dc94ff 0%, #8726de 58%, #3a086e 100%);
+      box-shadow:
+        inset -3px -4px 8px rgba(0, 0, 0, 0.55),
+        0 0 14px rgba(176, 74, 255, 0.45),
+        0 5px 10px rgba(0, 0, 0, 0.65);
+    }
+    .ball-purple-3d span { color: #5b189c; }
+
+    /* Floating Top Balls */
+    .top-ball { position: absolute; z-index: 3; }
     .t-ball-4 { width: 56px; height: 56px; top: 52px; left: -6px; font-size: 24px; }
     .t-ball-3 { width: 36px; height: 36px; top: 94px; left: 44px; font-size: 16px; }
     .t-ball-9 { width: 56px; height: 56px; top: 52px; right: -6px; font-size: 24px; }
     .t-ball-8 { width: 34px; height: 34px; top: 96px; right: 48px; font-size: 15px; }
 
+    /* 3 Columns with Chamfered Top Corners + Border Wrapper */
     .columns-row {
       display: grid;
       grid-template-columns: 1fr 1.18fr 1fr;
@@ -252,10 +294,22 @@
       margin-bottom: 9px;
     }
 
-    .chamfer-card {
+    .chamfer-border {
       clip-path: polygon(18px 0%, calc(100% - 18px) 0%, 100% 18px, 100% 100%, 0% 100%, 0% 18px);
       border-radius: 14px;
-      padding: 8px 7px;
+      padding: 2px;
+      display: flex;
+    }
+
+    .border-small { background: linear-gradient(180deg, #5ce8ff 0%, #1c85b8 100%); }
+    .border-center { background: linear-gradient(180deg, #32dcff 0%, #146a9c 100%); }
+    .border-big { background: linear-gradient(180deg, #ff5eb0 0%, #8c1952 100%); }
+
+    .chamfer-inner {
+      width: 100%;
+      clip-path: polygon(17px 0%, calc(100% - 17px) 0%, 100% 17px, 100% 100%, 0% 100%, 0% 17px);
+      border-radius: 12px;
+      padding: 8px 6px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -263,22 +317,16 @@
       text-align: center;
     }
 
-    .small-col {
+    .small-inner {
       background: linear-gradient(180deg, #1b9ad4 0%, #0a4875 60%, #062540 100%);
-      border: 2px solid #4be3ff;
-      box-shadow: inset 0 0 14px rgba(75, 227, 255, 0.35);
     }
 
-    .center-col {
+    .center-inner {
       background: linear-gradient(180deg, #111a36 0%, #080c1c 100%);
-      border: 2px solid #29d8ff;
-      box-shadow: inset 0 0 14px rgba(41, 216, 255, 0.25);
     }
 
-    .big-col {
+    .big-inner {
       background: linear-gradient(180deg, #9e1a5c 0%, #570c33 60%, #260416 100%);
-      border: 2px solid #ff4da6;
-      box-shadow: inset 0 0 14px rgba(255, 77, 166, 0.28);
     }
 
     .mini-crown-svg {
@@ -288,20 +336,20 @@
       display: block;
     }
 
-    .small-col h2,
-    .big-col h2 {
+    .small-inner h2,
+    .big-inner h2 {
       font-size: 22px;
       font-weight: 950;
       letter-spacing: 0.4px;
       text-shadow: 0 2px 5px rgba(0, 0, 0, 0.55);
     }
 
-    .small-col .num-range { font-size: 17px; font-weight: 800; color: #dff8ff; margin-top: 2px; }
-    .big-col .num-range { font-size: 17px; font-weight: 800; color: #ffd4ea; margin-top: 2px; }
+    .small-inner .num-range { font-size: 17px; font-weight: 800; color: #dff8ff; margin-top: 2px; }
+    .big-inner .num-range { font-size: 17px; font-weight: 800; color: #ffd4ea; margin-top: 2px; }
 
     .status-predicted {
       width: 100%;
-      background: rgba(5, 25, 46, 0.82);
+      background: rgba(5, 25, 46, 0.85);
       border: 1.5px solid #4de6ff;
       border-radius: 10px;
       padding: 6px 5px;
@@ -329,7 +377,7 @@
 
     .status-not-predicted {
       width: 100%;
-      background: rgba(36, 7, 22, 0.8);
+      background: rgba(36, 7, 22, 0.82);
       border: 1.5px solid rgba(255, 130, 190, 0.45);
       border-radius: 10px;
       padding: 6px 4px;
@@ -358,8 +406,9 @@
 
     .round-meta { width: 100%; text-align: left; }
     .round-meta .no-lbl { font-size: 11px; font-weight: 800; color: #b7c9f2; }
-    .round-meta .no-val { font-size: 11.2px; font-weight: 950; color: #ffffff; letter-spacing: -0.2px; white-space: nowrap; }
+    .round-meta .no-val { font-size: 11px; font-weight: 950; color: #ffffff; letter-spacing: -0.2px; white-space: nowrap; }
 
+    /* Center Glowing Orb */
     .orb-stage {
       position: relative;
       width: 108px;
@@ -374,8 +423,8 @@
       position: absolute;
       inset: 2px;
       border-radius: 50%;
-      border: 2.5px dashed rgba(52, 255, 180, 0.75);
-      box-shadow: 0 0 16px rgba(25, 240, 150, 0.45), inset 0 0 14px rgba(25, 240, 150, 0.25);
+      border: 2.5px dashed rgba(52, 255, 180, 0.78);
+      box-shadow: 0 0 18px rgba(25, 240, 150, 0.5), inset 0 0 14px rgba(25, 240, 150, 0.3);
     }
 
     .orb-glow-arc {
@@ -388,29 +437,11 @@
       filter: drop-shadow(0 0 8px #38ffb8);
     }
 
-    .orb-ball-1 {
-      position: relative;
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: radial-gradient(circle at 30% 25%, #96ffc7 0%, #19c463 62%, #065728 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 0 20px rgba(56, 255, 184, 0.65);
+    .center-orb-ball {
+      width: 70px;
+      height: 70px;
+      font-size: 28px;
     }
-
-    .orb-ball-1::before {
-      content: "";
-      position: absolute;
-      width: 45px;
-      height: 45px;
-      border-radius: 50%;
-      background: #ffffff;
-      box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.25);
-    }
-
-    .orb-ball-1 span { position: relative; z-index: 2; font-size: 27px; font-weight: 950; color: #142238; }
 
     .timer-box {
       width: 100%;
@@ -424,6 +455,7 @@
     .timer-title { font-size: 10px; font-weight: 950; color: #ffd35c; letter-spacing: 0.6px; }
     .timer-val { font-size: 18px; font-weight: 950; color: #ffcf48; display: flex; align-items: center; justify-content: center; gap: 4px; line-height: 1.1; }
 
+    /* Recent Results */
     .recent-panel {
       background: linear-gradient(180deg, #0f203d 0%, #081122 100%);
       border: 1.5px solid #2b88c9;
@@ -451,46 +483,29 @@
     }
 
     .r-ball {
-      position: relative;
       width: 32px;
       height: 32px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       font-size: 13px;
-      font-weight: 950;
-      box-shadow:
-        inset -2px -3px 5px rgba(0, 0, 0, 0.45),
-        inset 2px 2px 4px rgba(255, 255, 255, 0.65),
-        0 3px 6px rgba(0, 0, 0, 0.55);
     }
 
-    .r-ball::before {
-      content: "";
-      position: absolute;
-      width: 21px;
-      height: 21px;
-      border-radius: 50%;
-      background: #ffffff;
-      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25);
+    @media (max-width: 400px) {
+      .brand-name-text { font-size: 46px; }
+      .wingo-text { font-size: 27px; }
+      .round-meta .no-val { font-size: 9.6px; }
+      .r-ball { width: 27px; height: 27px; font-size: 11px; }
     }
-
-    .r-ball span { position: relative; z-index: 2; color: #162238; }
-
-    .b-purple { background: radial-gradient(circle at 30% 25%, #d68cff, #8b2be2 65%, #3f0b75 100%); }
-    .b-red { background: radial-gradient(circle at 30% 25%, #ff7b7b, #e12424 65%, #7d0909 100%); }
-    .b-green { background: radial-gradient(circle at 30% 25%, #7affb2, #16b85c 65%, #07592a 100%); }
   </style>
 </head>
 <body>
 
   <div class="popup-card" id="wingoPopup">
-    <div class="top-ball t-ball-red t-ball-4"><span>4</span></div>
-    <div class="top-ball t-ball-green t-ball-3"><span>3</span></div>
-    <div class="top-ball t-ball-green t-ball-9"><span>9</span></div>
-    <div class="top-ball t-ball-red t-ball-8"><span>8</span></div>
+    <!-- Top 3D Cutout Balls -->
+    <div class="glossy-ball ball-red-3d top-ball t-ball-4"><span>4</span></div>
+    <div class="glossy-ball ball-green-3d top-ball t-ball-3"><span>3</span></div>
+    <div class="glossy-ball ball-green-3d top-ball t-ball-9"><span>9</span></div>
+    <div class="glossy-ball ball-red-3d top-ball t-ball-8"><span>8</span></div>
 
+    <!-- Top Header -->
     <div class="top-bar">
       <div class="play-smarter-wrap">
         <div class="play-smarter-top">PLAY <span>↗</span></div>
@@ -503,6 +518,7 @@
       </button>
     </div>
 
+    <!-- Brand & Wings -->
     <div class="brand-header">
       <svg class="main-crown" viewBox="0 0 64 38">
         <path d="M4 32 L10 10 L23 22 L32 5 L41 22 L54 10 L60 32 Z" fill="url(#goldGrad)" stroke="#6b2b00" stroke-width="2.5" stroke-linejoin="round"/>
@@ -537,73 +553,81 @@
       </div>
     </div>
 
+    <!-- 3 Chamfered Columns -->
     <div class="columns-row">
-      <div class="chamfer-card small-col">
-        <div>
-          <svg class="mini-crown-svg" viewBox="0 0 40 24">
-            <path d="M3 20 L7 6 L15 14 L20 3 L25 14 L33 6 L37 20 Z" fill="#7ceeff" stroke="#083d5e" stroke-width="1.5"/>
-          </svg>
-          <h2>SMALL</h2>
-          <div class="num-range">0 - 4</div>
-        </div>
-        <div class="status-predicted">
-          <span class="tick">✓</span>
-          <span>PREDICTED</span>
-        </div>
-      </div>
-
-      <div class="chamfer-card center-col">
-        <div class="round-meta">
-          <div class="no-lbl">NO:</div>
-          <div class="no-val">20261102100052214</div>
-        </div>
-
-        <div class="orb-stage">
-          <div class="orb-dashed"></div>
-          <div class="orb-glow-arc"></div>
-          <div class="orb-ball-1"><span>1</span></div>
-        </div>
-
-        <div class="timer-box">
-          <div class="timer-title">NEXT IN</div>
-          <div class="timer-val">
-            <span style="font-size: 13px;">🕒</span>
-            <span>23s</span>
+      <div class="chamfer-border border-small">
+        <div class="chamfer-inner small-inner">
+          <div>
+            <svg class="mini-crown-svg" viewBox="0 0 40 24">
+              <path d="M3 20 L7 6 L15 14 L20 3 L25 14 L33 6 L37 20 Z" fill="#7ceeff" stroke="#083d5e" stroke-width="1.5"/>
+            </svg>
+            <h2>SMALL</h2>
+            <div class="num-range">0 - 4</div>
+          </div>
+          <div class="status-predicted">
+            <span class="tick">✓</span>
+            <span>PREDICTED</span>
           </div>
         </div>
       </div>
 
-      <div class="chamfer-card big-col">
-        <div>
-          <svg class="mini-crown-svg" viewBox="0 0 40 24">
-            <path d="M3 20 L7 6 L15 14 L20 3 L25 14 L33 6 L37 20 Z" fill="#ff75ba" stroke="#470527" stroke-width="1.5"/>
-          </svg>
-          <h2>BIG</h2>
-          <div class="num-range">5 - 9</div>
+      <div class="chamfer-border border-center">
+        <div class="chamfer-inner center-inner">
+          <div class="round-meta">
+            <div class="no-lbl">NO:</div>
+            <div class="no-val">20261102100052214</div>
+          </div>
+
+          <div class="orb-stage">
+            <div class="orb-dashed"></div>
+            <div class="orb-glow-arc"></div>
+            <div class="glossy-ball ball-green-3d center-orb-ball"><span>1</span></div>
+          </div>
+
+          <div class="timer-box">
+            <div class="timer-title">NEXT IN</div>
+            <div class="timer-val">
+              <span style="font-size: 13px;">🕒</span>
+              <span>23s</span>
+            </div>
+          </div>
         </div>
-        <div class="status-not-predicted">
-          <span class="cross">✕</span>
-          <span>NOT<br>PREDICTED</span>
+      </div>
+
+      <div class="chamfer-border border-big">
+        <div class="chamfer-inner big-inner">
+          <div>
+            <svg class="mini-crown-svg" viewBox="0 0 40 24">
+              <path d="M3 20 L7 6 L15 14 L20 3 L25 14 L33 6 L37 20 Z" fill="#ff75ba" stroke="#470527" stroke-width="1.5"/>
+            </svg>
+            <h2>BIG</h2>
+            <div class="num-range">5 - 9</div>
+          </div>
+          <div class="status-not-predicted">
+            <span class="cross">✕</span>
+            <span>NOT<br>PREDICTED</span>
+          </div>
         </div>
       </div>
     </div>
 
+    <!-- RECENT RESULTS -->
     <div class="recent-panel">
       <div class="recent-title">
         <span style="color: #4be3ff;">📈</span>
         <span>RECENT RESULTS</span>
       </div>
       <div class="recent-grid">
-        <div class="r-ball b-purple"><span>5</span></div>
-        <div class="r-ball b-red"><span>8</span></div>
-        <div class="r-ball b-red"><span>4</span></div>
-        <div class="r-ball b-green"><span>3</span></div>
-        <div class="r-ball b-red"><span>2</span></div>
-        <div class="r-ball b-green"><span>9</span></div>
-        <div class="r-ball b-red"><span>6</span></div>
-        <div class="r-ball b-purple"><span>0</span></div>
-        <div class="r-ball b-red"><span>8</span></div>
-        <div class="r-ball b-green"><span>7</span></div>
+        <div class="glossy-ball ball-purple-3d r-ball"><span>5</span></div>
+        <div class="glossy-ball ball-red-3d r-ball"><span>8</span></div>
+        <div class="glossy-ball ball-red-3d r-ball"><span>4</span></div>
+        <div class="glossy-ball ball-green-3d r-ball"><span>3</span></div>
+        <div class="glossy-ball ball-red-3d r-ball"><span>2</span></div>
+        <div class="glossy-ball ball-green-3d r-ball"><span>9</span></div>
+        <div class="glossy-ball ball-red-3d r-ball"><span>6</span></div>
+        <div class="glossy-ball ball-purple-3d r-ball"><span>0</span></div>
+        <div class="glossy-ball ball-red-3d r-ball"><span>8</span></div>
+        <div class="glossy-ball ball-green-3d r-ball"><span>7</span></div>
       </div>
     </div>
   </div>
