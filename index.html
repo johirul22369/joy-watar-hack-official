@@ -257,7 +257,7 @@
             align-items: flex-end;
         }
 
-        /* ডেকোরেটিভ ও রেজাল্ট বল: সাদা ফুটি-ফুটি ডটসহ */
+        /* স্ক্রিনশটের মতো মিহি সাদা ফুটি-ফুটি টেক্সচারসহ বল */
         .deco-ball,
         .color-wheel {
             position: relative;
@@ -266,8 +266,8 @@
             align-items: center;
             justify-content: center;
             font-weight: 950;
-            border: 1px solid rgba(255, 255, 255, 0.75);
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
+            border: 1px solid rgba(255, 255, 255, 0.72);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.85);
             overflow: hidden;
         }
 
@@ -275,12 +275,12 @@
         .color-wheel::after {
             content: "";
             position: absolute;
-            top: 4%;
-            left: 12%;
-            width: 76%;
-            height: 40%;
+            top: 3%;
+            left: 14%;
+            width: 72%;
+            height: 36%;
             border-radius: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 100%);
             pointer-events: none;
             z-index: 3;
         }
@@ -292,12 +292,10 @@
             inset: 0;
             border-radius: 50%;
             background-image:
-                radial-gradient(circle, rgba(255, 255, 255, 0.92) 0.75px, transparent 1.15px),
-                radial-gradient(circle, rgba(255, 255, 255, 0.78) 0.65px, transparent 1.05px),
-                radial-gradient(circle, rgba(255, 255, 255, 0.85) 0.7px, transparent 1.1px);
-            background-size: 5px 5px, 6.5px 6.5px, 4.5px 4.5px;
-            background-position: 1px 1px, 3px 2px, 0px 3px;
-            opacity: 0.72;
+                radial-gradient(rgba(255, 255, 255, 0.55) 0.45px, transparent 0.75px),
+                radial-gradient(rgba(255, 255, 255, 0.42) 0.4px, transparent 0.7px);
+            background-size: 2.6px 2.6px, 3.4px 3.4px;
+            background-position: 0px 0px, 1.4px 1.2px;
             pointer-events: none;
             z-index: 2;
         }
@@ -307,7 +305,7 @@
             position: relative;
             z-index: 4;
             color: #ffffff;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.92);
         }
 
         .deco-ball-lg {
@@ -559,7 +557,7 @@
             white-space: nowrap;
         }
 
-        /* স্থির বৃত্ত (কোনো ঘোরার অ্যানিমেশন নেই) + সাদা ফুটি-ফুটি রিং */
+        /* স্থির বৃত্ত (কোনো ঘোরার অ্যানিমেশন নেই) */
         .wingo-orb-stage {
             position: relative;
             width: 48px;
@@ -577,12 +575,11 @@
             background:
                 repeating-conic-gradient(
                     from 0deg,
-                    rgba(255, 255, 255, 0.95) 0deg 2.5deg,
-                    transparent 2.5deg 12deg
+                    rgba(255, 255, 255, 0.92) 0deg 2deg,
+                    transparent 2deg 12deg
                 );
-            filter: drop-shadow(0 0 4px rgba(56, 255, 184, 0.75));
-            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4.2px), #000 calc(100% - 3.3px), #000 calc(100% - 1px), transparent calc(100% - 0.4px));
-            mask: radial-gradient(farthest-side, transparent calc(100% - 4.2px), #000 calc(100% - 3.3px), #000 calc(100% - 1px), transparent calc(100% - 0.4px));
+            -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3.2px), #000 calc(100% - 1px), transparent calc(100% - 0.4px));
+            mask: radial-gradient(farthest-side, transparent calc(100% - 4px), #000 calc(100% - 3.2px), #000 calc(100% - 1px), transparent calc(100% - 0.4px));
             pointer-events: none;
         }
 
@@ -590,8 +587,7 @@
             position: absolute;
             inset: 2.5px;
             border-radius: 50%;
-            border: 1.3px dashed rgba(52, 255, 180, 0.82);
-            box-shadow: 0 0 9px rgba(25, 240, 150, 0.45);
+            border: 1.2px dashed rgba(52, 255, 180, 0.78);
             pointer-events: none;
         }
 
@@ -605,7 +601,7 @@
             justify-content: center;
             font-size: 13px;
             font-weight: 950;
-            border: 1.2px solid rgba(255, 255, 255, 0.8);
+            border: 1.2px solid rgba(255, 255, 255, 0.78);
             overflow: hidden;
             z-index: 2;
         }
@@ -613,29 +609,27 @@
         .glow-orb::after {
             content: "";
             position: absolute;
-            top: 4%;
-            left: 12%;
-            width: 76%;
-            height: 38%;
+            top: 3%;
+            left: 14%;
+            width: 72%;
+            height: 36%;
             border-radius: 50%;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0) 100%);
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0) 100%);
             pointer-events: none;
             z-index: 3;
         }
 
-        /* মূল নাম্বার বলের ভেতর সাদা সাদা ফুটি-ফুটি ডট */
+        /* মূল নাম্বার বলের ভেতর স্ক্রিনশটের মতো মিহি সাদা ফুটি-ফুটি টেক্সচার */
         .glow-orb::before {
             content: "";
             position: absolute;
             inset: 0;
             border-radius: 50%;
             background-image:
-                radial-gradient(circle, rgba(255, 255, 255, 0.95) 0.95px, transparent 1.35px),
-                radial-gradient(circle, rgba(255, 255, 255, 0.82) 0.8px, transparent 1.2px),
-                radial-gradient(circle, rgba(255, 255, 255, 0.88) 0.85px, transparent 1.25px);
-            background-size: 6px 6px, 8px 8px, 5px 5px;
-            background-position: 1px 1px, 3.5px 2.5px, 0.5px 4px;
-            opacity: 0.78;
+                radial-gradient(rgba(255, 255, 255, 0.58) 0.5px, transparent 0.85px),
+                radial-gradient(rgba(255, 255, 255, 0.45) 0.42px, transparent 0.75px);
+            background-size: 2.8px 2.8px, 3.6px 3.6px;
+            background-position: 0px 0px, 1.5px 1.3px;
             pointer-events: none;
             z-index: 2;
         }
@@ -644,22 +638,22 @@
             position: relative;
             z-index: 4;
             color: #ffffff;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.95);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.92);
         }
 
         .orb-green, .w-green {
             background: radial-gradient(circle at 30% 25%, #84ffb8 0%, #14b558 58%, #055225 100%);
-            box-shadow: 0 0 12px rgba(34, 224, 118, 0.55), 0 3px 8px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 0 11px rgba(34, 224, 118, 0.5), 0 3px 7px rgba(0, 0, 0, 0.75);
         }
 
         .orb-red, .w-red {
             background: radial-gradient(circle at 30% 25%, #ff8585 0%, #df1d1d 58%, #6e0606 100%);
-            box-shadow: 0 0 12px rgba(255, 55, 55, 0.55), 0 3px 8px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 0 11px rgba(255, 55, 55, 0.5), 0 3px 7px rgba(0, 0, 0, 0.75);
         }
 
         .orb-violet, .w-violet-green, .w-violet-red {
             background: radial-gradient(circle at 30% 25%, #dc94ff 0%, #8726de 58%, #3a086e 100%);
-            box-shadow: 0 0 11px rgba(176, 74, 255, 0.45), 0 3px 8px rgba(0, 0, 0, 0.75);
+            box-shadow: 0 0 10px rgba(176, 74, 255, 0.45), 0 3px 7px rgba(0, 0, 0, 0.75);
         }
 
         .wingo-timer-box {
