@@ -3,15 +3,13 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <title>Eagle Wing VIP</title>
+    <title>EAGLE WING VIP - 30 SEC PREDICTOR V2</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,700;1,700&family=Plus+Jakarta+Sans:wght@700;800;900&display=swap');
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', 'Plus Jakarta Sans', system-ui, -apple-system, Roboto, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, Roboto, sans-serif;
             user-select: none;
             -webkit-user-select: none;
             -webkit-tap-highlight-color: transparent;
@@ -34,70 +32,6 @@
             z-index: 1;
         }
 
-        .text-3d {
-            font-family: 'Chakra Petch', sans-serif;
-            font-weight: 700;
-            text-shadow:
-                0 1px 0 #091326,
-                0 2px 0 #050a14,
-                0 3px 6px rgba(0, 0, 0, 0.95),
-                0 0 10px rgba(250, 204, 21, 0.35);
-        }
-
-        @keyframes eagleSlowFloat {
-            0%, 100% {
-                margin-top: 0px;
-                margin-left: 0px;
-            }
-            50% {
-                margin-top: -5px;
-                margin-left: 2px;
-            }
-        }
-
-        .wing-pair {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 0;
-            height: 0;
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .wing-3d {
-            position: absolute;
-            top: 50%;
-            filter:
-                drop-shadow(0 8px 16px rgba(0, 0, 0, 0.96))
-                drop-shadow(0 0 16px rgba(250, 204, 21, 0.55));
-        }
-
-        .wing-left {
-            right: 100%;
-            margin-right: -4px;
-            transform-origin: 95% 48%;
-            animation: eagleFlapLeft 3.4s ease-in-out infinite;
-        }
-
-        .wing-right {
-            left: 100%;
-            margin-left: -4px;
-            transform-origin: 5% 48%;
-            animation: eagleFlapRight 3.4s ease-in-out infinite;
-        }
-
-        @keyframes eagleFlapLeft {
-            0%, 100% { transform: translateY(-50%) rotate(-8deg) scale(1); }
-            50%      { transform: translateY(-56%) rotate(16deg) scale(1.04, 0.97); }
-        }
-
-        @keyframes eagleFlapRight {
-            0%, 100% { transform: translateY(-50%) rotate(8deg) scale(1); }
-            50%      { transform: translateY(-56%) rotate(-16deg) scale(1.04, 0.97); }
-        }
-
         /* ফ্লোটিং আইকন */
         #floating-icon-btn {
             position: fixed;
@@ -106,35 +40,23 @@
             width: 48px;
             height: 48px;
             border-radius: 50%;
-            border: 2.5px solid #facc15;
+            border: 2.5px solid #ffbe3b;
             box-shadow:
                 0 0 0 2px #e03a96,
-                0 10px 24px rgba(0, 0, 0, 0.95),
-                0 0 20px rgba(250, 204, 21, 0.75);
+                0 8px 20px rgba(0, 0, 0, 0.9),
+                0 0 18px rgba(224, 58, 150, 0.55);
             cursor: grab;
             z-index: 9999;
-            overflow: visible;
+            overflow: hidden;
             touch-action: none;
-            background: radial-gradient(circle at 30% 25%, #163344, #0d152b 75%);
+            background: #0d152b;
             display: flex;
             align-items: center;
             justify-content: center;
-            animation: eagleSlowFloat 4.2s ease-in-out infinite;
         }
 
         #floating-icon-btn:active {
             cursor: grabbing;
-            transform: scale(0.95);
-        }
-
-        .icon-circle-clip {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         #floating-icon-btn img {
@@ -150,29 +72,29 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 238px;
-            background: radial-gradient(circle at 50% 18%, #163344 0%, #0d152b 48%, #1d0c2e 100%);
-            border: 2px solid #e03a96;
-            border-radius: 22px;
-            box-shadow:
-                0 0 22px rgba(224, 58, 150, 0.5),
-                0 22px 44px rgba(0, 0, 0, 0.95);
-            padding: 13px;
+            width: 244px;
+            background: radial-gradient(circle at 50% 15%, #19384a 0%, #0d152b 50%, #1d0c2e 100%);
+            border: 2.5px solid #e03a96;
+            border-radius: 24px;
+            box-shadow: 0 0 24px rgba(224, 58, 150, 0.45), 0 20px 45px rgba(0, 0, 0, 0.95);
+            padding: 14px;
             display: none;
             z-index: 10000;
             text-align: center;
         }
 
         .auth-title {
-            font-size: 11px;
+            font-size: 12px;
+            font-weight: 900;
             color: #fff078;
-            margin-bottom: 8px;
+            text-shadow: 0 2px 6px rgba(0, 0, 0, 0.9);
+            margin-bottom: 9px;
             letter-spacing: 0.5px;
         }
 
         .auth-input {
             width: 100%;
-            padding: 7px 9px;
+            padding: 7px 10px;
             background: rgba(9, 12, 23, 0.95);
             border: 1.5px solid #2b88c9;
             border-radius: 10px;
@@ -201,88 +123,81 @@
         .auth-btn {
             width: 100%;
             padding: 7px;
-            background: linear-gradient(180deg, #ffe866 0%, #ffa812 52%, #e65500 100%);
+            background: linear-gradient(180deg, #ffe866 0%, #ffa812 55%, #e65500 100%);
             border: 1.5px solid #f0be3c;
             border-radius: 10px;
             color: #161006;
-            font-size: 10.5px;
+            font-size: 11px;
+            font-weight: 900;
             cursor: pointer;
             text-transform: uppercase;
             letter-spacing: 0.7px;
-            box-shadow: 0 4px 12px rgba(255, 168, 18, 0.4);
         }
 
         #error-msg {
-            color: #fb7185;
+            color: #ff7b7b;
             font-size: 9px;
             margin-top: 6px;
             display: none;
             font-weight: 700;
         }
 
-        /* ক্লিন সিএসএস পপআপ কার্ড */
+        /* ASRAF WINGO স্টাইলের মূল হ্যাক কার্ড */
         .overlay-box {
             position: fixed;
-            top: 96px;
-            left: 68px;
-            width: 238px;
-            max-width: calc(100vw - 136px);
+            top: 84px;
+            left: 56px;
+            width: 256px;
+            max-width: calc(100vw - 112px);
             display: none;
             z-index: 9999;
             border-radius: 26px;
-            padding: 9px;
-            background: radial-gradient(circle at 50% 18%, #163344 0%, #0d152b 48%, #1d0c2e 100%);
+            padding: 10px 10px 9px;
+            background: radial-gradient(circle at 50% 16%, #183a4d 0%, #0d152b 48%, #1d0c2e 100%);
             border: 2.5px solid #e03a96;
             box-shadow:
                 0 0 22px rgba(224, 58, 150, 0.5),
-                0 0 36px rgba(25, 195, 255, 0.22),
+                0 0 36px rgba(25, 195, 255, 0.2),
                 0 18px 45px rgba(0, 0, 0, 0.92);
             color: #ffffff;
-            animation: eagleSlowFloat 4.2s ease-in-out infinite;
         }
 
-        .popup-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 4px;
-            margin-bottom: 6px;
+        .wingo-header {
+            position: relative;
             cursor: grab;
             touch-action: none;
-            padding: 2px 3px 5px;
-            border-bottom: 1.5px solid rgba(240, 190, 60, 0.35);
+            padding-bottom: 4px;
+            margin-bottom: 5px;
         }
 
-        .popup-header:active {
+        .wingo-header:active {
             cursor: grabbing;
         }
 
-        .brand-center {
-            text-align: left;
-            flex: 1;
-            pointer-events: none;
+        .wingo-top-bar {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 4px;
+            margin-bottom: 2px;
         }
 
-        .brand-main {
+        .play-smarter-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 2px;
+            font-size: 6.5px;
+            font-weight: 900;
             font-style: italic;
-            font-size: 9.8px;
             letter-spacing: 0.4px;
-            background: linear-gradient(180deg, #fff078 0%, #ffa812 52%, #e65500 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1.12;
-            white-space: nowrap;
-            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95));
+            color: #a7f33a;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            transform: rotate(-4deg);
+            pointer-events: none;
+            line-height: 1.05;
         }
 
-        .brand-sub {
-            font-size: 6px;
-            color: #8ceaff;
-            letter-spacing: 0.35px;
-            margin-top: 1px;
-        }
-
-        .header-controls {
+        .header-right-actions {
             display: flex;
             align-items: center;
             gap: 3px;
@@ -290,13 +205,13 @@
 
         .voice-toggle-btn {
             font-size: 6px;
-            padding: 2px 5px;
-            border-radius: 6px;
+            font-weight: 900;
+            padding: 2.5px 5px;
+            border-radius: 7px;
             border: 1px solid #ff8282;
             background: linear-gradient(180deg, #ff5c5c 0%, #b81414 100%);
             color: #ffffff;
             cursor: pointer;
-            text-shadow: none;
         }
 
         .voice-toggle-btn.is-off {
@@ -309,26 +224,174 @@
             background: linear-gradient(180deg, #338be8 0%, #13488a 100%);
             color: #ffffff;
             border: 1.5px solid #78cbff;
-            padding: 2.5px 6px;
-            border-radius: 7px;
-            font-size: 6px;
+            padding: 2px 6px;
+            border-radius: 8px;
+            font-size: 6.5px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
             cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 2.5px;
             box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.5);
         }
 
+        .wingo-hero-title-wrap {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2px 2px 0;
+            pointer-events: none;
+        }
+
+        .deco-balls-left,
+        .deco-balls-right {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+            z-index: 2;
+        }
+
+        .deco-balls-right {
+            align-items: flex-end;
+        }
+
+        .deco-ball {
+            position: relative;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 950;
+            border: 1.2px solid rgba(255, 255, 255, 0.72);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.85);
+            overflow: hidden;
+        }
+
+        .deco-ball::after {
+            content: "";
+            position: absolute;
+            top: 5%;
+            left: 14%;
+            width: 72%;
+            height: 36%;
+            border-radius: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.78) 0%, rgba(255, 255, 255, 0) 100%);
+            pointer-events: none;
+            z-index: 3;
+        }
+
+        .deco-ball::before {
+            content: "";
+            position: absolute;
+            width: 64%;
+            height: 64%;
+            border-radius: 50%;
+            background: radial-gradient(circle at 42% 36%, #ffffff 0%, #edf2f7 56%, #c2cedb 100%);
+            box-shadow:
+                inset 0 1.5px 2.5px rgba(0, 0, 0, 0.38),
+                inset 0 -1px 2px rgba(255, 255, 255, 0.92),
+                0 0 0 0.8px rgba(255, 255, 255, 0.45);
+            z-index: 1;
+        }
+
+        .deco-ball span {
+            position: relative;
+            z-index: 2;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.85);
+        }
+
+        .deco-ball-lg {
+            width: 24px;
+            height: 24px;
+            font-size: 10.5px;
+        }
+
+        .deco-ball-sm {
+            width: 17px;
+            height: 17px;
+            font-size: 7.5px;
+            margin-left: 11px;
+        }
+
+        .deco-balls-right .deco-ball-sm {
+            margin-left: 0;
+            margin-right: 11px;
+        }
+
+        .wingo-center-brand {
+            flex: 1;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .wingo-crown-svg {
+            width: 18px;
+            height: 11px;
+            margin-bottom: -3px;
+            filter: drop-shadow(0 0 5px rgba(255, 210, 50, 0.85));
+        }
+
+        .wingo-main-title {
+            font-size: 15px;
+            font-weight: 950;
+            letter-spacing: 0.4px;
+            line-height: 1.02;
+            background: linear-gradient(180deg, #fff078 0%, #ffa812 52%, #e65500 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.95));
+            white-space: nowrap;
+        }
+
+        .wingo-sub-title {
+            font-size: 10.5px;
+            font-weight: 950;
+            font-style: italic;
+            letter-spacing: 1px;
+            line-height: 1.05;
+            margin-top: 1px;
+            background: linear-gradient(180deg, #8eeeff 0%, #24b8ff 65%, #1273d6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 2px 5px rgba(0, 195, 255, 0.45));
+        }
+
+        .wingo-subtitle-pill {
+            margin: 4px auto 5px;
+            padding: 2.5px 10px;
+            border-radius: 999px;
+            background: linear-gradient(180deg, #1b2238 0%, #090c17 100%);
+            border: 1.5px solid #f0be3c;
+            font-size: 7.2px;
+            font-weight: 900;
+            letter-spacing: 0.7px;
+            color: #fff078;
+            text-transform: uppercase;
+            text-align: center;
+            width: fit-content;
+            box-shadow: 0 0 10px rgba(240, 190, 60, 0.25);
+        }
+
+        /* মার্কেট ট্যাব (30S / 1M / 3M / 5M) */
         .market-tabs {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 3px;
-            margin-bottom: 6px;
+            margin-bottom: 5px;
             background: linear-gradient(180deg, #1b2238 0%, #090c17 100%);
             padding: 2.5px;
             border-radius: 10px;
-            border: 1.5px solid rgba(240, 190, 60, 0.65);
+            border: 1px solid rgba(240, 190, 60, 0.55);
         }
 
         .market-btn {
             font-size: 6.8px;
+            font-weight: 900;
             padding: 2.5px 1px;
             border-radius: 7px;
             border: 1px solid transparent;
@@ -339,19 +402,19 @@
         }
 
         .market-btn.active {
-            background: linear-gradient(180deg, #ffe866 0%, #ffa812 52%, #e65500 100%);
+            background: linear-gradient(180deg, #ffe866 0%, #ffa812 55%, #e65500 100%);
             color: #161006;
             border-color: #fff078;
-            text-shadow: none;
             box-shadow: 0 0 10px rgba(255, 168, 18, 0.55);
         }
 
+        /* বাংলা ভয়েস/কল ব্যানার */
         .ai-call-banner {
             margin-bottom: 6px;
             padding: 3.5px 6px;
             border-radius: 10px;
             background: linear-gradient(180deg, #1b2238 0%, #090c17 100%);
-            border: 1.5px solid #f0be3c;
+            border: 1.5px solid rgba(41, 216, 255, 0.55);
             font-size: 7px;
             font-weight: 800;
             color: #fff078;
@@ -359,44 +422,40 @@
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
-            box-shadow: 0 0 10px rgba(240, 190, 60, 0.25);
         }
 
-        /* কাটা কোণা (Chamfered Top Corners) ৩-কলাম গ্রিড */
-        .pred-grid {
+        /* কাটা কোণা ৩ কলাম গ্রিড */
+        .wingo-grid {
             display: grid;
-            grid-template-columns: 0.92fr 1.28fr 0.92fr;
+            grid-template-columns: 0.94fr 1.24fr 0.94fr;
             gap: 5px;
             align-items: stretch;
-            position: relative;
         }
 
-        .side-panel {
-            clip-path: polygon(11px 0%, calc(100% - 11px) 0%, 100% 11px, 100% 100%, 0% 100%, 0% 11px);
-            border-radius: 13px;
-            padding: 6px 4px;
-            text-align: center;
+        .wingo-side-card {
+            clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% 100%, 0% 100%, 0% 12px);
+            border-radius: 14px;
+            padding: 8px 4px 7px;
             display: flex;
             flex-direction: column;
+            align-items: center;
             justify-content: space-between;
-            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.18), 0 6px 14px rgba(0, 0, 0, 0.7);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            text-align: center;
+            box-shadow: inset 0 0 12px rgba(255, 255, 255, 0.16), 0 6px 14px rgba(0, 0, 0, 0.7);
             transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
         }
 
-        .panel-small {
+        .wingo-small-card {
             background: linear-gradient(180deg, #1b9ad4 0%, #0a4875 60%, #062540 100%);
             border: 2px solid #4be3ff;
         }
 
-        .panel-big {
+        .wingo-big-card {
             background: linear-gradient(180deg, #9e1a5c 0%, #570c33 60%, #260416 100%);
             border: 2px solid #ff4da6;
         }
 
-        .side-panel.is-predicted {
+        .wingo-side-card.is-predicted {
             border-color: #ffe866;
             transform: translateY(-1px) scale(1.02);
             box-shadow:
@@ -404,7 +463,13 @@
                 0 8px 16px rgba(0, 0, 0, 0.85);
         }
 
-        .panel-title {
+        .wingo-card-crown {
+            width: 14px;
+            height: 9px;
+            margin-bottom: 1px;
+        }
+
+        .wingo-card-title {
             font-size: 11px;
             font-weight: 950;
             letter-spacing: 0.4px;
@@ -413,100 +478,91 @@
             text-shadow: 0 2px 5px rgba(0, 0, 0, 0.6);
         }
 
-        .panel-range {
-            font-size: 7.2px;
+        .wingo-card-range {
+            font-size: 7.5px;
             font-weight: 800;
             color: #dff8ff;
-            margin-top: 1.5px;
+            margin-top: 2px;
         }
 
-        .panel-big .panel-range {
+        .wingo-big-card .wingo-card-range {
             color: #ffd4ea;
         }
 
-        .panel-tag {
-            margin-top: 4px;
+        .wingo-status-pill {
+            margin-top: 6px;
+            width: 96%;
+            padding: 3px 2px;
+            border-radius: 7px;
             font-size: 5.8px;
-            padding: 2px 2px;
-            border-radius: 6px;
-            background: rgba(5, 25, 46, 0.85);
-            color: #94a3b8;
-            border: 1px solid rgba(255, 255, 255, 0.22);
+            font-weight: 950;
+            letter-spacing: 0.25px;
+            text-transform: uppercase;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 2px;
         }
 
-        .panel-tag.active-tag {
-            background: rgba(5, 25, 46, 0.9);
+        .wingo-pill-small-active {
+            background: rgba(5, 25, 46, 0.88);
+            border: 1.2px solid #4de6ff;
             color: #6df0ff;
-            border-color: #4de6ff;
-            text-shadow: none;
-            box-shadow: 0 0 10px rgba(77, 230, 255, 0.55);
+            box-shadow: 0 0 10px rgba(77, 230, 255, 0.5);
         }
 
-        .panel-big .panel-tag.active-tag {
-            background: rgba(36, 7, 22, 0.9);
+        .wingo-pill-big-active {
+            background: rgba(36, 7, 22, 0.88);
+            border: 1.2px solid #ff75ba;
             color: #ff9ec9;
-            border-color: #ff75ba;
-            box-shadow: 0 0 10px rgba(255, 117, 186, 0.55);
+            box-shadow: 0 0 10px rgba(255, 117, 186, 0.5);
         }
 
-        .center-panel {
-            clip-path: polygon(11px 0%, calc(100% - 11px) 0%, 100% 11px, 100% 100%, 0% 100%, 0% 11px);
+        .wingo-pill-inactive {
+            background: rgba(15, 20, 34, 0.72);
+            border: 1px solid rgba(255, 255, 255, 0.22);
+            color: rgba(255, 255, 255, 0.68);
+        }
+
+        .wingo-center-card {
+            clip-path: polygon(12px 0%, calc(100% - 12px) 0%, 100% 12px, 100% 100%, 0% 100%, 0% 12px);
             background: linear-gradient(180deg, #111a36 0%, #080c1c 100%);
             border: 2px solid #29d8ff;
-            border-radius: 13px;
-            padding: 5px 4px;
-            text-align: center;
+            border-radius: 14px;
+            padding: 6px 4px;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: space-between;
-            position: relative;
-            z-index: 1;
+            text-align: center;
         }
 
-        .period-row {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 2.5px;
-            background: rgba(9, 14, 32, 0.95);
-            padding: 1.5px 4px;
-            border-radius: 6px;
-            width: 100%;
-            border: 1px solid rgba(41, 216, 255, 0.35);
-        }
-
-        .period-display {
+        .wingo-period-label {
             font-size: 5.8px;
+            font-weight: 800;
+            color: #8ceaff;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .wingo-period-num {
+            font-size: 6.4px;
+            font-weight: 900;
             color: #ffffff;
+            letter-spacing: 0.2px;
+            margin-top: 1px;
             cursor: pointer;
             text-decoration: underline;
             text-decoration-style: dotted;
             white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
         }
 
-        .live-dot {
-            width: 4.5px;
-            height: 4.5px;
-            background-color: #38ffb8;
-            border-radius: 50%;
-            box-shadow: 0 0 6px #38ffb8;
-            flex-shrink: 0;
-            animation: liveBlink 1.2s ease-in-out infinite;
-        }
-
-        @keyframes liveBlink {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.45; transform: scale(0.82); }
-        }
-
-        /* সেন্টার বল + ছোট্ট ছোট্ট সাদা গুটি/টিক HUD রিং + খোদাই করা ৩ডি সাদা শেড */
-        .football-orb-wrap {
+        /* সেন্টার বল + ছোট্ট সাদা গুটি ও সবুজ ড্যাশড HUD রিং */
+        .wingo-orb-stage {
             position: relative;
-            width: 52px;
-            height: 52px;
+            width: 56px;
+            height: 56px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -531,22 +587,22 @@
 
         .hud-outer-arc {
             position: absolute;
-            inset: 2.5px;
+            inset: 3px;
             border-radius: 50%;
-            border: 1.5px dashed rgba(52, 255, 180, 0.78);
+            border: 1.5px dashed rgba(52, 255, 180, 0.8);
             box-shadow: 0 0 12px rgba(25, 240, 150, 0.5), inset 0 0 8px rgba(25, 240, 150, 0.25);
             pointer-events: none;
         }
 
         .glow-orb {
             position: relative;
-            width: 34px;
-            height: 34px;
+            width: 36px;
+            height: 36px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 14px;
+            font-size: 14.5px;
             font-weight: 950;
             border: 1.2px solid rgba(255, 255, 255, 0.75);
             overflow: hidden;
@@ -604,19 +660,36 @@
         }
         .orb-violet span { color: #5b189c; }
 
-        .timer-pill {
-            font-size: 6px;
-            font-weight: 950;
-            color: #ffcf48;
+        .wingo-timer-box {
+            width: 96%;
+            padding: 2.5px 4px;
+            border-radius: 8px;
             background: linear-gradient(180deg, #1b1829 0%, #0d0c16 100%);
             border: 1.5px solid #e6b843;
-            padding: 2px 5px;
-            border-radius: 7px;
-            margin-top: 1px;
-            white-space: nowrap;
             box-shadow: 0 0 8px rgba(230, 184, 67, 0.25);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
+        .wingo-next-in {
+            font-size: 5.5px;
+            font-weight: 900;
+            color: #ffd866;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+            line-height: 1;
+        }
+
+        .wingo-sec-val {
+            font-size: 8.5px;
+            font-weight: 950;
+            color: #fff2a6;
+            line-height: 1.15;
+            margin-top: 1px;
+        }
+
+        /* WIN / LOSS বার */
         .winloss-bar {
             margin-top: 6px;
             display: grid;
@@ -626,13 +699,13 @@
         }
 
         .wl-btn {
-            font-size: 6.2px;
+            font-size: 6.4px;
+            font-weight: 900;
             padding: 3px 2px;
             border-radius: 7px;
             border: 1px solid rgba(255, 255, 255, 0.35);
             cursor: pointer;
             text-transform: uppercase;
-            text-shadow: none;
         }
 
         .btn-win {
@@ -646,7 +719,8 @@
         }
 
         .wl-status {
-            font-size: 6px;
+            font-size: 6.2px;
+            font-weight: 900;
             text-align: center;
             padding: 2.5px 2px;
             border-radius: 7px;
@@ -658,43 +732,73 @@
             text-overflow: ellipsis;
         }
 
-        .recent-box {
+        /* RECENT RESULTS বক্স */
+        .wingo-recent-box {
             margin-top: 6px;
             background: linear-gradient(180deg, #0f203d 0%, #081122 100%);
             border: 1.5px solid #2b88c9;
-            border-radius: 13px;
-            padding: 5px 5px 6px;
+            border-radius: 14px;
+            padding: 6px 6px 7px;
         }
 
-        .recent-head {
+        .wingo-recent-header {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            font-size: 6.2px;
-            color: #d8eeff;
-            margin-bottom: 4px;
+            justify-content: space-between;
+            margin-bottom: 5px;
+            padding: 0 2px;
         }
 
-        .conf-badge {
+        .wingo-recent-title {
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 6.8px;
+            font-weight: 900;
+            letter-spacing: 0.5px;
+            color: #d8eeff;
+            text-transform: uppercase;
+        }
+
+        .wingo-recent-icon {
+            width: 9px;
+            height: 9px;
+            border-radius: 2px;
+            background: linear-gradient(135deg, #ff62a5, #b02874);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6px;
+            color: #ffffff;
+        }
+
+        .wingo-conf-text {
+            font-size: 6.4px;
+            font-weight: 900;
             color: #38ffb8;
         }
 
-        .wheel-strip {
+        .wingo-balls-track {
+            background: #060a14;
+            border: 1px solid rgba(110, 195, 255, 0.25);
+            border-radius: 999px;
+            padding: 3.5px 4px;
             display: grid;
             grid-template-columns: repeat(10, 1fr);
             gap: 2px;
             align-items: center;
+            box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.9);
         }
 
         .color-wheel {
             position: relative;
-            width: 17.5px;
-            height: 17.5px;
+            width: 18px;
+            height: 18px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 7px;
+            font-size: 7.5px;
             font-weight: 950;
             border: 1px solid rgba(255, 255, 255, 0.75);
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
@@ -752,12 +856,13 @@
 
         .telegram-join-btn {
             width: 100%;
-            background: linear-gradient(180deg, #ffe866 0%, #ffa812 52%, #e65500 100%);
+            background: linear-gradient(180deg, #ffe866 0%, #ffa812 55%, #e65500 100%);
             color: #1c1917;
             border: 1.5px solid #f0be3c;
             border-radius: 10px;
             padding: 5px 7px;
             font-size: 7px;
+            font-weight: 900;
             text-decoration: none;
             letter-spacing: 0.45px;
             display: inline-flex;
@@ -765,8 +870,7 @@
             justify-content: center;
             gap: 4px;
             text-transform: uppercase;
-            text-shadow: none;
-            box-shadow: 0 4px 12px rgba(255, 168, 18, 0.4);
+            box-shadow: 0 4px 12px rgba(255, 168, 18, 0.35);
         }
 
         #copy-toast {
@@ -790,151 +894,119 @@
     <iframe id="game-iframe" src="https://hgnice0.com/#/register?invitationCode=376851951983" loading="lazy"></iframe>
 
     <div id="floating-icon-btn">
-        <div class="wing-pair">
-            <svg class="wing-3d wing-left" width="54" height="58" viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="eagleIconL" x1="104" y1="18" x2="8" y2="104" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#fffbeb"/>
-                        <stop offset="35%" stop-color="#facc15"/>
-                        <stop offset="72%" stop-color="#34d399"/>
-                        <stop offset="100%" stop-color="#064e3b"/>
-                    </linearGradient>
-                </defs>
-                <path d="M104 46C76 16 42 8 8 14C20 26 28 38 30 50C16 53 7 61 4 72C19 70 33 65 44 56C37 71 35 86 38 100C52 89 65 76 74 62C69 78 68 94 71 110C85 92 97 70 104 46Z" fill="url(#eagleIconL)" stroke="#fef08a" stroke-width="2.2"/>
-                <path d="M96 48C70 26 42 20 16 23" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-                <path d="M90 62C64 48 38 46 16 54" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            <svg class="wing-3d wing-right" width="54" height="58" viewBox="0 0 110 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="eagleIconR" x1="6" y1="18" x2="102" y2="104" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#fffbeb"/>
-                        <stop offset="35%" stop-color="#facc15"/>
-                        <stop offset="72%" stop-color="#34d399"/>
-                        <stop offset="100%" stop-color="#064e3b"/>
-                    </linearGradient>
-                </defs>
-                <path d="M6 46C34 16 68 8 102 14C90 26 82 38 80 50C94 53 103 61 106 72C91 70 77 65 66 56C73 71 75 86 72 100C58 89 45 76 36 62C41 78 42 94 39 110C25 92 13 70 6 46Z" fill="url(#eagleIconR)" stroke="#fef08a" stroke-width="2.2"/>
-                <path d="M14 48C40 26 68 20 94 23" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-                <path d="M20 62C46 48 72 46 94 54" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-        </div>
-        <div class="icon-circle-clip">
-            <img src="https://cdn.imageurlgenerator.com/uploads/5082a2d5-1833-47fe-9594-4df69e1e307c.png" alt="Eagle Wing Icon" />
-        </div>
+        <img src="https://cdn.imageurlgenerator.com/uploads/5082a2d5-1833-47fe-9594-4df69e1e307c.png" alt="Eagle Wing Icon" />
     </div>
 
     <div id="auth-overlay">
-        <div class="auth-title text-3d">🔐 EAGLE WING VIP</div>
+        <div class="auth-title">🔐 EAGLE WING VIP</div>
         <input type="password" id="pass-input" class="auth-input" placeholder="Enter Password" />
         <label class="remember-row">
             <input type="checkbox" id="remember-pass" /> Remember Password
         </label>
-        <button type="button" class="auth-btn text-3d" onclick="checkPassword()">Submit</button>
+        <button type="button" class="auth-btn" onclick="checkPassword()">Submit</button>
         <div id="error-msg">Wrong Password!</div>
     </div>
 
     <div class="overlay-box" id="main-content">
-        <div class="wing-pair">
-            <svg class="wing-3d wing-left" width="68" height="142" viewBox="0 0 115 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="eaglePopL" x1="110" y1="22" x2="8" y2="168" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#fffbeb"/>
-                        <stop offset="32%" stop-color="#facc15"/>
-                        <stop offset="68%" stop-color="#34d399"/>
-                        <stop offset="100%" stop-color="#064e3b"/>
-                    </linearGradient>
-                </defs>
-                <path d="M110 68C78 24 40 10 6 16C20 34 29 52 32 70C15 74 6 86 3 102C20 98 37 91 51 79C42 100 40 121 44 142C60 126 75 109 86 91C79 115 78 139 82 164C96 136 105 104 110 68Z" fill="url(#eaglePopL)" stroke="#fef08a" stroke-width="2.4"/>
-                <path d="M100 72C72 42 40 32 14 34" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
-                <path d="M94 92C66 72 38 69 14 78" stroke="#fde047" stroke-width="2" stroke-linecap="round"/>
-                <path d="M88 114C62 102 38 102 18 112" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-            <svg class="wing-3d wing-right" width="68" height="142" viewBox="0 0 115 190" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="eaglePopR" x1="5" y1="22" x2="107" y2="168" gradientUnits="userSpaceOnUse">
-                        <stop offset="0%" stop-color="#fffbeb"/>
-                        <stop offset="32%" stop-color="#facc15"/>
-                        <stop offset="68%" stop-color="#34d399"/>
-                        <stop offset="100%" stop-color="#064e3b"/>
-                    </linearGradient>
-                </defs>
-                <path d="M5 68C37 24 75 10 109 16C95 34 86 52 83 70C100 74 109 86 112 102C95 98 78 91 64 79C73 100 75 121 71 142C55 126 40 109 29 91C36 115 37 139 33 164C19 136 10 104 5 68Z" fill="url(#eaglePopR)" stroke="#fef08a" stroke-width="2.4"/>
-                <path d="M15 72C43 42 75 32 101 34" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
-                <path d="M21 92C49 72 77 69 101 78" stroke="#fde047" stroke-width="2" stroke-linecap="round"/>
-                <path d="M27 114C53 102 77 102 97 112" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round"/>
-            </svg>
-        </div>
+        <div class="wingo-header" id="main-content-header">
+            <div class="wingo-top-bar">
+                <div class="play-smarter-badge">PLAY ↗ SMARTER</div>
+                <div class="header-right-actions">
+                    <button type="button" class="voice-toggle-btn" id="voice-toggle-btn" onclick="toggleVoice()" title="Bangla Female Voice ON/OFF">👩 ON</button>
+                    <button type="button" class="hide-btn" onclick="hidePopup()">❐ HIDE</button>
+                </div>
+            </div>
 
-        <div class="popup-header" id="main-content-header">
-            <div class="brand-center">
-                <div class="brand-main text-3d">EAGLE WING VIP</div>
-                <div class="brand-sub text-3d" id="mode-subtitle">30 SEC SIGNAL</div>
+            <div class="wingo-hero-title-wrap">
+                <div class="deco-balls-left">
+                    <div class="deco-ball deco-ball-lg w-red"><span>4</span></div>
+                    <div class="deco-ball deco-ball-sm w-green"><span>3</span></div>
+                </div>
+
+                <div class="wingo-center-brand">
+                    <svg class="wingo-crown-svg" viewBox="0 0 28 16" fill="none">
+                        <path d="M2 13L4.5 4.5L10.5 9.5L14 2L17.5 9.5L23.5 4.5L26 13H2Z" fill="#ffd232" stroke="#b86b00" stroke-width="1.2"/>
+                    </svg>
+                    <div class="wingo-main-title">EAGLE WING</div>
+                    <div class="wingo-sub-title">VIP</div>
+                </div>
+
+                <div class="deco-balls-right">
+                    <div class="deco-ball deco-ball-lg w-green"><span>9</span></div>
+                    <div class="deco-ball deco-ball-sm w-red"><span>8</span></div>
+                </div>
             </div>
-            <div class="header-controls">
-                <button type="button" class="voice-toggle-btn text-3d" id="voice-toggle-btn" onclick="toggleVoice()" title="Bangla Female Voice ON/OFF">👩 ON</button>
-                <button type="button" class="hide-btn text-3d" onclick="hidePopup()">HIDE</button>
-            </div>
+
+            <div class="wingo-subtitle-pill" id="mode-subtitle">30 SEC PREDICTOR V2</div>
         </div>
 
         <div class="market-tabs">
-            <button type="button" class="market-btn text-3d active" data-market="30S">30S</button>
-            <button type="button" class="market-btn text-3d" data-market="1M">1M</button>
-            <button type="button" class="market-btn text-3d" data-market="3M">3M</button>
-            <button type="button" class="market-btn text-3d" data-market="5M">5M</button>
+            <button type="button" class="market-btn active" data-market="30S">30S</button>
+            <button type="button" class="market-btn" data-market="1M">1M</button>
+            <button type="button" class="market-btn" data-market="3M">3M</button>
+            <button type="button" class="market-btn" data-market="5M">5M</button>
         </div>
 
         <div class="ai-call-banner" id="ai-call-banner">👩 সবাই এখানে একটা বিগ ট্রেড করো!</div>
 
-        <div class="pred-grid">
-            <div class="side-panel panel-small" id="small-panel">
-                <div>
-                    <div class="panel-title">SMALL</div>
-                    <div class="panel-range text-3d">0 - 4</div>
-                </div>
-                <div class="panel-tag text-3d" id="small-tag">STANDBY</div>
+        <div class="wingo-grid">
+            <div class="wingo-side-card wingo-small-card" id="small-panel">
+                <svg class="wingo-card-crown" viewBox="0 0 24 14" fill="none">
+                    <path d="M2 11.5L4 4L9.5 8.5L12 2L14.5 8.5L20 4L22 11.5H2Z" fill="#ffd232" stroke="#9e5a00" stroke-width="1.1"/>
+                </svg>
+                <div class="wingo-card-title">SMALL</div>
+                <div class="wingo-card-range">0 - 4</div>
+                <div class="wingo-status-pill wingo-pill-inactive" id="small-tag">STANDBY</div>
             </div>
 
-            <div class="center-panel">
-                <div class="period-row">
-                    <div class="period-display text-3d" id="period-num" onclick="copyPeriodNumber()" title="Click to Copy Period">Loading...</div>
-                    <div class="live-dot"></div>
+            <div class="wingo-center-card">
+                <div>
+                    <div class="wingo-period-label">NO:</div>
+                    <div class="wingo-period-num" id="period-num" onclick="copyPeriodNumber()" title="Click to Copy Period">Loading...</div>
                 </div>
 
-                <div class="football-orb-wrap">
+                <div class="wingo-orb-stage">
                     <div class="hud-outer-arc"></div>
                     <div class="hud-ticks-ring"></div>
                     <div class="glow-orb orb-green" id="main-orb"><span id="main-orb-text">-</span></div>
                 </div>
 
-                <div class="timer-pill text-3d" id="timer-display">NEXT IN 30s</div>
+                <div class="wingo-timer-box">
+                    <div class="wingo-next-in">NEXT IN</div>
+                    <div class="wingo-sec-val" id="timer-display">30s</div>
+                </div>
             </div>
 
-            <div class="side-panel panel-big" id="big-panel">
-                <div>
-                    <div class="panel-title">BIG</div>
-                    <div class="panel-range text-3d">5 - 9</div>
-                </div>
-                <div class="panel-tag text-3d" id="big-tag">STANDBY</div>
+            <div class="wingo-side-card wingo-big-card" id="big-panel">
+                <svg class="wingo-card-crown" viewBox="0 0 24 14" fill="none">
+                    <path d="M2 11.5L4 4L9.5 8.5L12 2L14.5 8.5L20 4L22 11.5H2Z" fill="#ffd232" stroke="#9e5a00" stroke-width="1.1"/>
+                </svg>
+                <div class="wingo-card-title">BIG</div>
+                <div class="wingo-card-range">5 - 9</div>
+                <div class="wingo-status-pill wingo-pill-inactive" id="big-tag">STANDBY</div>
             </div>
         </div>
 
         <div class="winloss-bar">
-            <button type="button" class="wl-btn btn-win text-3d" onclick="triggerWinResult()">🏆 WIN</button>
-            <div class="wl-status text-3d" id="wl-status">W: 0 | L: 0</div>
-            <button type="button" class="wl-btn btn-loss text-3d" onclick="triggerLossResult()">❌ LOSS</button>
+            <button type="button" class="wl-btn btn-win" onclick="triggerWinResult()">🏆 WIN</button>
+            <div class="wl-status" id="wl-status">W: 0 | L: 0</div>
+            <button type="button" class="wl-btn btn-loss" onclick="triggerLossResult()">❌ LOSS</button>
         </div>
 
-        <div class="recent-box">
-            <div class="recent-head text-3d">
-                <span id="color-label">GREEN</span>
-                <span class="conf-badge" id="conf-label">CONF 88%</span>
+        <div class="wingo-recent-box">
+            <div class="wingo-recent-header">
+                <div class="wingo-recent-title">
+                    <span class="wingo-recent-icon">✓</span>
+                    <span id="color-label">RECENT RESULTS</span>
+                </div>
+                <div class="wingo-conf-text" id="conf-label">CONF 88%</div>
             </div>
-            <div class="wheel-strip" id="recent-wheels"></div>
+            <div class="wingo-balls-track" id="recent-wheels"></div>
         </div>
 
         <div class="bottom-action-bar">
-            <a href="https://t.me/trader_joy22369" target="_blank" rel="noopener noreferrer" class="telegram-join-btn text-3d">
-                <svg width="10" height="10" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <a href="https://t.me/trader_joy22369" target="_blank" rel="noopener noreferrer" class="telegram-join-btn">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="none">
                     <path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.562 8.161c-.18 1.897-.962 6.502-1.359 8.627-.168.9-.5 1.201-.82 1.23-.697.064-1.226-.461-1.901-.903-1.056-.693-1.653-1.124-2.678-1.8-1.185-.781-.417-1.21.258-1.911.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.479.329-.913.489-1.302.481-.428-.009-1.252-.242-1.865-.442-752-.244-1.349-.374-1.297-.789.027-.216.324-.437.893-.663 3.498-1.524 5.83-2.529 6.996-3.014 3.333-1.386 4.025-1.627 4.479-1.635.099-.002.321.023.465.14.12.098.153.228.166.32.013.092.028.301.012.463z" fill="#1c1917"/>
                 </svg>
                 JOIN TELEGRAM
@@ -946,10 +1018,10 @@
 
     <script>
         const MARKETS = {
-            "30S": { duration: 30,  offset: 50000, salt: 0x9E3779B9, label: "30 SEC SIGNAL", bnName: "ত্রিশ সেকেন্ড" },
-            "1M":  { duration: 60,  offset: 20000, salt: 0x85EBCA6B, label: "1 MIN SIGNAL",  bnName: "এক মিনিট" },
-            "3M":  { duration: 180, offset: 10000, salt: 0xC2B2AE35, label: "3 MIN SIGNAL",  bnName: "তিন মিনিট" },
-            "5M":  { duration: 300, offset: 5000,  salt: 0x27D4EB2F, label: "5 MIN SIGNAL",  bnName: "পাঁচ মিনিট" }
+            "30S": { duration: 30,  offset: 50000, salt: 0x9E3779B9, label: "30 SEC PREDICTOR V2", bnName: "ত্রিশ সেকেন্ড" },
+            "1M":  { duration: 60,  offset: 20000, salt: 0x85EBCA6B, label: "1 MIN PREDICTOR V2",  bnName: "এক মিনিট" },
+            "3M":  { duration: 180, offset: 10000, salt: 0xC2B2AE35, label: "3 MIN PREDICTOR V2",  bnName: "তিন মিনিট" },
+            "5M":  { duration: 300, offset: 5000,  salt: 0x27D4EB2F, label: "5 MIN PREDICTOR V2",  bnName: "পাঁচ মিনিট" }
         };
 
         const BANGLA_DIGITS = ["শূন্য", "এক", "দুই", "তিন", "চার", "পাঁচ", "ছয়", "সাত", "আট", "নয়"];
@@ -1296,7 +1368,7 @@
             const fullPeriod = `${dateStr}1000${formattedIndex}`;
 
             document.getElementById('period-num').innerText = fullPeriod;
-            document.getElementById('timer-display').innerText = `NEXT IN ${String(timeLeft).padStart(2, '0')}s`;
+            document.getElementById('timer-display').innerText = `${String(timeLeft).padStart(2, '0')}s`;
 
             let periodJustChanged = false;
             let outcomeSentence = "";
@@ -1340,29 +1412,29 @@
                 bigPanel.classList.remove('is-predicted');
                 smallTag.innerText = "WAIT";
                 bigTag.innerText = "WAIT";
-                smallTag.className = "panel-tag text-3d";
-                bigTag.className = "panel-tag text-3d";
+                smallTag.className = "wingo-status-pill wingo-pill-inactive";
+                bigTag.className = "wingo-status-pill wingo-pill-inactive";
             } else {
                 orbText.innerText = String(cachedPrediction.num);
                 orb.className = `glow-orb ${cachedPrediction.orbClass}`;
-                document.getElementById('color-label').innerText = cachedPrediction.colorName;
+                document.getElementById('color-label').innerText = `RECENT RESULTS · ${cachedPrediction.colorName}`;
                 confLabel.innerText = `CONF ${cachedPrediction.confidence}%`;
                 document.getElementById("ai-call-banner").textContent = `👩 ${getTradeCallSentence(cachedPrediction)}`;
 
                 if (cachedPrediction.type === "BIG") {
                     bigPanel.classList.add('is-predicted');
                     smallPanel.classList.remove('is-predicted');
-                    bigTag.innerText = "PREDICTED";
-                    bigTag.className = "panel-tag text-3d active-tag";
-                    smallTag.innerText = "SKIP";
-                    smallTag.className = "panel-tag text-3d";
+                    bigTag.innerText = "✓ PREDICTED";
+                    bigTag.className = "wingo-status-pill wingo-pill-big-active";
+                    smallTag.innerText = "✕ NOT PREDICTED";
+                    smallTag.className = "wingo-status-pill wingo-pill-inactive";
                 } else {
                     smallPanel.classList.add('is-predicted');
                     bigPanel.classList.remove('is-predicted');
-                    smallTag.innerText = "PREDICTED";
-                    smallTag.className = "panel-tag text-3d active-tag";
-                    bigTag.innerText = "SKIP";
-                    bigTag.className = "panel-tag text-3d";
+                    smallTag.innerText = "✓ PREDICTED";
+                    smallTag.className = "wingo-status-pill wingo-pill-small-active";
+                    bigTag.innerText = "✕ NOT PREDICTED";
+                    bigTag.className = "wingo-status-pill wingo-pill-inactive";
                 }
             }
 
